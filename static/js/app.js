@@ -319,6 +319,54 @@
     S.el.ball = svgEl('circle', { r: 1.6, fill: 'url(#ballGrad)', stroke: '#7a5200', 'stroke-width': 0.25 }, bg);
   }
 
+  function updateTokenPlayer(key, player, isSub = false) {
+    const tg = S.el[key];
+    if (!tg || !player) return;
+    const [team, slot] = key.split('.');
+    const isL = slot === 'L';
+    const numEl = tg.querySelector('.num');
+    const pos2El = tg.querySelector('.pos2');
+    const labelEl = tg.querySelector('.label');
+    const labelBg = tg.querySelector('.label-bg');
+    let subBadge = tg.querySelector('.sub-badge');
+
+    if (numEl) numEl.textContent = player.number != null ? player.number : player.position;
+    if (pos2El) pos2El.textContent = player.position;
+    if (labelEl) labelEl.textContent = player.name;
+    if (labelBg) {
+      const w = player.name.length * 3.2 + 3;
+      labelBg.setAttribute('x', -w / 2);
+      labelBg.setAttribute('width', w);
+    }
+
+    tg.classList.toggle('is-sub', isSub);
+
+    if (isSub) {
+      if (!subBadge) {
+        subBadge = svgEl('g', { class: 'sub-badge' }, tg);
+        svgEl('rect', { x: 2, y: -6.4, width: 7.2, height: 3.6, rx: 1.2, fill: '#ff9800', stroke: '#fff', 'stroke-width': 0.4 }, subBadge);
+        const st = svgEl('text', { x: 5.6, y: -3.8, 'text-anchor': 'middle', 'font-size': 2.3, 'font-weight': 800, fill: '#fff', 'font-family': 'Pretendard' }, subBadge);
+        st.textContent = '교체';
+      }
+      subBadge.style.display = '';
+    } else if (subBadge) {
+      subBadge.style.display = 'none';
+    }
+
+    tg.onclick = () => selectPlayer(player.id);
+  }
+
+  function resetAllTokens() {
+    if (!D || !D.teamIds) return;
+    D.teamIds.forEach((team) => {
+      SLOTS.forEach((slot) => {
+        const key = `${team}.${slot}`;
+        const p = playerOf(team, slot);
+        if (p) updateTokenPlayer(key, p, false);
+      });
+    });
+  }
+
   function renderCourt() {
     for (const key in S.pos) {
       const tg = S.el[key]; if (!tg) continue;
@@ -428,12 +476,60 @@
   const ZY = { 1: 75, 2: 75, 3: 45, 4: 15, 5: 15, 6: 45 };
   const BAD_RE = /아웃|네트걸림|라인오버|터치넷|포히트|오버넷|범실|실패/;
 
-  function infoOf(team, pid) {
-    const lu = D.lineups[team] || {}; let slot = null;
-    for (const s in lu) if (lu[s] === pid) { slot = s; break; }
+  function resolveSlotForSubstitute(team, pl, ev) {
+    const R = roles(team);
+    const pos = pl ? pl.position : 'OH';
+
+    // 1) 서브 이벤트: 서버는 항상 자리 1번(zone 1)
+    if (ev && ev.c === 'serve') {
+      return R.Z1 || 'OHB';
+    }
+
+    // 2) 세터 교체 (예: 김사랑, 최서현 등)
+    if (pos === 'S') return R.S || 'S';
+    // 3) 아포짓 교체 (예: 신은지, 나현수 등)
+    if (pos === 'OP') return R.OP || 'OP';
+    // 4) 리베로 교체 (예: 노란, 이영주 등)
+    if (pos === 'L') return 'L';
+    // 5) 미들블로커 교체 (예: 이선우, 강서우 등)
+    if (pos === 'MB') {
+      return (ev && ['attack', 'block', 'block_assist'].includes(ev.c)) ? (R.MBF || 'MB1') : (R.MBB || 'MB2');
+    }
+    // 6) 아웃사이드 히터(OH) 교체 (예: 박혜민, 이민영, 이채영 등)
+    if (ev && ['attack', 'block', 'block_assist'].includes(ev.c)) return R.OHF || 'OH1';
+    return R.OHB || 'OH2';
+  }
+
+  function infoOf(team, pid, ev) {
+    const lu = D.lineups[team] || {};
+    let slot = null;
+    let isSub = false;
+
+    // 선발 라인업에 있는지 확인
+    for (const s in lu) {
+      if (lu[s] === pid) {
+        slot = s;
+        break;
+      }
+    }
+
+    const pl = D.players[pid] || (RAW && RAW.players ? RAW.players.find((p) => p.id === pid || p.name === (ev && ev.n)) : null);
+
+    // 선발 라인업에 없는 교체 선수인 경우: 해당 포지션/상황에 맞는 코트 슬롯으로 교체 배치!
+    if (!slot) {
+      isSub = true;
+      slot = resolveSlotForSubstitute(team, pl, ev);
+    }
+
     const zone = slot ? zoneOfSlot(team, slot) : null;
-    const pl = D.players[pid];
-    return { slot, zone, pos: pl ? pl.position : null, key: slot && zone ? `${team}.${slot}` : null };
+    return {
+      slot,
+      zone,
+      pos: pl ? pl.position : null,
+      key: slot && zone ? `${team}.${slot}` : null,
+      isSub,
+      player: pl,
+    };
   }
   const attackName = (a) => a.replace(/ ?(성공|아웃|네트걸림|포히트|터치넷|기타범실|오버넷|라인오버)$/, '');
   const resultWord = (a) => a.slice(attackName(a).length).trim();
@@ -498,7 +594,7 @@
     const infos = [], pts = [];
     let lastAtk = null;
     r.events.forEach((ev, k) => {
-      const info = infoOf(ev.t, ev.pid); infos.push(info);
+      const info = infoOf(ev.t, ev.pid, ev); infos.push(info);
       let g;
       if (ev.c === 'block' || ev.c === 'block_assist') {
         const y = lastAtk ? lastAtk.y : (info.zone ? toGlobal(ev.t, [0, ZY[info.zone]]).y : 45);
@@ -531,34 +627,36 @@
   const josa = (w, pair) => `${w}${hasBatchim(w) ? pair[0] : pair[1]}`;
   function touchText(r, k) {
     const ev = r.events[k]; const team = short(ev.t); const nm = ev.n; const res = resultWord(ev.a);
+    const info = S.rp && S.rp.infos ? S.rp.infos[k] : null;
+    const subPfx = (info && info.isSub) ? '🔄(교체 투입) ' : '';
     switch (ev.c) {
       case 'serve':
-        return `${team} ${nm}의 ${ev.a.startsWith('스파이크') ? '스파이크 서브' : '서브'}` +
+        return `${subPfx}${team} ${nm}의 ${ev.a.startsWith('스파이크') ? '스파이크 서브' : '서브'}` +
           (ev.ok ? ' — 서브 에이스!' : BAD_RE.test(ev.a) ? ` — 서브 범실(${res}).` : '.');
       case 'receive':
-        return `${nm}의 리시브` + (res === '정확' ? ' — 정확하게 세터 앞으로!' : res === '실패' ? ' — 리시브가 무너집니다.' : '.');
+        return `${subPfx}${nm}의 리시브` + (res === '정확' ? ' — 정확하게 세터 앞으로!' : res === '실패' ? ' — 리시브가 무너집니다.' : '.');
       case 'set':
-        return `${nm}의 토스` + (res === '정확' ? ' — 공격수에게 정확한 연결.' : BAD_RE.test(ev.a) ? ` — 토스 범실(${res}).` : '.');
+        return `${subPfx}${nm}의 토스` + (res === '정확' ? ' — 공격수에게 정확한 연결.' : BAD_RE.test(ev.a) ? ` — 토스 범실(${res}).` : '.');
       case 'attack': {
         const an = attackName(ev.a);
-        if (ev.ok) return `${nm}의 ${an}! 득점 성공!`;
-        if (/아웃|라인오버/.test(res)) return `${nm}의 ${an}, 공이 코트 밖으로 벗어납니다.`;
-        if (/네트걸림/.test(res)) return `${nm}의 ${an}, 네트에 걸립니다.`;
-        if (/포히트/.test(res)) return `${nm}의 ${an}, 더블 컨택 범실.`;
-        return `${nm}의 ${an}! 상대가 반응합니다.`;
+        if (ev.ok) return `${subPfx}${nm}의 ${an}! 득점 성공!`;
+        if (/아웃|라인오버/.test(res)) return `${subPfx}${nm}의 ${an}, 공이 코트 밖으로 벗어납니다.`;
+        if (/네트걸림/.test(res)) return `${subPfx}${nm}의 ${an}, 네트에 걸립니다.`;
+        if (/포히트/.test(res)) return `${subPfx}${nm}의 ${an}, 더블 컨택 범실.`;
+        return `${subPfx}${nm}의 ${an}! 상대가 반응합니다.`;
       }
       case 'block':
-        if (ev.ok) return `${nm}의 블로킹 — 득점!`;
-        if (/터치넷/.test(res)) return `${nm}의 블로킹, 네트 터치 범실.`;
-        if (/실패/.test(res)) return `${nm}의 블로킹이 공을 잡지 못합니다.`;
-        if (ev.a === '유효 블로킹') return `${nm}의 유효 블로킹 — 공의 속도를 줄입니다.`;
-        return `${nm}의 블로킹, 공을 건드립니다.`;
-      case 'block_assist': return `${nm}, 블로킹에 가담합니다.`;
+        if (ev.ok) return `${subPfx}${nm}의 블로킹 — 득점!`;
+        if (/터치넷/.test(res)) return `${subPfx}${nm}의 블로킹, 네트 터치 범실.`;
+        if (/실패/.test(res)) return `${subPfx}${nm}의 블로킹이 공을 잡지 못합니다.`;
+        if (ev.a === '유효 블로킹') return `${subPfx}${nm}의 유효 블로킹 — 공의 속도를 줄입니다.`;
+        return `${subPfx}${nm}의 블로킹, 공을 건드립니다.`;
+      case 'block_assist': return `${subPfx}${nm}, 블로킹에 가담합니다.`;
       case 'dig':
-        if (/실패/.test(res)) return `${josa(nm, '이가')} 디그에 실패합니다.`;
-        if (/범실/.test(res)) return `${nm}의 디그 범실.`;
-        return `${nm}의 디그 — 걷어 올립니다!`;
-      default: return `${nm} ${ev.a}`;
+        if (/실패/.test(res)) return `${subPfx}${josa(nm, '이가')} 디그에 실패합니다.`;
+        if (/범실/.test(res)) return `${subPfx}${nm}의 디그 범실.`;
+        return `${subPfx}${nm}의 디그 — 걷어 올립니다!`;
+      default: return `${subPfx}${nm} ${ev.a}`;
     }
   }
   const tagOf = (ev) => ({ serve: '#서브', receive: '#리시브', set: '#토스', attack: '#' + attackName(ev.a), block: '#블로킹', block_assist: '#블로킹', dig: '#디그' }[ev.c]);
@@ -608,7 +706,14 @@
 
   function startRally(i) {
     const list = repList(); const r = list[i]; if (!r) return;
+    resetAllTokens();
     const plan = planRally(r);
+    // 이 랠리에 참여하는 교체 선수들을 미리 코트 토큰에 반영!
+    plan.infos.forEach((info) => {
+      if (info.isSub && info.key && info.player) {
+        updateTokenPlayer(info.key, info.player, true);
+      }
+    });
     const base = baseFormation();
     S.rp = { i, r, n: r.events.length, ...plan, base, target: { ...base }, k: 0, t: 0, dur: 1, from: null, to: null, h: 0 };
     S.pos = { ...base };
@@ -627,12 +732,19 @@
     if (info.key && ['serve', 'attack', 'block', 'set'].includes(ev.c)) rp.target[info.key] = { x: rp.pts[k].x, y: rp.pts[k].y };
     S.ball = { show: true, x: fl.from.x, y: fl.from.y, h: 0 };
     S.focusKey = info.key;
-    showCall(`${ev.num} ${ev.n} · ${ev.a}`, evTone(ev), rp.pts[k]);
+
+    if (info.isSub && info.key && info.player) {
+      updateTokenPlayer(info.key, info.player, true);
+    }
+
+    showCall(`${info.isSub ? '🔄[교체] ' : ''}${ev.num} ${ev.n} · ${ev.a}`, evTone(ev), rp.pts[k]);
     if (S.autoFocus && ev.pid) selectPlayer(ev.pid, { silent: true });
     const hl = S.rf === 'hl';
     const total = (D.ralliesBySet[D.setNo] || []).length;
+    const tags = [k === 0 ? `#${short(ev.t)}서브` : tagOf(ev), `#${setInfo(D.setNo).set_no}세트`];
+    if (info.isSub) tags.unshift('#교체선수');
     setCaster(hl ? `⭐ 하이라이트 ${rp.i + 1}/${repList().length} · ${r.hlWhy} · ${k + 1}/${rp.n}터치` : `랠리 ${r.rally_no}/${total} · ${k + 1}/${rp.n}터치`,
-      [k === 0 ? `#${short(ev.t)}서브` : tagOf(ev), `#${setInfo(D.setNo).set_no}세트`],
+      tags,
       touchText(r, k), new Set([ev.n]), false);
     renderTimeline();
   }
@@ -677,6 +789,7 @@
 
   function finishReplay() {
     S.playing = false; S.finished = true; S.focusKey = null;
+    resetAllTokens();
     const s = setInfo(D.setNo);
     setCaster('리플레이 종료', [`#${D.setNo}세트`], `${D.setNo}세트 리플레이가 끝났습니다. 최종 스코어 정관장 ${s.kgc_score} : ${s.hdec_score} 현대건설 — ${short(s.winner)} 승.`, new Set(), false);
     renderTimeline(); updateControls(); renderRallyList();
@@ -1105,7 +1218,8 @@
       $('timeline').innerHTML = rp.r.events.map((ev, i) => {
         const cls = i === rp.k ? 'current' : i < rp.k || rp.k >= rp.n ? 'done' : '';
         const tone = evTone(ev);
-        return `<span class="ph ev ${cls} ${tone === 'neutral' ? '' : tone}"><span class="i">${i + 1}</span>${esc(CAT_KO[ev.c])} ${esc(ev.n)}</span>`;
+        const isSub = rp.infos && rp.infos[i] && rp.infos[i].isSub;
+        return `<span class="ph ev ${cls} ${tone === 'neutral' ? '' : tone} ${isSub ? 'is-sub' : ''}"><span class="i">${i + 1}</span>${isSub ? '<span class="sub-pill">교체</span>' : ''}${esc(CAT_KO[ev.c])} ${esc(ev.n)}</span>`;
       }).join('');
       $('courtMeta').textContent = `${D.view.label} 리플레이 · 랠리 #${rp.r.rally_no} · ${short(rp.r.scorer)} 득점 · ${rp.n}터치`;
       return;
@@ -1139,6 +1253,7 @@
   function idle(keepCaster) {
     S.playing = false; S.finished = false; S.phase = -1; S.run = null; S.rp = null; S.live = null; S.focusKey = null;
     S.ball.show = false; clearTrails(); clearCall();
+    resetAllTokens();
     tweenTo(baseFormation());
     renderScoreboard(); renderTimeline(); updateControls(); renderCourt();
     if (S.mode === 'replay') renderRallyList();
