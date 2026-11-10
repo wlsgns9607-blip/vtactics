@@ -31,7 +31,7 @@ STATIC = ROOT / "static"
 DB_PATH = ROOT / "db" / "volleyball.db"
 sys.path.insert(0, str(ROOT / "db"))
 
-import seed  # noqa: E402
+import seed  # noqa: E402  # type: ignore
 
 MAX_BODY = 1_000_000  # 리뷰 본문 최대 1MB
 

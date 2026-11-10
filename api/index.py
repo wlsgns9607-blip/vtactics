@@ -10,7 +10,7 @@ DB_PATH = ROOT / "db" / "volleyball.db"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "db"))
 
-from server import Handler
+from server import Handler  # type: ignore
 
 class handler(Handler):
     pass
