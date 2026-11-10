@@ -156,8 +156,12 @@ class Handler(SimpleHTTPRequestHandler):
     do_POST = do_PUT
 
     def log_message(self, fmt, *args):
-        if "/api/" in (args[0] if args else ""):
-            sys.stderr.write("[api] " + (fmt % args) + "\n")
+        try:
+            msg = fmt % args if args else fmt
+            if "/api/" in str(msg):
+                sys.stderr.write("[api] " + str(msg) + "\n")
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":
