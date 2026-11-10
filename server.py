@@ -29,9 +29,13 @@ from urllib.parse import parse_qs, urlparse
 ROOT = Path(__file__).resolve().parent
 STATIC = ROOT / "static"
 DB_PATH = ROOT / "db" / "volleyball.db"
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "db"))
 
-import seed  # noqa: E402  # type: ignore
+try:
+    from db import seed  # type: ignore
+except ImportError:
+    import seed  # type: ignore
 
 MAX_BODY = 1_000_000  # 리뷰 본문 최대 1MB
 
@@ -73,6 +77,10 @@ class Handler(SimpleHTTPRequestHandler):
         q = parse_qs(url.query)
         try:
             if parts == ["bootstrap"]:
+                date = q.get("date", ["2026-11-07"])[0]
+                if date == "2026-11-04":
+                    from data.build_1104 import full_data_1104
+                    return self.send_json(full_data_1104)
                 con = db()
                 try:
                     return self.send_json(seed.bootstrap_payload(con))

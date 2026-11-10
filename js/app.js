@@ -58,13 +58,17 @@
   // ───────────────────────── 데이터 ─────────────────────────
   async function loadData() {
     try {
-      const r = await fetch('api/bootstrap', { cache: 'no-store' });
+      const url = S.matchDate ? `api/bootstrap?date=${S.matchDate}` : 'api/bootstrap';
+      const r = await fetch(url, { cache: 'no-store' });
       if (!r.ok) throw new Error(r.status);
       const d = await r.json();
       d.source = 'Python API · SQLite';
       d.serverMode = true;
       return d;
     } catch (e) {
+      if (window.MATCHES && window.MATCHES[S.matchDate]) {
+        return { ...window.MATCHES[S.matchDate], source: '내장 전술 데이터', serverMode: false };
+      }
       if (window.BOOTSTRAP) return { ...window.BOOTSTRAP, source: '내장 데이터 (서버 미연결)', serverMode: false };
       throw e;
     }
@@ -126,13 +130,19 @@
     D = { ...raw, teams, teamIds: raw.teams.map((t) => t.id), setNo: 0 };
     // 리플레이용: 세트별 랠리 + 득점 전/후 스코어
     D.ralliesBySet = {};
+    const tHome = raw.teams[0].id;
+    const tAway = raw.teams[1].id;
     raw.rallies.forEach((r) => {
       (D.ralliesBySet[r.set_no] ||= []).push(r);
     });
     Object.values(D.ralliesBySet).forEach((list) => {
-      let prev = { KGC: 0, HDEC: 0 };
+      let prev = { [tHome]: 0, [tAway]: 0 };
       list.forEach((r) => {
-        r.before = prev; r.after = { KGC: r.score_kgc, HDEC: r.score_hdec }; prev = r.after;
+        r.before = prev;
+        const sh = r.score_home ?? (r.score_hkl ?? (tHome === 'KGC' ? r.score_kgc : (r.score_hdec ?? 0)));
+        const sa = r.score_away ?? (r.score_kgc ?? (tAway === 'HDEC' ? r.score_hdec : (r.score_hkl ?? 0)));
+        r.after = { [tHome]: sh, [tAway]: sa };
+        prev = r.after;
       });
     });
     // 레이더 정규화 최대값 (경기 전체 기준)
@@ -174,6 +184,13 @@
     .reduce((b, p) => (!b || f(p) > f(b) ? p : b), null);
   const trend = (team, k, suffix = '') => [1, 2, 3, 4].filter((s) => V[s]).map((s) => `${V[s].summary[team][k]}${suffix}`).join(' → ');
 
+  const getSetScore = (st, tid) => {
+    if (!st) return 0;
+    if (st.score_home !== undefined) return tid === RAW.teams[0].id ? st.score_home : st.score_away;
+    if (st.hkl_score !== undefined) return tid === 'HKL' ? st.hkl_score : st.kgc_score;
+    return tid === 'KGC' ? st.kgc_score : (st.hdec_score ?? 0);
+  };
+
   function analyze(n) {
     let w, l, headTitle, chips = [];
     if (n === 0) {
@@ -184,7 +201,7 @@
     } else {
       const s = setInfo(n);
       w = s.winner; l = other(w);
-      const sw = w === 'KGC' ? s.kgc_score : s.hdec_score; const sl = w === 'KGC' ? s.hdec_score : s.kgc_score;
+      const sw = getSetScore(s, w); const sl = getSetScore(s, l);
       headTitle = `${n}세트 · ${short(w)} ${sw} : ${sl} 승`;
       chips = [`SET ${n}`, `득점 랠리 ${(D.ralliesBySet[n] || []).length}개`];
     }
@@ -198,8 +215,8 @@
     // 사이드 인사이트
     const b = [];
     const sorted = D.teamIds;
-    b.push(`<b>득점 1위</b> ${sorted.map((t) => { const p = topBy(n, t, (x) => x.points || 0); return `${esc(short(t))} <b>${esc(p.name)}</b> ${p.points || 0}점`; }).join(' · ')}`);
-    b.push(`<b>공격 중심</b> ${sorted.map((t) => { const p = topBy(n, t, (x) => x.att_tried); return `${esc(short(t))} <b>${esc(p.name)}</b> ${p.att_made}/${p.att_tried}${p.att_pct != null ? ` (${p.att_pct}%)` : ''}`; }).join(' · ')}`);
+    b.push(`<b>득점 1위</b> ${sorted.map((t) => { const p = topBy(n, t, (x) => x.points || 0); return `${esc(short(t))} <b>${esc(p ? p.name : '-')}</b> ${p ? (p.points || 0) : 0}점`; }).join(' · ')}`);
+    b.push(`<b>공격 중심</b> ${sorted.map((t) => { const p = topBy(n, t, (x) => x.att_tried); return `${esc(short(t))} <b>${esc(p ? p.name : '-')}</b> ${p ? `${p.att_made}/${p.att_tried}` : '-'}${p && p.att_pct != null ? ` (${p.att_pct}%)` : ''}`; }).join(' · ')}`);
     const rc = Object.values(V[n].players).filter((p) => p.rcv_tried >= (n === 0 ? 15 : 5) && p.position !== 'L').sort((a, c) => a.rcv_pct - c.rcv_pct)[0];
     b.push(`<b>리시브</b> 팀 ${sorted.map((t) => `${esc(short(t))} ${V[n].summary[t].rcv_pct}%`).join(' · ')}${rc ? ` · 가장 흔들린 선수 <b>${esc(rc.name)}</b> ${rc.rcv_made}/${rc.rcv_tried}` : ''}`);
     b.push(`<b>블로킹·서브</b> 블로킹 득점 ${sorted.map((t) => V[n].summary[t].blk_made).join(' : ')} · 서브 득점 ${sorted.map((t) => V[n].summary[t].srv_made).join(' : ')}`);
@@ -209,7 +226,8 @@
       b.push(`<b>최장 랠리</b> ${n === 0 ? `${lr.set_no}세트 ` : ''}#${lr.rally_no} — ${lr.events.length}터치, ${esc(short(lr.scorer))} 득점`);
     }
     if (n === 0) {
-      b.splice(1, 0, `<b>세트별 흐름</b> ${RAW.sets.map((s) => `${s.set_no}세트 ${s.kgc_score}:${s.hdec_score}`).join(' · ')} (정:현)`);
+      const t1 = D.teamIds[0], t2 = D.teamIds[1];
+      b.splice(1, 0, `<b>세트별 흐름</b> ${RAW.sets.map((s) => `${s.set_no}세트 ${getSetScore(s, t1)}:${getSetScore(s, t2)}`).join(' · ')} (${short(t1)[0]}:${short(t2)[0]})`);
       b.splice(2, 0, `<b>공격 성공률 추이</b> ${D.teamIds.map((t) => `${esc(short(t))} ${trend(t, 'att_pct')}`).join(' / ')}`);
     }
     return { headline: main, chips, bullets: b, winner: w };
@@ -696,9 +714,12 @@
       if (r.events.length >= 9) why.push(`${r.events.length}터치 장기 랠리`);
       if (r.cause === 'blockkill') { v += 6; why.push('블로킹 득점'); }
       if (last && last.c === 'serve' && last.ok) { v += 5; why.push('서브 에이스'); }
-      const mx = Math.max(r.after.KGC, r.after.HDEC), df = Math.abs(r.after.KGC - r.after.HDEC);
+      const t1 = D.teamIds[0], t2 = D.teamIds[1];
+      const s1 = r.after[t1] || 0, s2 = r.after[t2] || 0;
+      const b1 = r.before[t1] || 0, b2 = r.before[t2] || 0;
+      const mx = Math.max(s1, s2), df = Math.abs(s1 - s2);
       if (mx >= 20 && df <= 2) { v += 4; why.push('접전 구간'); }
-      if (r.before.KGC === r.before.HDEC || (r.before.KGC - r.before.HDEC) * (r.after.KGC - r.after.HDEC) < 0) { v += 1.5; if (mx >= 10) why.push('동점·역전'); }
+      if (b1 === b2 || (b1 - b2) * (s1 - s2) < 0) { v += 1.5; if (mx >= 10) why.push('동점·역전'); }
       if (idx === all.length - 1) { v += 9; why.unshift('세트 마무리'); }
       if (r.scorer === win) v += 0.5;
       if (!why.length) why.push('결정적 득점');
@@ -718,7 +739,8 @@
     const all = D.ralliesBySet[D.setNo] || [];
     if (S.rf === 'hl') return highlightsOf(D.setNo);
     if (S.rf === 'long') return all.filter((r) => r.events.length >= 9);
-    if (S.rf === 'KGC' || S.rf === 'HDEC') return all.filter((r) => r.scorer === S.rf);
+    const t1 = D.teamIds[0], t2 = D.teamIds[1];
+    if (S.rf === t1 || S.rf === t2) return all.filter((r) => r.scorer === S.rf);
     return all;
   };
 
@@ -781,12 +803,13 @@
     S.focusKey = null;
     S.live = { ...r.after };
     renderScoreboard();
-    showCall(`${short(r.scorer)} 득점!  ${r.after.KGC} : ${r.after.HDEC}`, 'score', rp.landing);
+    const t1 = D.teamIds[0], t2 = D.teamIds[1];
+    showCall(`${short(r.scorer)} 득점!  ${r.after[t1]} : ${r.after[t2]}`, 'score', rp.landing);
     const sum = resultSummary(r);
     setCaster(S.rf === 'hl' ? `⭐ 하이라이트 ${rp.i + 1}/${repList().length} 종료 · ${r.hlWhy}` : `랠리 ${r.rally_no} 종료`, [`#${short(r.scorer)}득점`, `#${r.events.length}터치`],
-      `득점! ${short(r.scorer)} — ${sum}. 스코어 정관장 ${r.after.KGC} : ${r.after.HDEC} 현대건설.`, new Set(), false);
+      `득점! ${short(r.scorer)} — ${sum}. 스코어 ${short(t1)} ${r.after[t1]} : ${r.after[t2]} ${short(t2)}.`, new Set(), false);
     const li = document.createElement('li');
-    li.innerHTML = `<b>#${r.rally_no}</b>${esc(short(r.scorer))} ${r.after.KGC}:${r.after.HDEC} — ${esc(sum)} (${r.events.length}터치)`;
+    li.innerHTML = `<b>#${r.rally_no}</b>${esc(short(r.scorer))} ${r.after[t1]}:${r.after[t2]} — ${esc(sum)} (${r.events.length}터치)`;
     $('castLog').prepend(li);
     renderTimeline();
   }
@@ -816,13 +839,15 @@
     S.playing = false; S.finished = true; S.focusKey = null;
     resetAllTokens();
     const s = setInfo(D.setNo);
-    setCaster('리플레이 종료', [`#${D.setNo}세트`], `${D.setNo}세트 리플레이가 끝났습니다. 최종 스코어 정관장 ${s.kgc_score} : ${s.hdec_score} 현대건설 — ${short(s.winner)} 승.`, new Set(), false);
+    const t1 = D.teamIds[0], t2 = D.teamIds[1];
+    setCaster('리플레이 종료', [`#${D.setNo}세트`], `${D.setNo}세트 리플레이가 끝났습니다. 최종 스코어 ${short(t1)} ${getSetScore(s, t1)} : ${getSetScore(s, t2)} ${short(t2)} — ${short(s.winner)} 승.`, new Set(), false);
     renderTimeline(); updateControls(); renderRallyList();
   }
 
   function renderRallyList(scroll) {
     const list = repList();
-    const filters = [['hl', '⭐ 하이라이트 5'], ['all', '전체'], ['long', '긴 랠리(9터치+)'], ['KGC', `${short('KGC')} 득점`], ['HDEC', `${short('HDEC')} 득점`]];
+    const t1 = D.teamIds[0], t2 = D.teamIds[1];
+    const filters = [['hl', '⭐ 하이라이트 5'], ['all', '전체'], ['long', '긴 랠리(9터치+)'], [t1, `${short(t1)} 득점`], [t2, `${short(t2)} 득점`]];
     $('rallyFilters').innerHTML = filters.map(([k, l]) => `<button class="rf ${S.rf === k ? 'active' : ''}" data-k="${k}">${esc(l)}</button>`).join('');
     $('rallyFilters').querySelectorAll('.rf').forEach((b) => b.addEventListener('click', () => {
       S.rf = b.dataset.k; stopAll(); idle(); renderRallyList();
@@ -832,7 +857,7 @@
       const cur = S.rp && S.rp.r === r;
       return `<button class="ry ${cur ? 'current' : ''}" data-i="${i}" style="--rc:${color(r.scorer)}">
         <span class="no">#${r.rally_no}</span>
-        <div><div class="t1">${esc(short(r.scorer))} 득점 <span class="sc">정 ${r.after.KGC} : ${r.after.HDEC} 현</span></div>
+        <div><div class="t1">${esc(short(r.scorer))} 득점 <span class="sc">${short(t1)[0]} ${r.after[t1]} : ${r.after[t2]} ${short(t2)[0]}</span></div>
         <div class="t2">${S.rf === 'hl' ? `<b>${esc(r.hlWhy)}</b> · ` : ''}${esc(last.n)} ${esc(last.a)} · <span class="len">${r.events.length}</span>터치</div></div></button>`;
     }).join('') : '<div class="rally-empty">조건에 맞는 랠리가 없습니다.</div>';
     $('rallyList').querySelectorAll('.ry').forEach((b) => b.addEventListener('click', () => {
@@ -997,7 +1022,10 @@
   function renderScoreboard() {
     const score = (id) => {
       if (S.live) return S.live[id];
-      if (D.setNo > 0) { const s = setInfo(D.setNo); return id === 'KGC' ? s.kgc_score : s.hdec_score; }
+      if (D.setNo > 0) {
+        const s = setInfo(D.setNo);
+        return getSetScore(s, id);
+      }
       return RAW.sets.filter((s) => s.winner === id).length;
     };
     const midTop = S.live ? `SET ${D.setNo} · LIVE` : D.setNo > 0 ? `SET ${D.setNo} 최종` : '세트 스코어';
@@ -1016,22 +1044,47 @@
   }
 
   function renderSetBar() {
+    const t1 = D.teamIds[0], t2 = D.teamIds[1];
     const wins = (id) => RAW.sets.filter((s) => s.winner === id).length;
-    const abbr = (t) => `<span style="color:${color(t)};font-weight:800">${t === 'KGC' ? '정' : '현'}</span>`;
+    const abbr = (t) => `<span style="color:${color(t)};font-weight:800">${esc(short(t).slice(0, 1))}</span>`;
     const btn = (n, name, a, b, wc) => `
       <button class="setbtn ${D.setNo === n ? 'active' : ''}" data-n="${n}" role="tab" aria-selected="${D.setNo === n}" style="--wc:${wc}">
         <span class="sb-n">${name}</span>
-        <span class="sb-sc">${abbr('KGC')}<b>${a}</b> : <b>${b}</b>${abbr('HDEC')}</span></button>`;
+        <span class="sb-sc">${abbr(t1)}<b>${a}</b> : <b>${b}</b>${abbr(t2)}</span></button>`;
     $('setBtns').innerHTML =
-      btn(0, '전체', wins('KGC'), wins('HDEC'), color(wins('KGC') >= wins('HDEC') ? 'KGC' : 'HDEC')) +
-      RAW.sets.map((s) => btn(s.set_no, `${s.set_no}세트`, s.kgc_score, s.hdec_score, color(s.winner))).join('');
+      btn(0, '전체', wins(t1), wins(t2), color(wins(t1) >= wins(t2) ? t1 : t2)) +
+      RAW.sets.map((s) => btn(s.set_no, `${s.set_no}세트`, getSetScore(s, t1), getSetScore(s, t2), color(s.winner))).join('');
     $('setBtns').querySelectorAll('.setbtn').forEach((b) => b.addEventListener('click', () => setView(+b.dataset.n)));
   }
 
   function renderHeadline() {
     const a = analyze(D.setNo);
     $('setHeadline').innerHTML = `<span class="hl-main">${esc(a.headline)}</span>${a.chips.map((c) => `<span class="hl-chip">${esc(c)}</span>`).join('')}`;
-    $('insights').innerHTML = `<div class="section-label">Data Insights · ${esc(D.view.label)}</div><ul>${a.bullets.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+    let insHtml = `<div class="section-label">Data Insights · ${esc(D.view.label)}</div><ul>${a.bullets.map((x) => `<li>${x}</li>`).join('')}</ul>`;
+    if (RAW.best_players) {
+      insHtml += `<div class="best-player-box" style="margin-top:10px;padding:8px 10px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.1);">
+        <div style="font-weight:700;font-size:11px;color:var(--accent);margin-bottom:4px;">🏆 팬 투표 BEST 플레이어</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px;">
+          ${D.teamIds.map(t => RAW.best_players[t] ? `<div><b style="color:${color(t)}">${esc(short(t))}</b><ol style="margin:2px 0 0 14px;padding:0;line-height:1.4;">
+            ${RAW.best_players[t].map(p => `<li><b>${esc(p.name)}</b> (${p.pct}%)</li>`).join('')}
+          </ol></div>` : '').join('')}
+        </div>
+      </div>`;
+    }
+    if (RAW.key_players) {
+      const kp = RAW.key_players;
+      const t1 = D.teamIds[0], t2 = D.teamIds[1];
+      insHtml += `<div class="key-player-box" style="margin-top:8px;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.08);font-size:11px;">
+        <div style="font-weight:700;font-size:11px;color:#38bdf8;margin-bottom:4px;">⚡ 키플레이어 매치업</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;line-height:1.4;">
+          <div>득점: <b style="color:${color(t1)}">${kp.points[t1].name} ${kp.points[t1].val}</b> vs <b style="color:${color(t2)}">${kp.points[t2].name} ${kp.points[t2].val}</b></div>
+          <div>공격: <b style="color:${color(t1)}">${kp.attacks[t1].name} ${kp.attacks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.attacks[t2].name} ${kp.attacks[t2].val}</b></div>
+          <div>블록: <b style="color:${color(t1)}">${kp.blocks[t1].name} ${kp.blocks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.blocks[t2].name} ${kp.blocks[t2].val}</b></div>
+          <div>디그: <b style="color:${color(t1)}">${kp.digs[t1].name} ${kp.digs[t1].val}</b> vs <b style="color:${color(t2)}">${kp.digs[t2].name} ${kp.digs[t2].val}</b></div>
+        </div>
+      </div>`;
+    }
+    $('insights').innerHTML = insHtml;
   }
 
   function renderMatchStats() {
@@ -1374,6 +1427,97 @@
     return out;
   }
 
+  function switchMatch(dateVal) {
+    if (!window.MATCHES || !window.MATCHES[dateVal]) return false;
+    stopAll(); stopTween();
+    const raw = window.MATCHES[dateVal];
+    S.matchDate = dateVal;
+    indexData(raw);
+    S.home = D.teamIds.find((t) => D.teams[t].is_home) || D.teamIds[0];
+    S.panelTeam = S.home;
+    D.teamIds.forEach((t) => { S.rot[t] = [...BASE_ROT]; S.rotCount[t] = 0; });
+    S.scenario = 0;
+    S.phase = -1;
+    S.selected = null;
+    S.focusKey = null;
+    S.live = null;
+    S.rp = null;
+    S.mode = 'scenario';
+
+    const titleEl = $('mainTitle') || document.querySelector('h1');
+    if (titleEl) {
+      titleEl.textContent = `[${D.teams[S.home].short_name} vs ${D.teams[away()].short_name}] V-리그 전술 분석 & 리뷰 판`;
+    }
+
+    applyTheme();
+    drawFloor();
+    buildTokens();
+    S.pos = baseFormation();
+    renderSetBar();
+    renderHeadline();
+    renderScoreboard();
+    renderMatchStats();
+    renderTabs();
+    renderList();
+    selectPlayer(D.lineups[S.home].OH1, { silent: true });
+    renderScenarios();
+    renderModeUI();
+    renderTimeline();
+    updateControls();
+    updateQuickChips(dateVal);
+    renderCourt();
+    idle();
+    return true;
+  }
+
+  function updateQuickChips(dateVal) {
+    const chipsEl = $('quickChips');
+    if (!chipsEl) return;
+    if (dateVal === '2026-11-04') {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="킨델란">킨델란</button>
+        <button type="button" class="q-chip" data-q="자스티스">자스티스</button>
+        <button type="button" class="q-chip" data-q="표승주">표승주</button>
+        <button type="button" class="q-chip" data-q="종휘">종휘</button>
+        <button type="button" class="q-chip" data-q="박혜민">박혜민</button>
+        <button type="button" class="q-chip" data-q="김수지">김수지</button>
+        <button type="button" class="q-chip" data-q="정호영">정호영</button>
+        <button type="button" class="q-chip" data-q="세터">세터</button>
+        <button type="button" class="q-chip" data-q="리베로">리베로</button>
+      `;
+    } else {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="조던">조던</button>
+        <button type="button" class="q-chip" data-q="메가">메가</button>
+        <button type="button" class="q-chip" data-q="종휘">종휘</button>
+        <button type="button" class="q-chip" data-q="박은진">박은진</button>
+        <button type="button" class="q-chip" data-q="신은지">신은지</button>
+        <button type="button" class="q-chip" data-q="이지수">이지수</button>
+        <button type="button" class="q-chip" data-q="세터">세터</button>
+        <button type="button" class="q-chip" data-q="리베로">리베로</button>
+      `;
+    }
+    chipsEl.querySelectorAll('.q-chip').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const q = btn.dataset.q;
+        const input = $('playerSearchInput');
+        if (input) input.value = q;
+        S.searchQuery = q;
+        const clearBtn = $('playerSearchClear');
+        if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+        chipsEl.querySelectorAll('.q-chip').forEach((b) => b.classList.toggle('active', b === btn));
+        renderList();
+        if (q) {
+          const allPlayers = Object.values(D.players);
+          const found = allPlayers.find((p) => (p.name || '').includes(q));
+          if (found) selectPlayer(found.id);
+        }
+      });
+    });
+  }
+
   function bindMatchDate() {
     const form = $('matchDateForm');
     const input = $('matchDateInput');
@@ -1382,12 +1526,34 @@
     const applyDate = (dateVal) => {
       if (!dateVal) dateVal = '2026-11-07';
       S.matchDate = dateVal;
+      input.value = dateVal;
       const display = $('matchDateDisplay');
       const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
       const d = new Date(dateVal + 'T00:00:00');
       const dayName = isNaN(d.getTime()) ? '토' : DAYS[d.getDay()];
 
-      if (dateVal === '2026-11-07') {
+      document.querySelectorAll('.match-pill').forEach(b => {
+        b.classList.toggle('active', b.dataset.date === dateVal);
+        b.style.background = b.dataset.date === dateVal ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)';
+        b.style.borderColor = b.dataset.date === dateVal ? '#fff' : 'rgba(255,255,255,0.15)';
+        b.style.color = b.dataset.date === dateVal ? '#fff' : 'var(--muted)';
+      });
+
+      if (dateVal === '2026-11-04') {
+        switchMatch('2026-11-04');
+        if (display) {
+          display.innerHTML = `
+            <span class="match-badge active-match" style="background:rgba(230,0,126,0.2);border-color:#E6007E;">
+              <i class="dot-live" style="background:#E6007E;"></i> <b id="matchDateText">2026년 11월 4일 (${dayName})</b> 19:00
+            </span>
+            <span class="match-venue" id="matchVenueText">인천 삼산월드체육관 · 정규리그 (흥국생명 3:0 완승)</span>
+          `;
+        }
+        setCaster('📅 경기 날짜 선택', ['#2026-11-04', '#흥국생명', '#정관장'],
+          '2026년 11월 4일 (화요일) [흥국생명 vs 정관장] 전술 분석 데이터가 선택되었습니다. 킨델란 22득점(블로킹 4) 대폭발과 자스티스 BEST 플레이어 1위, 종휘 24득점 분전을 분석할 수 있습니다.',
+          new Set(), false);
+      } else if (dateVal === '2026-11-07') {
+        switchMatch('2026-11-07');
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match">
@@ -1396,7 +1562,7 @@
             <span class="match-venue" id="matchVenueText">대전 충무체육관 · 정규리그 (4세트 풀경기)</span>
           `;
         }
-        setCaster('📅 경기 날짜 선택', ['#2026-11-07', '#토요일'],
+        setCaster('📅 경기 날짜 선택', ['#2026-11-07', '#정관장', '#현대건설'],
           '2026년 11월 7일 (토요일) [정관장 vs 현대건설] 정규리그 전술 분석 데이터가 선택되었습니다. 4세트 풀경기 기록과 세트별 리플레이를 분석할 수 있습니다.',
           new Set(), false);
       } else {
@@ -1407,22 +1573,27 @@
               <b>${formatted}</b>
             </span>
             <span class="match-venue" style="color:var(--accent);">
-              등록 경기 없음 (26.11.07 경기 데이터 유지됨) · 
+              등록 경기 없음 · 
               <button type="button" class="btn btn-date-submit" style="padding:2px 7px;font-size:11px;" id="btnResetDate">
                 26.11.07(토) 복귀
               </button>
             </span>
           `;
           $('btnResetDate')?.addEventListener('click', () => {
-            input.value = '2026-11-07';
             applyDate('2026-11-07');
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
-          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 현재 전술 분석 엔진에는 2026년 11월 7일(토) [정관장 vs 현대건설] 4세트 경기가 탑재되어 있습니다.`,
+          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.04(흥국생명전) 또는 11.07(현대건설전)을 선택해 주세요.`,
           new Set(), false);
       }
     };
+
+    document.querySelectorAll('.match-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyDate(btn.dataset.date);
+      });
+    });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
