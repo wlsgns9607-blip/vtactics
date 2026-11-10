@@ -293,6 +293,7 @@
         const key = `${team}.${slot}`;
         const isL = slot === 'L';
         const tg = svgEl('g', { class: 'token', 'data-key': key }, g);
+        tg.dataset.pid = p.id;
         svgEl('circle', { class: 'ring', r: 5, cx: 0, cy: 0 }, tg);
         svgEl('circle', {
           class: 'body', r: 4.2,
@@ -310,7 +311,10 @@
         svgEl('rect', { class: 'label-bg', x: -w / 2, y: 4.9, width: w, height: 4.4, rx: 2.2 }, tg);
         const lb = svgEl('text', { class: 'label', y: 7.1 }, tg);
         lb.textContent = p.name;
-        tg.addEventListener('click', () => selectPlayer(p.id));
+        tg.addEventListener('click', () => {
+          const pid = tg.dataset.pid ? +tg.dataset.pid : p.id;
+          selectPlayer(pid);
+        });
         S.el[key] = tg;
       });
     });
@@ -322,6 +326,7 @@
   function updateTokenPlayer(key, player, isSub = false) {
     const tg = S.el[key];
     if (!tg || !player) return;
+    tg.dataset.pid = player.id;
     const [team, slot] = key.split('.');
     const isL = slot === 'L';
     const numEl = tg.querySelector('.num');
@@ -374,7 +379,8 @@
       tg.setAttribute('transform', `translate(${p.x.toFixed(2)},${p.y.toFixed(2)})${p.bench ? ' scale(.7)' : ''}`);
       tg.classList.toggle('bench', !!p.bench);
       const [team, slot] = key.split('.');
-      tg.classList.toggle('selected', D.lineups[team][slot] === S.selected);
+      const currentPid = tg.dataset.pid ? +tg.dataset.pid : D.lineups[team][slot];
+      tg.classList.toggle('selected', currentPid === S.selected);
       tg.classList.toggle('focus', key === S.focusKey);
     }
     const b = S.ball;
@@ -485,17 +491,17 @@
       return R.Z1 || 'OHB';
     }
 
-    // 2) 세터 교체 (예: 김사랑, 최서현 등)
+    // 2) 세터 교체 (예: 김사랑, 최서현, 구솔 등)
     if (pos === 'S') return R.S || 'S';
     // 3) 아포짓 교체 (예: 신은지, 나현수 등)
     if (pos === 'OP') return R.OP || 'OP';
-    // 4) 리베로 교체 (예: 노란, 이영주 등)
+    // 4) 리베로 교체 (예: 노란, 이영주, 도수빈 등)
     if (pos === 'L') return 'L';
-    // 5) 미들블로커 교체 (예: 이선우, 강서우 등)
+    // 5) 미들블로커 교체 (예: 이선우, 강서우 등) - 코트 위 전위 MBF 슬롯으로 배치
     if (pos === 'MB') {
-      return (ev && ['attack', 'block', 'block_assist'].includes(ev.c)) ? (R.MBF || 'MB1') : (R.MBB || 'MB2');
+      return R.MBF || 'MB1';
     }
-    // 6) 아웃사이드 히터(OH) 교체 (예: 박혜민, 이민영, 이채영 등)
+    // 6) 아웃사이드 히터(OH) 교체 (예: 박혜민, 이민영, 이채영, 박여름, 오세인, 전다빈 등)
     if (ev && ['attack', 'block', 'block_assist'].includes(ev.c)) return R.OHF || 'OH1';
     return R.OHB || 'OH2';
   }
@@ -521,12 +527,24 @@
       slot = resolveSlotForSubstitute(team, pl, ev);
     }
 
-    const zone = slot ? zoneOfSlot(team, slot) : null;
+    let zone = slot ? zoneOfSlot(team, slot) : null;
+    // 만약 slot이 벤치 슬롯이라 zone이 null인 경우 코트 위 활성 슬롯으로 강제 보정
+    if (slot && !zone) {
+      const R = roles(team);
+      if (slot === 'MB1' || slot === 'MB2') {
+        slot = R.MBF || 'MB1';
+        zone = zoneOfSlot(team, slot) || 3;
+      } else {
+        slot = R.Z1 || 'OHB';
+        zone = zoneOfSlot(team, slot) || 1;
+      }
+    }
+
     return {
       slot,
       zone,
       pos: pl ? pl.position : null,
-      key: slot && zone ? `${team}.${slot}` : null,
+      key: slot ? `${team}.${slot}` : null,
       isSub,
       player: pl,
     };
@@ -729,12 +747,19 @@
     const rp = S.rp; const r = rp.r; const ev = r.events[k]; const info = rp.infos[k]; const fl = rp.flights[k];
     rp.k = k; rp.t = 0; rp.from = fl.from; rp.to = fl.to; rp.dur = fl.dur; rp.h = fl.h;
     rp.target = { ...rp.base };
-    if (info.key && ['serve', 'attack', 'block', 'set'].includes(ev.c)) rp.target[info.key] = { x: rp.pts[k].x, y: rp.pts[k].y };
+    if (info.key && ['serve', 'attack', 'block', 'set', 'receive', 'dig'].includes(ev.c)) {
+      rp.target[info.key] = { x: rp.pts[k].x, y: rp.pts[k].y };
+    }
     S.ball = { show: true, x: fl.from.x, y: fl.from.y, h: 0 };
     S.focusKey = info.key;
 
-    if (info.isSub && info.key && info.player) {
-      updateTokenPlayer(info.key, info.player, true);
+    if (info.key) {
+      if (info.isSub && info.player) {
+        updateTokenPlayer(info.key, info.player, true);
+      } else if (!info.isSub) {
+        const starter = playerOf(ev.t, info.slot);
+        if (starter) updateTokenPlayer(info.key, starter, false);
+      }
     }
 
     showCall(`${info.isSub ? '🔄[교체] ' : ''}${ev.num} ${ev.n} · ${ev.a}`, evTone(ev), rp.pts[k]);
@@ -1219,8 +1244,15 @@
         const cls = i === rp.k ? 'current' : i < rp.k || rp.k >= rp.n ? 'done' : '';
         const tone = evTone(ev);
         const isSub = rp.infos && rp.infos[i] && rp.infos[i].isSub;
-        return `<span class="ph ev ${cls} ${tone === 'neutral' ? '' : tone} ${isSub ? 'is-sub' : ''}"><span class="i">${i + 1}</span>${isSub ? '<span class="sub-pill">교체</span>' : ''}${esc(CAT_KO[ev.c])} ${esc(ev.n)}</span>`;
+        return `<button type="button" class="ph ev ${cls} ${tone === 'neutral' ? '' : tone} ${isSub ? 'is-sub' : ''}" data-step="${i}"><span class="i">${i + 1}</span>${isSub ? '<span class="sub-pill">교체</span>' : ''}${esc(CAT_KO[ev.c])} ${esc(ev.n)}</button>`;
       }).join('');
+      $('timeline').querySelectorAll('.ph.ev').forEach((b) => b.addEventListener('click', () => {
+        const step = +b.dataset.step;
+        if (S.rp && step >= 0 && step < S.rp.n) {
+          startStep(step);
+          renderCourt();
+        }
+      }));
       $('courtMeta').textContent = `${D.view.label} 리플레이 · 랠리 #${rp.r.rally_no} · ${short(rp.r.scorer)} 득점 · ${rp.n}터치`;
       return;
     }
