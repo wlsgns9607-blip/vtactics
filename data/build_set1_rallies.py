@@ -203,3 +203,4 @@ if __name__ == "__main__":
     rallies = parse_set1()
     print(f"Generated {len(rallies)} rallies.")
     print(f"Final Set 1 Score: HKL {rallies[-1]['score_hkl']} : KGC {rallies[-1]['score_kgc']}")
+
