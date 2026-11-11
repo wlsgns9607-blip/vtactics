@@ -67,16 +67,18 @@ def make_comment(p):
     rm, rt = p["receive"]
     if rt >= 9:
         r = pct(rm, rt)
-        if p["pos"] == "L":
-            out.append(f"리시브 정확 {rm}/{rt}({r}%).")
-        elif r < 35:
-            out.append(f"리시브 정확 {rm}/{rt}({r}%) — 상대 목적타 서브의 표적이 될 수 있음.")
-        else:
-            out.append(f"리시브 정확 {rm}/{rt}({r}%)로 리시브 라인을 지탱.")
+        if r is not None:
+            if p["pos"] == "L":
+                out.append(f"리시브 정확 {rm}/{rt}({r}%).")
+            elif r < 35:
+                out.append(f"리시브 정확 {rm}/{rt}({r}%) — 상대 목적타 서브의 표적이 될 수 있음.")
+            else:
+                out.append(f"리시브 정확 {rm}/{rt}({r}%)로 리시브 라인을 지탱.")
     dm, dt = p["dig"]
     if dt >= 8:
         d = pct(dm, dt)
-        out.append(f"디그 {dm}/{dt}({d}%)" + (" — 후위 수비의 핵심." if d >= 85 else "."))
+        if d is not None:
+            out.append(f"디그 {dm}/{dt}({d}%)" + (" — 후위 수비의 핵심." if d >= 85 else "."))
     vm, vt = p["serve"]
     if vm >= 2:
         out.append(f"서브 득점 {vm}개.")

@@ -49,7 +49,7 @@ KGC_P = {
 }
 
 def make_event(pid, action, category, ok):
-    info = HKL_P.get(pid) or KGC_P.get(pid)
+    info = HKL_P.get(pid) or KGC_P.get(pid) or ("선수", 0, "OH", "HKL")
     name, num, pos, team = info
     return {
         "n": name,
@@ -189,6 +189,7 @@ s1_flow = [
 ]
 
 for i, (sh, sk, team, typ) in enumerate(s1_flow, 1):
+    r = None
     if typ == "kin_kill":
         r = make_kill_rally(1, i, 208, 110, 107, 101, sh, sk, "킨델란 오픈")
     elif typ == "jong_kill":
@@ -215,7 +216,10 @@ for i, (sh, sk, team, typ) in enumerate(s1_flow, 1):
         r = make_block_rally(1, i, 106, 207, 208, 206, 106, sh, sk)
     elif typ == "long_hkl":
         r = make_long_rally(1, i, sh, sk, "HKL")
-    rallies.append(r)
+    else:
+        r = make_kill_rally(1, i, 208, 110, 107, 101, sh, sk, "공격")
+    if r is not None:
+        rallies.append(r)
 
 # --- 2세트 (HKL 27 : 25 KGC 듀스 접전) ---
 s2_flow = [
@@ -243,6 +247,7 @@ s2_flow = [
 ]
 
 for i, (sh, sk, team, typ) in enumerate(s2_flow, 1):
+    r = None
     if typ == "kin_kill":
         r = make_kill_rally(2, i, 208, 110, 107, 101, sh, sk, "킨델란 강타")
     elif typ == "jong_kill":
@@ -263,7 +268,10 @@ for i, (sh, sk, team, typ) in enumerate(s2_flow, 1):
         r = make_block_rally(2, i, 201, 110, 107, 101, 201, sh, sk)
     elif typ == "long_hkl":
         r = make_long_rally(2, i, sh, sk, "HKL")
-    rallies.append(r)
+    else:
+        r = make_kill_rally(2, i, 208, 110, 107, 101, sh, sk, "공격")
+    if r is not None:
+        rallies.append(r)
 
 # --- 3세트 (HKL 27 : 20 KGC 완승) ---
 s3_flow = [
@@ -286,6 +294,7 @@ s3_flow = [
 ]
 
 for i, (sh, sk, team, typ) in enumerate(s3_flow, 1):
+    r = None
     if typ == "kin_kill":
         r = make_kill_rally(3, i, 208, 110, 107, 101, sh, sk, "킨델란 백어택")
     elif typ == "jong_kill":
@@ -308,7 +317,10 @@ for i, (sh, sk, team, typ) in enumerate(s3_flow, 1):
         r = make_block_rally(3, i, 106, 207, 208, 203, 106, sh, sk)
     elif typ == "long_hkl":
         r = make_long_rally(3, i, sh, sk, "HKL")
-    rallies.append(r)
+    else:
+        r = make_kill_rally(3, i, 208, 110, 107, 101, sh, sk, "공격")
+    if r is not None:
+        rallies.append(r)
 
 # 데이터 오브젝트 완성
 full_data_1104 = {
