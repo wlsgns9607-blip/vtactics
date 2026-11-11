@@ -1486,7 +1486,8 @@ window.BOOTSTRAP_1104 = {
             "#22득점",
             "#블로킹4개"
           ],
-          "text": "킨델란의 각도 깊은 직선 강타가 코트에 꽂힙니다! (킨델란 오늘 22득점, 블로킹 4득점 대폭발)"
+          "text": "킨델란의 각도 깊은 직선 강타가 코트에 꽂힙니다! (킨델란 오늘 22득점, 블로킹 4득점 대폭발)",
+          "moves": []
         },
         {
           "name": "전술 분석",
@@ -1581,7 +1582,8 @@ window.BOOTSTRAP_1104 = {
           "tags": [
             "#서브득점"
           ],
-          "text": "코트 엔드라인 구석에 꽂히는 예리한 서브! 정관장 리시브 라인이 손을 대지 못합니다. 서브 에이스!"
+          "text": "코트 엔드라인 구석에 꽂히는 예리한 서브! 정관장 리시브 라인이 손을 대지 못합니다. 서브 에이스!",
+          "moves": []
         },
         {
           "name": "전술 분석",
@@ -1737,7 +1739,8 @@ window.BOOTSTRAP_1104 = {
           "tags": [
             "#에이스"
           ],
-          "text": "코트 코너를 찌르는 종휘의 득점! 양 팀 통틀어 최다인 24득점을 쓸어담습니다."
+          "text": "코트 코너를 찌르는 종휘의 득점! 양 팀 통틀어 최다인 24득점을 쓸어담습니다.",
+          "moves": []
         },
         {
           "name": "전술 분석",
@@ -1785,7 +1788,8 @@ window.BOOTSTRAP_1104 = {
             "#박혜민",
             "#디그반격"
           ],
-          "text": "박혜민의 기민한 디그로 반격 기회를 잡는 정관장."
+          "text": "박혜민의 기민한 디그로 반격 기회를 잡는 정관장.",
+          "moves": []
         },
         {
           "name": "퀵오픈 스파이크",
@@ -5107,7 +5111,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 1,
       "errors": 2,
-      "points": 8
+      "points": 8,
+      "blk_assist": 0,
+      "comment": "공격 6/12. 블로킹 2득점. 디그 3/3."
     },
     {
       "set_no": 1,
@@ -5125,7 +5131,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 2,
       "errors": 0,
-      "points": 3
+      "points": 3,
+      "blk_assist": 0,
+      "comment": "공격 2/6. 서브 득점 1개. 디그 7/8."
     },
     {
       "set_no": 1,
@@ -5143,7 +5151,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 1,
       "set_tried": 2,
       "errors": 2,
-      "points": 8
+      "points": 8,
+      "blk_assist": 0,
+      "comment": "공격 7/18. 블로킹 1득점. 디그 3/4."
     },
     {
       "set_no": 1,
@@ -5161,7 +5171,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 1,
       "set_tried": 2,
       "errors": 1,
-      "points": 4
+      "points": 4,
+      "blk_assist": 0,
+      "comment": "공격 3/7. 블로킹 1득점. 디그 4/5."
     },
     {
       "set_no": 2,
@@ -5179,7 +5191,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 1,
       "errors": 3,
-      "points": 8
+      "points": 8,
+      "blk_assist": 0,
+      "comment": "공격 6/13. 블로킹 1득점. 서브 득점 1개. 디그 3/3."
     },
     {
       "set_no": 2,
@@ -5197,7 +5211,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 1,
       "errors": 0,
-      "points": 4
+      "points": 4,
+      "blk_assist": 0,
+      "comment": "공격 2/6. 블로킹 2득점. 디그 0/1."
     },
     {
       "set_no": 2,
@@ -5215,7 +5231,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 1,
       "errors": 2,
-      "points": 10
+      "points": 10,
+      "blk_assist": 0,
+      "comment": "공격 8/22. 블로킹 1득점. 서브 득점 1개. 디그 3/4."
     },
     {
       "set_no": 3,
@@ -5233,7 +5251,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 0,
       "set_tried": 1,
       "errors": 2,
-      "points": 6
+      "points": 6,
+      "blk_assist": 0,
+      "comment": "공격 5/11. 블로킹 1득점. 디그 2/3."
     },
     {
       "set_no": 3,
@@ -5251,7 +5271,9 @@ window.BOOTSTRAP_1104 = {
       "set_made": 1,
       "set_tried": 2,
       "errors": 0,
-      "points": 4
+      "points": 4,
+      "blk_assist": 0,
+      "comment": "공격 3/7. 서브 득점 1개. 디그 6/7."
     },
     {
       "set_no": 3,
@@ -5269,9 +5291,73 @@ window.BOOTSTRAP_1104 = {
       "set_made": 1,
       "set_tried": 1,
       "errors": 2,
-      "points": 6
+      "points": 6,
+      "blk_assist": 0,
+      "comment": "공격 5/17. 블로킹 1득점. 디그 3/4."
     }
-  ]
+  ],
+  "set_lineups": {
+    "1": {
+      "HKL": {
+        "S": 107,
+        "OH1": 102,
+        "OH2": 103,
+        "OP": 101,
+        "MB1": 106,
+        "MB2": 104,
+        "L": 110
+      },
+      "KGC": {
+        "S": 208,
+        "OH1": 201,
+        "OH2": 202,
+        "OP": 204,
+        "MB1": 206,
+        "MB2": 203,
+        "L": 207
+      }
+    },
+    "2": {
+      "HKL": {
+        "S": 107,
+        "OH1": 102,
+        "OH2": 103,
+        "OP": 101,
+        "MB1": 106,
+        "MB2": 104,
+        "L": 110
+      },
+      "KGC": {
+        "S": 208,
+        "OH1": 201,
+        "OH2": 202,
+        "OP": 204,
+        "MB1": 206,
+        "MB2": 203,
+        "L": 207
+      }
+    },
+    "3": {
+      "HKL": {
+        "S": 107,
+        "OH1": 102,
+        "OH2": 103,
+        "OP": 101,
+        "MB1": 106,
+        "MB2": 104,
+        "L": 110
+      },
+      "KGC": {
+        "S": 208,
+        "OH1": 201,
+        "OH2": 202,
+        "OP": 204,
+        "MB1": 206,
+        "MB2": 203,
+        "L": 207
+      }
+    }
+  }
 };
 
 window.MATCHES = window.MATCHES || {};

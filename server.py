@@ -79,7 +79,7 @@ class Handler(SimpleHTTPRequestHandler):
             if parts == ["bootstrap"]:
                 date = q.get("date", ["2026-11-07"])[0]
                 if date == "2026-11-04":
-                    from data.build_1104 import full_data_1104
+                    from data.build_1104 import full_data_1104  # type: ignore
                     return self.send_json(full_data_1104)
                 con = db()
                 try:

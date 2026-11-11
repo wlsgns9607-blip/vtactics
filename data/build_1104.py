@@ -917,6 +917,31 @@ full_data_1104 = {
     ]
 }
 
+# ── 앱(app.js)이 기대하는 필드 보정 ──
+# 세트별 라인업: 세 세트 모두 동일한 선발 라인업
+full_data_1104["set_lineups"] = {
+    s["set_no"]: full_data_1104["lineups"] for s in full_data_1104["sets"]
+}
+# 세트별 기록: 코멘트·블로킹 어시스트 기본값
+for _row in full_data_1104["set_stats"]:
+    _row.setdefault("blk_assist", 0)
+    if "comment" not in _row:
+        _parts = []
+        if _row["att_tried"]:
+            _parts.append(f"공격 {_row['att_made']}/{_row['att_tried']}.")
+        if _row["blk_made"]:
+            _parts.append(f"블로킹 {_row['blk_made']}득점.")
+        if _row["srv_made"]:
+            _parts.append(f"서브 득점 {_row['srv_made']}개.")
+        if _row["dig_tried"]:
+            _parts.append(f"디그 {_row['dig_made']}/{_row['dig_tried']}.")
+        _row["comment"] = " ".join(_parts) or "이번 세트 기록이 적습니다."
+# 시나리오 단계: moves 누락 시 빈 배열
+for _sc in full_data_1104["scenarios"]:
+    for _ph in _sc["phases"]:
+        _ph.setdefault("moves", [])
+        _ph.setdefault("tags", [])
+
 js_code = f"window.BOOTSTRAP_1104 = {json.dumps(full_data_1104, ensure_ascii=False, indent=2)};\n"
 js_code += """
 window.MATCHES = window.MATCHES || {};

@@ -193,15 +193,19 @@ def build():
     for tid, plist in PLAYERS.items():
         for p in plist:
             p["number"] = p["number"] or numbers.get(p["name"])
+            player_vals = (
+                tid, p["name"], p["pos"], p["number"], p["sets"], p["points"],
+                p["attack"][0], p["attack"][1], p["attack_pct"], p["attack_share"],
+                p["serve"][0], p["serve"][1], p["block"][0], p["block"][1],
+                p["dig"][0], p["dig"][1], p["receive"][0], p["receive"][1],
+                p["set"][0], p["set"][1], p["errors"], make_comment(p)
+            )
             cur = con.execute(
                 """INSERT INTO players (team_id,name,position,number,sets_played,points,
                    att_made,att_tried,att_pct,att_share,srv_made,srv_tried,blk_made,blk_tried,
                    dig_made,dig_tried,rcv_made,rcv_tried,set_made,set_tried,errors,comment)
                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                (tid, p["name"], p["pos"], p["number"], p["sets"], p["points"],
-                 *p["attack"], p["attack_pct"], p["attack_share"],
-                 *p["serve"], *p["block"], *p["dig"], *p["receive"], *p["set"],
-                 p["errors"], make_comment(p)),
+                player_vals,
             )
             name_to_id[p["name"]] = cur.lastrowid
             by_name[p["name"]] = p
@@ -237,11 +241,20 @@ def build():
                 r = {c: st[nm][c] for c in parse_set.CATS}
                 errs = ex[nm]["errors"]
                 points = r["attack"][0] + r["serve"][0] + r["block"][0]
+                set_stat_vals = (
+                    n, name_to_id[nm],
+                    r["attack"][0], r["attack"][1],
+                    r["serve"][0], r["serve"][1],
+                    r["block"][0], r["block"][1],
+                    r["dig"][0], r["dig"][1],
+                    r["receive"][0], r["receive"][1],
+                    r["set"][0], r["set"][1],
+                    ex[nm]["blk_assist"], errs, points,
+                    make_set_comment(p, r, errs, team_att[tid]),
+                )
                 con.execute(
                     """INSERT INTO set_stats VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                    (n, name_to_id[nm], *r["attack"], *r["serve"], *r["block"], *r["dig"],
-                     *r["receive"], *r["set"], ex[nm]["blk_assist"], errs, points,
-                     make_set_comment(p, r, errs, team_att[tid])),
+                    set_stat_vals,
                 )
             for slot, nm in derive_lineup(tid, st).items():
                 con.execute("INSERT INTO set_lineups VALUES (?,?,?,?)", (n, tid, slot, name_to_id[nm]))

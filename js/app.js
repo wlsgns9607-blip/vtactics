@@ -94,7 +94,7 @@
   }
 
   function makeView(n) {
-    const lineups = n === 0 ? RAW.lineups : RAW.set_lineups[n];
+    const lineups = n === 0 ? RAW.lineups : ((RAW.set_lineups && RAW.set_lineups[n]) || RAW.lineups);
     let list;
     if (n === 0) {
       list = RAW.players.map((p) => ({ ...p }));
@@ -139,9 +139,9 @@
       let prev = { [tHome]: 0, [tAway]: 0 };
       list.forEach((r) => {
         r.before = prev;
-        const sh = r.score_home ?? (r.score_hkl ?? (tHome === 'KGC' ? r.score_kgc : (r.score_hdec ?? 0)));
-        const sa = r.score_away ?? (r.score_kgc ?? (tAway === 'HDEC' ? r.score_hdec : (r.score_hkl ?? 0)));
-        r.after = { [tHome]: sh, [tAway]: sa };
+        // 팀 ID 기준으로 점수 필드 선택 (score_kgc / score_hdec / score_hkl ...)
+        const sc = (t) => r['score_' + t.toLowerCase()] ?? 0;
+        r.after = { [tHome]: sc(tHome), [tAway]: sc(tAway) };
         prev = r.after;
       });
     });
@@ -1102,14 +1102,14 @@
       <div class="section-label">Match Stats · ${esc(D.view.label)} · ${esc(D.source || '')}</div>
       <div class="ms-head"><span style="color:${ch}">${esc(D.teams[S.home].short_name)}</span><span style="color:${ca}">${esc(D.teams[away()].short_name)}</span></div>
       ${rows.map(([lab, x, y, u]) => {
-        const tot = (Number(x) || 0) + (Number(y) || 0) || 1;
-        return `<div class="ms-row">
+      const tot = (Number(x) || 0) + (Number(y) || 0) || 1;
+      return `<div class="ms-row">
           <span class="v l">${x ?? '-'}${u}</span>
           <div class="ms-bar l"><i style="width:${((x || 0) / tot) * 100}%;background:${ch}"></i></div>
           <span class="lab">${lab}</span>
           <div class="ms-bar"><i style="width:${((y || 0) / tot) * 100}%;background:${ca}"></i></div>
           <span class="v r">${y ?? '-'}${u}</span></div>`;
-      }).join('')}`;
+    }).join('')}`;
   }
 
   function renderTabs() {
@@ -1432,6 +1432,7 @@
     stopAll(); stopTween();
     const raw = window.MATCHES[dateVal];
     S.matchDate = dateVal;
+    for (const k in HL) delete HL[k]; // 이전 경기 하이라이트 캐시 제거
     indexData(raw);
     S.home = D.teamIds.find((t) => D.teams[t].is_home) || D.teamIds[0];
     S.panelTeam = S.home;
@@ -1521,22 +1522,51 @@
   function bindMatchDate() {
     const form = $('matchDateForm');
     const input = $('matchDateInput');
+    const select = $('matchSelect');
     if (!form || !input) return;
 
-    const applyDate = (dateVal) => {
-      if (!dateVal) dateVal = '2026-11-07';
+    function normalizeDate(raw) {
+      if (!raw) return '2026-11-04';
+      const s = String(raw).trim().toLowerCase();
+      if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
+          s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
+          s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
+          s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
+        return '2026-11-04';
+      }
+      if (s.includes('현대') || s.includes('메가') ||
+          s.includes('11-07') || s.includes('1107') || s.includes('11/07') || s.includes('11/7') ||
+          s.includes('11.07') || s.includes('11.7') || s === '07' || s === '7' ||
+          s.endsWith('-07') || s.endsWith('.07') || s.endsWith('/07')) {
+        return '2026-11-07';
+      }
+      return s;
+    }
+
+    const applyDate = (rawVal) => {
+      const dateVal = normalizeDate(rawVal);
       S.matchDate = dateVal;
-      input.value = dateVal;
+      input.value = dateVal === '2026-11-04' ? '11-04' : (dateVal === '2026-11-07' ? '11-07' : dateVal);
+      if (select && (dateVal === '2026-11-04' || dateVal === '2026-11-07')) {
+        select.value = dateVal;
+      }
       const display = $('matchDateDisplay');
       const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
       const d = new Date(dateVal + 'T00:00:00');
-      const dayName = isNaN(d.getTime()) ? '토' : DAYS[d.getDay()];
+      const dayName = isNaN(d.getTime()) ? '화' : DAYS[d.getDay()];
 
       document.querySelectorAll('.match-pill').forEach(b => {
-        b.classList.toggle('active', b.dataset.date === dateVal);
-        b.style.background = b.dataset.date === dateVal ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)';
-        b.style.borderColor = b.dataset.date === dateVal ? '#fff' : 'rgba(255,255,255,0.15)';
-        b.style.color = b.dataset.date === dateVal ? '#fff' : 'var(--muted)';
+        const isActive = b.dataset.date === dateVal;
+        b.classList.toggle('active', isActive);
+        if (b.dataset.date === '2026-11-04') {
+          b.style.background = isActive ? 'rgba(230,0,126,0.3)' : 'rgba(255,255,255,0.06)';
+          b.style.borderColor = isActive ? '#E6007E' : 'rgba(255,255,255,0.15)';
+          b.style.color = isActive ? '#fff' : 'var(--muted)';
+        } else {
+          b.style.background = isActive ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)';
+          b.style.borderColor = isActive ? '#fff' : 'rgba(255,255,255,0.15)';
+          b.style.color = isActive ? '#fff' : 'var(--muted)';
+        }
       });
 
       if (dateVal === '2026-11-04') {
@@ -1544,26 +1574,26 @@
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match" style="background:rgba(230,0,126,0.2);border-color:#E6007E;">
-              <i class="dot-live" style="background:#E6007E;"></i> <b id="matchDateText">2026년 11월 4일 (${dayName})</b> 19:00
+              <i class="dot-live" style="background:#E6007E;"></i> <b id="matchDateText">2024년 11월 4일 (${dayName})</b> 19:00
             </span>
             <span class="match-venue" id="matchVenueText">인천 삼산월드체육관 · 정규리그 (흥국생명 3:0 완승)</span>
           `;
         }
-        setCaster('📅 경기 날짜 선택', ['#2026-11-04', '#흥국생명', '#정관장'],
-          '2026년 11월 4일 (화요일) [흥국생명 vs 정관장] 전술 분석 데이터가 선택되었습니다. 킨델란 22득점(블로킹 4) 대폭발과 자스티스 BEST 플레이어 1위, 종휘 24득점 분전을 분석할 수 있습니다.',
+        setCaster('📅 경기 날짜 선택', ['#2024-11-04', '#흥국생명', '#정관장'],
+          '11월 4일 [흥국생명 vs 정관장] 전술 분석 데이터가 선택되었습니다. 킨델란 22득점(블로킹 4) 대폭발과 자스티스 BEST 플레이어 1위, 종휘 24득점 분전을 분석할 수 있습니다.',
           new Set(), false);
       } else if (dateVal === '2026-11-07') {
         switchMatch('2026-11-07');
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match">
-              <i class="dot-live"></i> <b id="matchDateText">2026년 11월 7일 (${dayName})</b> 16:00
+              <i class="dot-live"></i> <b id="matchDateText">2024년 11월 7일 (${dayName})</b> 16:00
             </span>
             <span class="match-venue" id="matchVenueText">대전 충무체육관 · 정규리그 (4세트 풀경기)</span>
           `;
         }
-        setCaster('📅 경기 날짜 선택', ['#2026-11-07', '#정관장', '#현대건설'],
-          '2026년 11월 7일 (토요일) [정관장 vs 현대건설] 정규리그 전술 분석 데이터가 선택되었습니다. 4세트 풀경기 기록과 세트별 리플레이를 분석할 수 있습니다.',
+        setCaster('📅 경기 날짜 선택', ['#2024-11-07', '#정관장', '#현대건설'],
+          '11월 7일 [정관장 vs 현대건설] 정규리그 전술 분석 데이터가 선택되었습니다. 4세트 풀경기 기록과 세트별 리플레이를 분석할 수 있습니다.',
           new Set(), false);
       } else {
         const formatted = `${dateVal} (${dayName}요일)`;
@@ -1575,12 +1605,12 @@
             <span class="match-venue" style="color:var(--accent);">
               등록 경기 없음 · 
               <button type="button" class="btn btn-date-submit" style="padding:2px 7px;font-size:11px;" id="btnResetDate">
-                26.11.07(토) 복귀
+                11.04(화) 흥국생명전
               </button>
             </span>
           `;
           $('btnResetDate')?.addEventListener('click', () => {
-            applyDate('2026-11-07');
+            applyDate('2026-11-04');
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
@@ -1588,6 +1618,10 @@
           new Set(), false);
       }
     };
+
+    if (select) {
+      select.addEventListener('change', () => applyDate(select.value));
+    }
 
     document.querySelectorAll('.match-pill').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1602,6 +1636,9 @@
     input.addEventListener('change', () => {
       applyDate(input.value);
     });
+
+    // 기본 선택을 11월 4일로 적용
+    applyDate('2026-11-04');
   }
 
   function bindPlayerSearch() {
