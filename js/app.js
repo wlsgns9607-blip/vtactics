@@ -1432,14 +1432,14 @@
   function switchMatch(dateVal) {
     if (!window.MATCHES) return false;
     const key = window.MATCHES[dateVal] ? dateVal :
-                window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
-                window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') :
-                (dateVal.includes('11-04') && window.MATCHES['2024-11-04']) ? '2024-11-04' :
-                (dateVal.includes('11-04') && window.MATCHES['2026-11-04']) ? '2026-11-04' :
-                (dateVal.includes('11-03') && window.MATCHES['2024-11-03']) ? '2024-11-03' :
+      window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
+        window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') :
+          (dateVal.includes('11-04') && window.MATCHES['2024-11-04']) ? '2024-11-04' :
+            (dateVal.includes('11-04') && window.MATCHES['2026-11-04']) ? '2026-11-04' :
+              (dateVal.includes('11-03') && window.MATCHES['2024-11-03']) ? '2024-11-03' :
                 (dateVal.includes('11-03') && window.MATCHES['2026-11-03']) ? '2026-11-03' :
-                (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
-                (dateVal.includes('11-07') && window.MATCHES['2026-11-07']) ? '2026-11-07' : null;
+                  (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
+                    (dateVal.includes('11-07') && window.MATCHES['2026-11-07']) ? '2026-11-07' : null;
     if (!key || !window.MATCHES[key]) return false;
     stopAll(); stopTween();
     const raw = window.MATCHES[key];
