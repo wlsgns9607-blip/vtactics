@@ -7,6 +7,7 @@
 """
 import json
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -323,7 +324,7 @@ for i, (sh, sk, team, typ) in enumerate(s3_flow, 1):
         rallies.append(r)
 
 # 데이터 오브젝트 완성
-full_data_1104 = {
+full_data_1104: Dict[str, Any] = {
     "match_info": {
         "date": "2026-11-04",
         "day": "화",
@@ -334,8 +335,8 @@ full_data_1104 = {
         "home_team": "HKL",
         "away_team": "KGC",
         "result_text": "흥국생명 3 : 0 정관장 (세트스코어 3-0 완승)",
-        "set_scores": "25:21, 27:25, 27:20",
-        "total_score": "79 : 66"
+        "set_scores": "25:20, 29:27, 27:20",
+        "total_score": "81 : 67"
     },
     "teams": [
         {
@@ -421,8 +422,8 @@ full_data_1104 = {
         "sets": {"HKL": {"name": "이나연", "val": 25}, "KGC": {"name": "염혜선", "val": 28}}
     },
     "sets": [
-        {"set_no": 1, "kgc_score": 21, "hkl_score": 25, "winner": "HKL", "score_home": 25, "score_away": 21},
-        {"set_no": 2, "kgc_score": 25, "hkl_score": 27, "winner": "HKL", "score_home": 27, "score_away": 25},
+        {"set_no": 1, "kgc_score": 20, "hkl_score": 25, "winner": "HKL", "score_home": 25, "score_away": 20},
+        {"set_no": 2, "kgc_score": 27, "hkl_score": 29, "winner": "HKL", "score_home": 29, "score_away": 27},
         {"set_no": 3, "kgc_score": 20, "hkl_score": 27, "winner": "HKL", "score_home": 27, "score_away": 20}
     ],
     "lineups": {
@@ -919,26 +920,31 @@ full_data_1104 = {
 
 # ── 앱(app.js)이 기대하는 필드 보정 ──
 # 세트별 라인업: 세 세트 모두 동일한 선발 라인업
+sets_list: List[Dict[str, Any]] = full_data_1104["sets"]
+lineups_dict: Dict[str, Any] = full_data_1104["lineups"]
 full_data_1104["set_lineups"] = {
-    s["set_no"]: full_data_1104["lineups"] for s in full_data_1104["sets"]
+    int(s["set_no"]): lineups_dict for s in sets_list
 }
 # 세트별 기록: 코멘트·블로킹 어시스트 기본값
-for _row in full_data_1104["set_stats"]:
+set_stats_list: List[Dict[str, Any]] = full_data_1104["set_stats"]
+for _row in set_stats_list:
     _row.setdefault("blk_assist", 0)
     if "comment" not in _row:
-        _parts = []
-        if _row["att_tried"]:
-            _parts.append(f"공격 {_row['att_made']}/{_row['att_tried']}.")
-        if _row["blk_made"]:
+        _parts: List[str] = []
+        if _row.get("att_tried"):
+            _parts.append(f"공격 {_row.get('att_made', 0)}/{_row['att_tried']}.")
+        if _row.get("blk_made"):
             _parts.append(f"블로킹 {_row['blk_made']}득점.")
-        if _row["srv_made"]:
+        if _row.get("srv_made"):
             _parts.append(f"서브 득점 {_row['srv_made']}개.")
-        if _row["dig_tried"]:
-            _parts.append(f"디그 {_row['dig_made']}/{_row['dig_tried']}.")
+        if _row.get("dig_tried"):
+            _parts.append(f"디그 {_row.get('dig_made', 0)}/{_row['dig_tried']}.")
         _row["comment"] = " ".join(_parts) or "이번 세트 기록이 적습니다."
+
 # 시나리오 단계: moves 누락 시 빈 배열
-for _sc in full_data_1104["scenarios"]:
-    for _ph in _sc["phases"]:
+scenarios_list: List[Dict[str, Any]] = full_data_1104["scenarios"]
+for _sc in scenarios_list:
+    for _ph in _sc.get("phases", []):
         _ph.setdefault("moves", [])
         _ph.setdefault("tags", [])
 

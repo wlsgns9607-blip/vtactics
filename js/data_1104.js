@@ -10,8 +10,8 @@ window.BOOTSTRAP_1104 = {
     "home_team": "HKL",
     "away_team": "KGC",
     "result_text": "흥국생명 3 : 0 정관장 (세트스코어 3-0 완승)",
-    "set_scores": "25:21, 27:25, 27:20",
-    "total_score": "79 : 66"
+    "set_scores": "25:20, 29:27, 27:20",
+    "total_score": "81 : 67"
   },
   "teams": [
     {
