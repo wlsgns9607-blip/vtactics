@@ -66,8 +66,10 @@
       d.serverMode = true;
       return d;
     } catch (e) {
-      if (window.MATCHES && window.MATCHES[S.matchDate]) {
-        return { ...window.MATCHES[S.matchDate], source: '내장 전술 데이터', serverMode: false };
+      const key = S.matchDate || '2024-11-04';
+      if (window.MATCHES) {
+        const found = window.MATCHES[key] || window.MATCHES[key.replace('2024-', '2026-')] || window.MATCHES[key.replace('2026-', '2024-')];
+        if (found) return { ...found, source: '내장 전술 데이터', serverMode: false };
       }
       if (window.BOOTSTRAP) return { ...window.BOOTSTRAP, source: '내장 데이터 (서버 미연결)', serverMode: false };
       throw e;
@@ -1428,10 +1430,21 @@
   }
 
   function switchMatch(dateVal) {
-    if (!window.MATCHES || !window.MATCHES[dateVal]) return false;
+    if (!window.MATCHES) return false;
+    const key = window.MATCHES[dateVal] ? dateVal :
+                window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
+                window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') :
+                (dateVal.includes('11-04') && window.MATCHES['2024-11-04']) ? '2024-11-04' :
+                (dateVal.includes('11-04') && window.MATCHES['2026-11-04']) ? '2026-11-04' :
+                (dateVal.includes('11-03') && window.MATCHES['2024-11-03']) ? '2024-11-03' :
+                (dateVal.includes('11-03') && window.MATCHES['2026-11-03']) ? '2026-11-03' :
+                (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
+                (dateVal.includes('11-07') && window.MATCHES['2026-11-07']) ? '2026-11-07' : null;
+    if (!key || !window.MATCHES[key]) return false;
     stopAll(); stopTween();
-    const raw = window.MATCHES[dateVal];
-    S.matchDate = dateVal;
+    const raw = window.MATCHES[key];
+    S.matchDate = key;
+    for (const k in HL) delete HL[k]; // 이전 경기 하이라이트 캐시 제거
     indexData(raw);
     S.home = D.teamIds.find((t) => D.teams[t].is_home) || D.teamIds[0];
     S.panelTeam = S.home;
@@ -1464,7 +1477,7 @@
     renderModeUI();
     renderTimeline();
     updateControls();
-    updateQuickChips(dateVal);
+    updateQuickChips(key);
     renderCourt();
     idle();
     return true;
@@ -1473,7 +1486,7 @@
   function updateQuickChips(dateVal) {
     const chipsEl = $('quickChips');
     if (!chipsEl) return;
-    if (dateVal === '2026-11-03') {
+    if (dateVal.includes('11-03')) {
       chipsEl.innerHTML = `
         <button type="button" class="q-chip active" data-q="">전체</button>
         <button type="button" class="q-chip" data-q="빅토리아">빅토리아</button>
@@ -1488,7 +1501,7 @@
         <button type="button" class="q-chip" data-q="세터">세터</button>
         <button type="button" class="q-chip" data-q="리베로">리베로</button>
       `;
-    } else if (dateVal === '2026-11-04') {
+    } else if (dateVal.includes('11-04')) {
       chipsEl.innerHTML = `
         <button type="button" class="q-chip active" data-q="">전체</button>
         <button type="button" class="q-chip" data-q="킨델란">킨델란</button>
@@ -1540,25 +1553,25 @@
     if (!form || !input) return;
 
     function normalizeDate(raw) {
-      if (!raw) return '2026-11-04';
+      if (!raw) return '2024-11-04';
       const s = String(raw).trim().toLowerCase();
       if (s.includes('기업') || s.includes('ibk') || s.includes('빅토리아') || s.includes('최정민') || s.includes('이소영') ||
         s.includes('11-03') || s.includes('1103') || s.includes('11/03') || s.includes('11/3') ||
         s.includes('11.03') || s.includes('11.3') || s === '03' || s === '3' ||
         s.endsWith('-03') || s.endsWith('.03') || s.endsWith('/03')) {
-        return '2026-11-03';
+        return '2024-11-03';
       }
       if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
         s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
         s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
         s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
-        return '2026-11-04';
+        return '2024-11-04';
       }
       if (s.includes('현대') || s.includes('메가') ||
         s.includes('11-07') || s.includes('1107') || s.includes('11/07') || s.includes('11/7') ||
         s.includes('11.07') || s.includes('11.7') || s === '07' || s === '7' ||
         s.endsWith('-07') || s.endsWith('.07') || s.endsWith('/07')) {
-        return '2026-11-07';
+        return '2024-11-07';
       }
       return s;
     }
@@ -1566,23 +1579,29 @@
     const applyDate = (rawVal) => {
       const dateVal = normalizeDate(rawVal);
       S.matchDate = dateVal;
-      input.value = dateVal === '2026-11-03' ? '11-03' : (dateVal === '2026-11-04' ? '11-04' : (dateVal === '2026-11-07' ? '11-07' : dateVal));
-      if (select && (dateVal === '2026-11-03' || dateVal === '2026-11-04' || dateVal === '2026-11-07')) {
-        select.value = dateVal;
+
+      // input이 type="date"여도 안전하도록 10자리 YYYY-MM-DD 유지
+      if (input) {
+        input.value = dateVal.length === 10 ? dateVal : ('2024-' + dateVal.slice(-5));
       }
+      if (select) {
+        const opt = Array.from(select.options).find(o => o.value === dateVal || o.value.slice(-5) === dateVal.slice(-5));
+        if (opt) select.value = opt.value;
+      }
+
       const display = $('matchDateDisplay');
       const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
       const d = new Date(dateVal + 'T00:00:00');
       const dayName = isNaN(d.getTime()) ? '월' : DAYS[d.getDay()];
 
       document.querySelectorAll('.match-pill').forEach(b => {
-        const isActive = b.dataset.date === dateVal;
+        const isActive = b.dataset.date === dateVal || b.dataset.date.slice(-5) === dateVal.slice(-5);
         b.classList.toggle('active', isActive);
-        if (b.dataset.date === '2026-11-04') {
+        if (b.dataset.date.includes('11-04') || b.dataset.date.includes('1104')) {
           b.style.background = isActive ? 'rgba(230,0,126,0.3)' : 'rgba(255,255,255,0.06)';
           b.style.borderColor = isActive ? '#E6007E' : 'rgba(255,255,255,0.15)';
           b.style.color = isActive ? '#fff' : 'var(--muted)';
-        } else if (b.dataset.date === '2026-11-03') {
+        } else if (b.dataset.date.includes('11-03') || b.dataset.date.includes('1103')) {
           b.style.background = isActive ? 'rgba(0,75,155,0.35)' : 'rgba(255,255,255,0.06)';
           b.style.borderColor = isActive ? '#004B9B' : 'rgba(255,255,255,0.15)';
           b.style.color = isActive ? '#fff' : 'var(--muted)';
@@ -1593,8 +1612,8 @@
         }
       });
 
-      if (dateVal === '2026-11-03') {
-        switchMatch('2026-11-03');
+      if (dateVal.includes('11-03')) {
+        switchMatch(dateVal);
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match" style="background:rgba(0,75,155,0.25);border-color:#004B9B;">
@@ -1606,8 +1625,8 @@
         setCaster('📅 경기 날짜 선택', ['#2024-11-03', '#IBK기업은행', '#현대건설'],
           '11월 3일 [IBK기업은행 vs 현대건설] 전술 분석 데이터가 선택되었습니다. 빅토리아 21득점(공격 18) 폭격과 최정민 17득점(블로킹 3), 이소영 BEST 플레이어 1위 선정 및 3:0 셧아웃 완승을 분석할 수 있습니다.',
           new Set(), false);
-      } else if (dateVal === '2026-11-04') {
-        switchMatch('2026-11-04');
+      } else if (dateVal.includes('11-04')) {
+        switchMatch(dateVal);
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match" style="background:rgba(230,0,126,0.2);border-color:#E6007E;">
@@ -1619,8 +1638,8 @@
         setCaster('📅 경기 날짜 선택', ['#2024-11-04', '#흥국생명', '#정관장'],
           '11월 4일 [흥국생명 vs 정관장] 전술 분석 데이터가 선택되었습니다. 킨델란 22득점(블로킹 4) 대폭발과 자스티스 BEST 플레이어 1위, 종휘 24득점 분전을 분석할 수 있습니다.',
           new Set(), false);
-      } else if (dateVal === '2026-11-07') {
-        switchMatch('2026-11-07');
+      } else if (dateVal.includes('11-07')) {
+        switchMatch(dateVal);
         if (display) {
           display.innerHTML = `
             <span class="match-badge active-match">
@@ -1647,7 +1666,7 @@
             </span>
           `;
           $('btnResetDate')?.addEventListener('click', () => {
-            applyDate('2026-11-04');
+            applyDate('2024-11-04');
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
@@ -1656,16 +1675,6 @@
       }
     };
 
-    if (select) {
-      select.addEventListener('change', () => applyDate(select.value));
-    }
-
-    document.querySelectorAll('.match-pill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        applyDate(btn.dataset.date);
-      });
-    });
-
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       applyDate(input.value);
@@ -1673,9 +1682,25 @@
     input.addEventListener('change', () => {
       applyDate(input.value);
     });
+    if (select) {
+      select.addEventListener('change', () => {
+        input.value = select.value;
+        applyDate(select.value);
+      });
+    }
 
-    // 기본 선택을 11월 4일로 적용
-    applyDate('2026-11-04');
+    document.querySelectorAll('.match-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const d = btn.dataset.date;
+        input.value = d;
+        if (select) select.value = d;
+        applyDate(d);
+      });
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialDate = urlParams.get('date') || urlParams.get('matchDate') || input.value || '2024-11-04';
+    applyDate(initialDate);
   }
 
   function bindPlayerSearch() {
@@ -1768,6 +1793,13 @@
   };
 
   async function init() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateParam = urlParams.get('date') || urlParams.get('matchDate');
+    if (dateParam) {
+      S.matchDate = dateParam;
+    } else if (!S.matchDate || S.matchDate === '2026-11-07') {
+      S.matchDate = '2024-11-04';
+    }
     let raw;
     try {
       raw = await loadData();

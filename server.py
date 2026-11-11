@@ -77,11 +77,12 @@ class Handler(SimpleHTTPRequestHandler):
         q = parse_qs(url.query)
         try:
             if parts == ["bootstrap"]:
-                date = q.get("date", ["2026-11-07"])[0]
-                if date == "2026-11-04":
+                raw_date = q.get("date", q.get("matchDate", ["2024-11-04"]))[0]
+                s_date = str(raw_date).strip()
+                if "11-04" in s_date or "1104" in s_date or "흥국" in s_date or "4" == s_date:
                     from data.build_1104 import full_data_1104  # type: ignore
                     return self.send_json(full_data_1104)
-                if date == "2026-11-03":
+                if "11-03" in s_date or "1103" in s_date or "기업" in s_date or "ibk" in s_date.lower() or "3" == s_date:
                     from data.build_1103 import full_data_1103  # type: ignore
                     return self.send_json(full_data_1103)
                 con = db()

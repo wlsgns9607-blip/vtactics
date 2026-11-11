@@ -594,11 +594,14 @@ js_code += f"window.BOOTSTRAP_1103 = {json.dumps(full_data_1103, ensure_ascii=Fa
 js_code += """window.MATCHES = window.MATCHES || {};
 if (window.BOOTSTRAP) {
   window.MATCHES['2026-11-07'] = window.BOOTSTRAP;
+  window.MATCHES['2024-11-07'] = window.BOOTSTRAP;
 }
 if (window.BOOTSTRAP_1104) {
   window.MATCHES['2026-11-04'] = window.BOOTSTRAP_1104;
+  window.MATCHES['2024-11-04'] = window.BOOTSTRAP_1104;
 }
 window.MATCHES['2026-11-03'] = window.BOOTSTRAP_1103;
+window.MATCHES['2024-11-03'] = window.BOOTSTRAP_1103;
 """
 
 Path(ROOT / "js" / "data_1103.js").write_text(js_code, encoding="utf-8")

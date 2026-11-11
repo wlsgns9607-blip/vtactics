@@ -18794,5 +18794,7 @@ window.BOOTSTRAP_1104 = {
 window.MATCHES = window.MATCHES || {};
 if (window.BOOTSTRAP) {
   window.MATCHES['2026-11-07'] = window.BOOTSTRAP;
+  window.MATCHES['2024-11-07'] = window.BOOTSTRAP;
 }
 window.MATCHES['2026-11-04'] = window.BOOTSTRAP_1104;
+window.MATCHES['2024-11-04'] = window.BOOTSTRAP_1104;
