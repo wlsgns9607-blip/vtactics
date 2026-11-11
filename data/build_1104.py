@@ -960,11 +960,15 @@ window.MATCHES['2026-11-04'] = window.BOOTSTRAP_1104;
 Path(ROOT / "js" / "data_1104.js").write_text(js_code, encoding="utf-8")
 Path(ROOT / "static" / "js" / "data_1104.js").write_text(js_code, encoding="utf-8")
 
-# 1세트 KOVO 공식 45개 랠리 및 5득점 하이라이트 시뮬레이션 적용
+# 1·2·3세트 KOVO 공식 145개 랠리 전량 및 각 세트별 하이라이트 시뮬레이션 적용
 try:
     import update_set1_1104  # type: ignore
     update_set1_1104.update_everything()
+    import update_set2_1104  # type: ignore
+    update_set2_1104.update_everything()
+    import update_set3_1104  # type: ignore
+    update_set3_1104.update_everything()
 except Exception as e:
-    print(f"Warning: update_set1_1104 failed: {e}")
+    print(f"Warning: update_set failed: {e}")
 
-print("11월 4일 전체 데이터 빌드 완료!")
+print("11월 4일 1·2·3세트 전체 풀 데이터 빌드 완료!")
