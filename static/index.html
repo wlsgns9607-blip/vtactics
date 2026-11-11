@@ -32,24 +32,30 @@
               <label for="matchSelect" class="date-label">
                 <span class="cal-icon">📅</span> 경기 선택:
               </label>
-              <select id="matchSelect" class="match-select" style="padding:5px 10px;font-size:12px;border-radius:6px;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.25);cursor:pointer;font-weight:600;">
+              <select id="matchSelect" class="match-select"
+                style="padding:5px 10px;font-size:12px;border-radius:6px;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.25);cursor:pointer;font-weight:600;">
                 <option value="2026-11-04" selected>🔥 [11월 4일] 흥국생명 vs 정관장 (3:0 완승 · 킨델란 22점)</option>
                 <option value="2026-11-03">🏐 [11월 3일] IBK기업은행 vs 현대건설 (3:0 완승 · 빅토리아 21점)</option>
                 <option value="2026-11-07">🏐 [11월 7일] 정관장 vs 현대건설 (3:1 승리 · 메가 34점)</option>
               </select>
-              <input type="text" id="matchDateInput" name="matchDate" value="11-04" placeholder="예: 11-04, 흥국, 11/4" class="match-date-input" style="width:110px;" title="날짜나 팀명 입력 후 조회" />
+              <input type="text" id="matchDateInput" name="matchDate" value="11-04" placeholder="예: 11-04, 흥국, 11/4"
+                class="match-date-input" style="width:110px;" title="날짜나 팀명 입력 후 조회" />
               <button type="submit" class="btn btn-date-submit" id="btnDateSubmit" title="해당 일자 경기 조회">
                 조회
               </button>
             </div>
-            <div class="match-quick-pills" style="display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-xs match-pill active" data-date="2026-11-04" id="pill1104" style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(230,0,126,0.3);border:1px solid #E6007E;color:#fff;cursor:pointer;">
+            <div class="match-quick-pills"
+              style="display:flex;gap:6px;align-items:center;margin-top:6px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-xs match-pill active" data-date="2026-11-04" id="pill1104"
+                style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(230,0,126,0.3);border:1px solid #E6007E;color:#fff;cursor:pointer;">
                 🔥 11.04 vs 흥국생명 (3:0 완승)
               </button>
-              <button type="button" class="btn btn-xs match-pill" data-date="2026-11-03" id="pill1103" style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(0,75,155,0.25);border:1px solid #004B9B;color:#fff;cursor:pointer;">
+              <button type="button" class="btn btn-xs match-pill" data-date="2026-11-03" id="pill1103"
+                style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(0,75,155,0.25);border:1px solid #004B9B;color:#fff;cursor:pointer;">
                 🏐 11.03 vs 기업은행 (3:0)
               </button>
-              <button type="button" class="btn btn-xs match-pill" data-date="2026-11-07" id="pill1107" style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--muted);cursor:pointer;">
+              <button type="button" class="btn btn-xs match-pill" data-date="2026-11-07" id="pill1107"
+                style="padding:3px 9px;font-size:11px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--muted);cursor:pointer;">
                 🏐 11.07 vs 현대건설 (3:1 승리)
               </button>
             </div>

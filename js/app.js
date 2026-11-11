@@ -1544,21 +1544,21 @@
       if (!raw) return '2026-11-04';
       const s = String(raw).trim().toLowerCase();
       if (s.includes('기업') || s.includes('ibk') || s.includes('빅토리아') || s.includes('최정민') || s.includes('이소영') ||
-          s.includes('11-03') || s.includes('1103') || s.includes('11/03') || s.includes('11/3') ||
-          s.includes('11.03') || s.includes('11.3') || s === '03' || s === '3' ||
-          s.endsWith('-03') || s.endsWith('.03') || s.endsWith('/03')) {
+        s.includes('11-03') || s.includes('1103') || s.includes('11/03') || s.includes('11/3') ||
+        s.includes('11.03') || s.includes('11.3') || s === '03' || s === '3' ||
+        s.endsWith('-03') || s.endsWith('.03') || s.endsWith('/03')) {
         return '2026-11-03';
       }
       if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
-          s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
-          s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
-          s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
+        s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
+        s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
+        s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
         return '2026-11-04';
       }
       if (s.includes('현대') || s.includes('메가') ||
-          s.includes('11-07') || s.includes('1107') || s.includes('11/07') || s.includes('11/7') ||
-          s.includes('11.07') || s.includes('11.7') || s === '07' || s === '7' ||
-          s.endsWith('-07') || s.endsWith('.07') || s.endsWith('/07')) {
+        s.includes('11-07') || s.includes('1107') || s.includes('11/07') || s.includes('11/7') ||
+        s.includes('11.07') || s.includes('11.7') || s === '07' || s === '7' ||
+        s.endsWith('-07') || s.endsWith('.07') || s.endsWith('/07')) {
         return '2026-11-07';
       }
       return s;

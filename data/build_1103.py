@@ -604,3 +604,4 @@ window.MATCHES['2026-11-03'] = window.BOOTSTRAP_1103;
 Path(ROOT / "js" / "data_1103.js").write_text(js_code, encoding="utf-8")
 Path(ROOT / "static" / "js" / "data_1103.js").write_text(js_code, encoding="utf-8")
 print(f"Generated data_1103.js with {len(rallies)} rallies successfully!")
+
