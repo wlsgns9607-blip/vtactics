@@ -19,9 +19,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "data"))
 
-from players_data import PLAYERS, STARTING_LINEUP, TEAMS  # noqa: E402
-from scenarios import SCENARIOS                           # noqa: E402
-import parse_set                                          # noqa: E402
+from typing import Any, Dict, List                        # noqa: E402
+
+import players_data as _pd                                # noqa: E402  # type: ignore
+from scenarios import SCENARIOS                           # noqa: E402  # type: ignore
+import parse_set                                          # noqa: E402  # type: ignore
+
+# 선수 기록 dict 는 값 타입이 섞여 있어(str/int/tuple/None) Pylance 가 유니온으로 추론해
+# 언패킹(*p["attack"])·대입에서 빨간 밑줄을 표시함 → 명시적으로 Any 로 지정
+PLAYERS: Dict[str, List[Dict[str, Any]]] = _pd.PLAYERS
+STARTING_LINEUP: Dict[str, Dict[str, Any]] = _pd.STARTING_LINEUP
+TEAMS: Dict[str, Dict[str, Any]] = _pd.TEAMS
 
 DB_PATH = ROOT / "db" / "volleyball.db"
 SCHEMA = ROOT / "db" / "schema.sql"
@@ -178,9 +186,10 @@ def build():
         )
 
     set_files = sorted(SET_DIR.glob("set[0-9].txt"))
-    numbers = parse_set.jersey_numbers(set_files)
+    numbers: Dict[str, Any] = parse_set.jersey_numbers(set_files)
 
-    name_to_id, by_name = {}, {}
+    name_to_id: Dict[str, Any] = {}
+    by_name: Dict[str, Dict[str, Any]] = {}
     for tid, plist in PLAYERS.items():
         for p in plist:
             p["number"] = p["number"] or numbers.get(p["name"])
