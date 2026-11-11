@@ -81,6 +81,9 @@ class Handler(SimpleHTTPRequestHandler):
                 if date == "2026-11-04":
                     from data.build_1104 import full_data_1104  # type: ignore
                     return self.send_json(full_data_1104)
+                if date == "2026-11-03":
+                    from data.build_1103 import full_data_1103  # type: ignore
+                    return self.send_json(full_data_1103)
                 con = db()
                 try:
                     return self.send_json(seed.bootstrap_payload(con))

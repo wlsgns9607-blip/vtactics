@@ -1474,7 +1474,22 @@
   function updateQuickChips(dateVal) {
     const chipsEl = $('quickChips');
     if (!chipsEl) return;
-    if (dateVal === '2026-11-04') {
+    if (dateVal === '2026-11-03') {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="빅토리아">빅토리아</button>
+        <button type="button" class="q-chip" data-q="최정민">최정민</button>
+        <button type="button" class="q-chip" data-q="이주아">이주아</button>
+        <button type="button" class="q-chip" data-q="미와">미와</button>
+        <button type="button" class="q-chip" data-q="이소영">이소영</button>
+        <button type="button" class="q-chip" data-q="김하경">김하경</button>
+        <button type="button" class="q-chip" data-q="조던">조던</button>
+        <button type="button" class="q-chip" data-q="김다인">김다인</button>
+        <button type="button" class="q-chip" data-q="배유나">배유나</button>
+        <button type="button" class="q-chip" data-q="세터">세터</button>
+        <button type="button" class="q-chip" data-q="리베로">리베로</button>
+      `;
+    } else if (dateVal === '2026-11-04') {
       chipsEl.innerHTML = `
         <button type="button" class="q-chip active" data-q="">전체</button>
         <button type="button" class="q-chip" data-q="킨델란">킨델란</button>
@@ -1528,6 +1543,12 @@
     function normalizeDate(raw) {
       if (!raw) return '2026-11-04';
       const s = String(raw).trim().toLowerCase();
+      if (s.includes('기업') || s.includes('ibk') || s.includes('빅토리아') || s.includes('최정민') || s.includes('이소영') ||
+          s.includes('11-03') || s.includes('1103') || s.includes('11/03') || s.includes('11/3') ||
+          s.includes('11.03') || s.includes('11.3') || s === '03' || s === '3' ||
+          s.endsWith('-03') || s.endsWith('.03') || s.endsWith('/03')) {
+        return '2026-11-03';
+      }
       if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
           s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
           s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
@@ -1546,14 +1567,14 @@
     const applyDate = (rawVal) => {
       const dateVal = normalizeDate(rawVal);
       S.matchDate = dateVal;
-      input.value = dateVal === '2026-11-04' ? '11-04' : (dateVal === '2026-11-07' ? '11-07' : dateVal);
-      if (select && (dateVal === '2026-11-04' || dateVal === '2026-11-07')) {
+      input.value = dateVal === '2026-11-03' ? '11-03' : (dateVal === '2026-11-04' ? '11-04' : (dateVal === '2026-11-07' ? '11-07' : dateVal));
+      if (select && (dateVal === '2026-11-03' || dateVal === '2026-11-04' || dateVal === '2026-11-07')) {
         select.value = dateVal;
       }
       const display = $('matchDateDisplay');
       const DAYS = ['일', '월', '화', '수', '목', '금', '토'];
       const d = new Date(dateVal + 'T00:00:00');
-      const dayName = isNaN(d.getTime()) ? '화' : DAYS[d.getDay()];
+      const dayName = isNaN(d.getTime()) ? '월' : DAYS[d.getDay()];
 
       document.querySelectorAll('.match-pill').forEach(b => {
         const isActive = b.dataset.date === dateVal;
@@ -1562,6 +1583,10 @@
           b.style.background = isActive ? 'rgba(230,0,126,0.3)' : 'rgba(255,255,255,0.06)';
           b.style.borderColor = isActive ? '#E6007E' : 'rgba(255,255,255,0.15)';
           b.style.color = isActive ? '#fff' : 'var(--muted)';
+        } else if (b.dataset.date === '2026-11-03') {
+          b.style.background = isActive ? 'rgba(0,75,155,0.35)' : 'rgba(255,255,255,0.06)';
+          b.style.borderColor = isActive ? '#004B9B' : 'rgba(255,255,255,0.15)';
+          b.style.color = isActive ? '#fff' : 'var(--muted)';
         } else {
           b.style.background = isActive ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)';
           b.style.borderColor = isActive ? '#fff' : 'rgba(255,255,255,0.15)';
@@ -1569,7 +1594,20 @@
         }
       });
 
-      if (dateVal === '2026-11-04') {
+      if (dateVal === '2026-11-03') {
+        switchMatch('2026-11-03');
+        if (display) {
+          display.innerHTML = `
+            <span class="match-badge active-match" style="background:rgba(0,75,155,0.25);border-color:#004B9B;">
+              <i class="dot-live" style="background:#004B9B;"></i> <b id="matchDateText">2024년 11월 3일 (${dayName})</b> 16:00
+            </span>
+            <span class="match-venue" id="matchVenueText">화성종합실내체육관 · 정규리그 (IBK기업은행 3:0 완승)</span>
+          `;
+        }
+        setCaster('📅 경기 날짜 선택', ['#2024-11-03', '#IBK기업은행', '#현대건설'],
+          '11월 3일 [IBK기업은행 vs 현대건설] 전술 분석 데이터가 선택되었습니다. 빅토리아 21득점(공격 18) 폭격과 최정민 17득점(블로킹 3), 이소영 BEST 플레이어 1위 선정 및 3:0 셧아웃 완승을 분석할 수 있습니다.',
+          new Set(), false);
+      } else if (dateVal === '2026-11-04') {
         switchMatch('2026-11-04');
         if (display) {
           display.innerHTML = `
@@ -1614,7 +1652,7 @@
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
-          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.04(흥국생명전) 또는 11.07(현대건설전)을 선택해 주세요.`,
+          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.03(기업은행전), 11.04(흥국생명전), 또는 11.07(현대건설전)을 선택해 주세요.`,
           new Set(), false);
       }
     };
