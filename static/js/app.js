@@ -1594,24 +1594,6 @@
       const d = new Date(dateVal + 'T00:00:00');
       const dayName = isNaN(d.getTime()) ? '월' : DAYS[d.getDay()];
 
-      document.querySelectorAll('.match-pill').forEach(b => {
-        const isActive = b.dataset.date === dateVal || b.dataset.date.slice(-5) === dateVal.slice(-5);
-        b.classList.toggle('active', isActive);
-        if (b.dataset.date.includes('11-04') || b.dataset.date.includes('1104')) {
-          b.style.background = isActive ? 'rgba(230,0,126,0.3)' : 'rgba(255,255,255,0.06)';
-          b.style.borderColor = isActive ? '#E6007E' : 'rgba(255,255,255,0.15)';
-          b.style.color = isActive ? '#fff' : 'var(--muted)';
-        } else if (b.dataset.date.includes('11-03') || b.dataset.date.includes('1103')) {
-          b.style.background = isActive ? 'rgba(0,75,155,0.35)' : 'rgba(255,255,255,0.06)';
-          b.style.borderColor = isActive ? '#004B9B' : 'rgba(255,255,255,0.15)';
-          b.style.color = isActive ? '#fff' : 'var(--muted)';
-        } else {
-          b.style.background = isActive ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.06)';
-          b.style.borderColor = isActive ? '#fff' : 'rgba(255,255,255,0.15)';
-          b.style.color = isActive ? '#fff' : 'var(--muted)';
-        }
-      });
-
       if (dateVal.includes('11-03')) {
         switchMatch(dateVal);
         if (display) {
@@ -1688,15 +1670,6 @@
         applyDate(select.value);
       });
     }
-
-    document.querySelectorAll('.match-pill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const d = btn.dataset.date;
-        input.value = d;
-        if (select) select.value = d;
-        applyDate(d);
-      });
-    });
 
     const urlParams = new URLSearchParams(window.location.search);
     const initialDate = urlParams.get('date') || urlParams.get('matchDate') || input.value || '2024-11-04';
