@@ -263,33 +263,8 @@ def make_sim_ace(set_no, r_no, s_id, rcv_id, sh, sa):
         "point_idx": 0, "events": events, "events_json": json.dumps(events, ensure_ascii=False)
     }
 
-# 3세트 (23:25 흥국 승, 48랠리)
-set3_rallies = []
-sh, sa = 0, 0
-for i in range(1, 49):
-    if sa < 25 and (sh >= 23 or (i % 2 == 0 and sa < 24) or i in [47, 48]):
-        sa += 1
-        if i in [2, 20]:
-            r = make_sim_kill(3, i, 506, 110, 111, 101, sh, sa, "백어택")
-        elif i in [8, 26]:
-            r = make_sim_block(3, i, 501, 110, 111, 501, 104, sh, sa)
-        elif i == 14:
-            r = make_sim_ace(3, i, 102, 508, sh, sa)
-        elif i in [32, 48]:
-            r = make_sim_kill(3, i, 502, 110, 111, 102, sh, sa, "터치아웃 퀵오픈")
-        else:
-            r = make_sim_kill(3, i, 506, 110, 111, 101, sh, sa, "오픈")
-    else:
-        sh += 1
-        if i in [1, 15]:
-            r = make_sim_kill(3, i, 111, 508, 506, 501, sh, sa, "오픈 강타")
-        elif i in [7, 21]:
-            r = make_sim_kill(3, i, 101, 504, 506, 502, sh, sa, "퀵오픈")
-        elif i == 11:
-            r = make_sim_block(3, i, 102, 508, 506, 103, 503, sh, sa)
-        else:
-            r = make_sim_kill(3, i, 111, 508, 506, 504, sh, sa, "오픈")
-    set3_rallies.append(r)
+# 3세트 (23:25 흥국 승, 48랠리 - 실제 문자 중계 로그 파싱)
+set3_rallies = parse_set_broadcast(3, ROOT / "data" / "raw_set3_1108.txt", 23, 25)
 
 # 4세트 (25:13 도로공사 승, 38랠리)
 set4_rallies = []
