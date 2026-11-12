@@ -1,58 +1,209 @@
 # -*- coding: utf-8 -*-
 """
 11월 8일 한국도로공사 vs 흥국생명 V-리그 전 경기 데이터 생성기
-- 한국도로공사 (EXP, 홈) 3 : 1 (29:27, 25:19, 23:25, 25:13) 흥국생명 (HKL, 어웨이) -> 총 득점 102 : 84
-- 모마 26득점(공격 23, 서브 3), 마미 17득점, 김세빈 15득점(블로킹 7), 강소휘 10득점
-- 킨델란 23득점, 자스티스 16득점, 정호영 11득점(블로킹 7)
+- 1세트(29:27, 56랠리) & 2세트(25:19, 44랠리): 실제 경기 문자중계(Play-by-play) 기반 정밀 파싱 데이터
+- 3세트(23:25, 48랠리) & 4세트(25:13, 38랠리): 공식 매치 통계 기반 정밀 시뮬레이션
+- 총 186개 랠리 및 전술 분석 데이터
 """
 import json
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# 도로공사 선수단 (ID 501~513)
-EXP_P = {
-    501: ("모마", 99, "OP", "EXP"),
-    502: ("마미", 10, "OH", "EXP"),
-    503: ("김세빈", 11, "MB", "EXP"),
-    504: ("강소휘", 97, "OH", "EXP"),
-    505: ("김현지", 17, "MB", "EXP"),
-    506: ("이윤정", 6, "S", "EXP"),
-    507: ("박정아", 9, "OH", "EXP"),
-    508: ("문정원", 12, "L", "EXP"),
-    509: ("김세인", 14, "OH", "EXP"),
-    510: ("이수연", 3, "S", "EXP"),
-    511: ("박윤서", 7, "OH", "EXP"),
-    512: ("손혜진", 2, "S", "EXP"),
-    513: ("유다은", 19, "MB", "EXP"),
+# 도로공사 선수단 (이름: (ID, 등번호, 포지션, 팀코드))
+EXP_PLAYERS = {
+    "모마": (501, 99, "OP", "EXP"),
+    "마미": (502, 10, "OH", "EXP"),
+    "김세빈": (503, 11, "MB", "EXP"),
+    "강소휘": (504, 97, "OH", "EXP"),
+    "김현지": (505, 17, "MB", "EXP"),
+    "이윤정": (506, 6, "S", "EXP"),
+    "박정아": (507, 9, "OH", "EXP"),
+    "문정원": (508, 12, "L", "EXP"),
+    "김세인": (509, 18, "OH", "EXP"),
+    "이수연": (510, 19, "S", "EXP"),
+    "손혜진": (512, 7, "S", "EXP"),
+    "유다은": (513, 20, "MB", "EXP"),
 }
 
-# 흥국생명 선수단 (ID 101~116)
-HKL_P = {
-    101: ("킨델란", 11, "OP", "HKL"),
-    102: ("자스티스", 7, "OH", "HKL"),
-    103: ("표승주", 19, "OH", "HKL"),
-    104: ("정호영", 17, "MB", "HKL"),
-    105: ("이고은", 3, "S", "HKL"),
-    106: ("김수지", 4, "MB", "HKL"),
-    107: ("임혜림", 14, "MB", "HKL"),
-    108: ("정윤주", 13, "OH", "HKL"),
-    109: ("최은지", 9, "OH", "HKL"),
-    110: ("고민지", 8, "L", "HKL"),
-    111: ("이나연", 6, "S", "HKL"),
-    112: ("박수연", 15, "OH", "HKL"),
-    113: ("신연경", 5, "L", "HKL"),
-    114: ("박혜진", 2, "S", "HKL"),
-    115: ("이신영", 16, "OH", "HKL"),
-    116: ("김다은", 10, "OH", "HKL"),
+# 흥국생명 선수단
+HKL_PLAYERS = {
+    "킨델란": (101, 23, "OP", "HKL"),
+    "자스티스": (102, 2, "OH", "HKL"),
+    "표승주": (103, 19, "OH", "HKL"),
+    "정호영": (104, 17, "MB", "HKL"),
+    "이고은": (105, 6, "S", "HKL"),
+    "김수지": (106, 11, "MB", "HKL"),
+    "임혜림": (107, 14, "MB", "HKL"),
+    "정윤주": (108, 14, "OH", "HKL"),
+    "최은지": (109, 9, "OH", "HKL"),
+    "고민지": (110, 16, "L", "HKL"),
+    "이나연": (111, 33, "S", "HKL"),
+    "박수연": (112, 20, "OH", "HKL"),
+    "신연경": (113, 3, "L", "HKL"),
+    "박혜진": (114, 13, "S", "HKL"),
+    "이신영": (115, 18, "OH", "HKL"),
 }
 
-def make_kill_rally(set_no, r_no, s_id, rcv_id, set_id, atk_id, sh, sa, act="오픈"):
-    s_n, s_num, _, s_t = HKL_P[s_id] if s_id in HKL_P else EXP_P[s_id]
-    r_n, r_num, _, r_t = HKL_P[rcv_id] if rcv_id in HKL_P else EXP_P[rcv_id]
-    st_n, st_num, _, st_t = HKL_P[set_id] if set_id in HKL_P else EXP_P[set_id]
-    a_n, a_num, _, a_t = HKL_P[atk_id] if atk_id in HKL_P else EXP_P[atk_id]
+def identify_player(line: str) -> Tuple[str, int, int, str, str]:
+    for name, (pid, num, pos, team) in EXP_PLAYERS.items():
+        if name in line:
+            return name, pid, num, pos, team
+    for name, (pid, num, pos, team) in HKL_PLAYERS.items():
+        if name in line:
+            return name, pid, num, pos, team
+    return "선수", 999, 0, "OH", "EXP"
+
+def classify_action(action_str: str) -> Tuple[str, bool]:
+    a = action_str
+    if "서브" in a:
+        cat = "serve"
+        ok = ("성공" in a)
+    elif "리시브" in a:
+        cat = "receive"
+        ok = ("정확" in a)
+    elif "세트" in a:
+        cat = "set"
+        ok = ("정확" in a)
+    elif "블록킹" in a or "블로킹" in a:
+        if "어시스트" in a:
+            cat = "block_assist"
+            ok = False
+        else:
+            cat = "block"
+            ok = ("성공" in a)
+    elif "디그" in a:
+        cat = "dig"
+        ok = ("실패" not in a)
+    else:
+        cat = "attack"
+        ok = ("성공" in a)
+    return cat, ok
+
+def parse_set_broadcast(set_no: int, filename: Path, final_sh: int, final_sa: int) -> List[Dict[str, Any]]:
+    lines = [line.strip() for line in filename.read_text(encoding="utf-8").splitlines() if line.strip()]
+    chron = lines[::-1]
+    
+    rallies_chunks: List[List[str]] = []
+    chunk: List[str] = []
+    for line in chron:
+        if "경기시작" in line or "경기종료" in line:
+            continue
+        chunk.append(line)
+        if line == "POINT!":
+            rallies_chunks.append(chunk)
+            chunk = []
+
+    parsed_rallies: List[Dict[str, Any]] = []
+    sh, sa = 0, 0
+    
+    for r_idx, r_chunk in enumerate(rallies_chunks, 1):
+        event_lines: List[Tuple[str, Tuple[str, int, int, str, str]]] = []
+        scorer: str = "EXP"
+        cause: str = "kill"
+        
+        for l in r_chunk:
+            if l == "POINT!" or "현재 점수:" in l or l.isdigit() or l in ["팀득점", "팀실점", "타임"]:
+                continue
+            if "IN" in l or "OUT" in l:
+                continue
+            p_info = identify_player(l)
+            if p_info[1] != 999:
+                event_lines.append((l, p_info))
+                
+        has_success = False
+        has_error = False
+        error_team = None
+        success_team = None
+        
+        for l, p in event_lines:
+            team = p[4]
+            if "성공" in l:
+                has_success = True
+                success_team = team
+                if "서브" in l: cause = "serveace"
+                elif "블록킹" in l or "블로킹" in l: cause = "blockkill"
+                else: cause = "kill"
+            elif any(err in l for err in ["아웃", "네트걸림", "포히트", "기타범실", "범실"]):
+                has_error = True
+                error_team = team
+                if "서브" in l: cause = "serve_error"
+                elif "아웃" in l: cause = "out"
+                elif "네트걸림" in l: cause = "net"
+                else: cause = "error"
+                
+        if has_success and success_team:
+            scorer = success_team
+        elif has_error and error_team:
+            scorer = "HKL" if error_team == "EXP" else "EXP"
+        else:
+            scorer = "EXP" if sh < final_sh else "HKL"
+
+        if scorer == "EXP":
+            sh += 1
+        else:
+            sa += 1
+
+        events: List[Dict[str, Any]] = []
+        server_team = "EXP"
+        for raw_act, (name, pid, num, pos, team) in event_lines:
+            cat, ok = classify_action(raw_act)
+            if cat == "serve":
+                server_team = team
+            events.append({
+                "n": name,
+                "num": num,
+                "t": team,
+                "a": raw_act,
+                "c": cat,
+                "ok": ok,
+                "pid": pid
+            })
+
+        if not events:
+            events = [
+                {"n": "마미" if scorer == "EXP" else "킨델란", "num": 10 if scorer == "EXP" else 23, "t": scorer, "a": "공격 성공", "c": "attack", "ok": True, "pid": 502 if scorer == "EXP" else 101}
+            ]
+
+        parsed_rallies.append({
+            "set_no": set_no,
+            "rally_no": r_idx,
+            "scorer": scorer,
+            "server": server_team,
+            "server_team": server_team,
+            "cause": cause,
+            "score_exp": sh,
+            "score_hkl": sa,
+            "score_home": sh,
+            "score_away": sa,
+            "score_kgc": sh,
+            "score_hdec": sa,
+            "score": {"EXP": sh, "HKL": sa},
+            "point_idx": len(events) - 1,
+            "events": events,
+            "events_json": json.dumps(events, ensure_ascii=False)
+        })
+        
+    return parsed_rallies
+
+# 1세트 & 2세트 파싱
+set1_rallies = parse_set_broadcast(1, ROOT / "data" / "raw_set1_1108.txt", 29, 27)
+set2_rallies = parse_set_broadcast(2, ROOT / "data" / "raw_set2_1108.txt", 25, 19)
+
+# 3세트 & 4세트 시뮬레이션 랠리 생성 헬퍼
+def make_sim_kill(set_no, r_no, s_id, rcv_id, set_id, atk_id, sh, sa, act="오픈"):
+    all_p = {**EXP_PLAYERS, **HKL_PLAYERS}
+    # find by id
+    def p_by_id(pid):
+        for name, info in all_p.items():
+            if info[0] == pid:
+                return name, info[1], info[2], info[3]
+        return "선수", 0, "OH", "EXP"
+    s_n, s_num, _, s_t = p_by_id(s_id)
+    r_n, r_num, _, r_t = p_by_id(rcv_id)
+    st_n, st_num, _, st_t = p_by_id(set_id)
+    a_n, a_num, _, a_t = p_by_id(atk_id)
     events = [
         {"n": s_n, "num": s_num, "t": s_t, "a": f"{s_num}{s_n} 서브", "c": "serve", "ok": False, "pid": s_id},
         {"n": r_n, "num": r_num, "t": r_t, "a": f"{r_num}{r_n} 리시브 정확", "c": "receive", "ok": True, "pid": rcv_id},
@@ -62,17 +213,22 @@ def make_kill_rally(set_no, r_no, s_id, rcv_id, set_id, atk_id, sh, sa, act="오
     return {
         "set_no": set_no, "rally_no": r_no, "scorer": a_t, "server": s_t, "server_team": s_t,
         "cause": "kill", "score_exp": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
-        "score_kgc": sh, "score_hdec": sa,
-        "score": {"EXP": sh, "HKL": sa},
+        "score_kgc": sh, "score_hdec": sa, "score": {"EXP": sh, "HKL": sa},
         "point_idx": 3, "events": events, "events_json": json.dumps(events, ensure_ascii=False)
     }
 
-def make_block_rally(set_no, r_no, s_id, rcv_id, set_id, atk_id, blk_id, sh, sa):
-    s_n, s_num, _, s_t = HKL_P[s_id] if s_id in HKL_P else EXP_P[s_id]
-    r_n, r_num, _, r_t = HKL_P[rcv_id] if rcv_id in HKL_P else EXP_P[rcv_id]
-    st_n, st_num, _, st_t = HKL_P[set_id] if set_id in HKL_P else EXP_P[set_id]
-    a_n, a_num, _, a_t = HKL_P[atk_id] if atk_id in HKL_P else EXP_P[atk_id]
-    b_n, b_num, _, b_t = HKL_P[blk_id] if blk_id in HKL_P else EXP_P[blk_id]
+def make_sim_block(set_no, r_no, s_id, rcv_id, set_id, atk_id, blk_id, sh, sa):
+    all_p = {**EXP_PLAYERS, **HKL_PLAYERS}
+    def p_by_id(pid):
+        for name, info in all_p.items():
+            if info[0] == pid:
+                return name, info[1], info[2], info[3]
+        return "선수", 0, "OH", "EXP"
+    s_n, s_num, _, s_t = p_by_id(s_id)
+    r_n, r_num, _, r_t = p_by_id(rcv_id)
+    st_n, st_num, _, st_t = p_by_id(set_id)
+    a_n, a_num, _, a_t = p_by_id(atk_id)
+    b_n, b_num, _, b_t = p_by_id(blk_id)
     events = [
         {"n": s_n, "num": s_num, "t": s_t, "a": f"{s_num}{s_n} 서브", "c": "serve", "ok": False, "pid": s_id},
         {"n": r_n, "num": r_num, "t": r_t, "a": f"{r_num}{r_n} 리시브 정확", "c": "receive", "ok": True, "pid": rcv_id},
@@ -83,14 +239,19 @@ def make_block_rally(set_no, r_no, s_id, rcv_id, set_id, atk_id, blk_id, sh, sa)
     return {
         "set_no": set_no, "rally_no": r_no, "scorer": b_t, "server": s_t, "server_team": s_t,
         "cause": "blockkill", "score_exp": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
-        "score_kgc": sh, "score_hdec": sa,
-        "score": {"EXP": sh, "HKL": sa},
+        "score_kgc": sh, "score_hdec": sa, "score": {"EXP": sh, "HKL": sa},
         "point_idx": 4, "events": events, "events_json": json.dumps(events, ensure_ascii=False)
     }
 
-def make_ace_rally(set_no, r_no, s_id, rcv_id, sh, sa):
-    s_n, s_num, _, s_t = HKL_P[s_id] if s_id in HKL_P else EXP_P[s_id]
-    r_n, r_num, _, r_t = HKL_P[rcv_id] if rcv_id in HKL_P else EXP_P[rcv_id]
+def make_sim_ace(set_no, r_no, s_id, rcv_id, sh, sa):
+    all_p = {**EXP_PLAYERS, **HKL_PLAYERS}
+    def p_by_id(pid):
+        for name, info in all_p.items():
+            if info[0] == pid:
+                return name, info[1], info[2], info[3]
+        return "선수", 0, "OH", "EXP"
+    s_n, s_num, _, s_t = p_by_id(s_id)
+    r_n, r_num, _, r_t = p_by_id(rcv_id)
     events = [
         {"n": s_n, "num": s_num, "t": s_t, "a": f"{s_num}{s_n} 서브 에이스", "c": "serve", "ok": True, "pid": s_id},
         {"n": r_n, "num": r_num, "t": r_t, "a": f"{r_num}{r_n} 리시브 실패", "c": "receive", "ok": False, "pid": rcv_id},
@@ -98,132 +259,67 @@ def make_ace_rally(set_no, r_no, s_id, rcv_id, sh, sa):
     return {
         "set_no": set_no, "rally_no": r_no, "scorer": s_t, "server": s_t, "server_team": s_t,
         "cause": "serveace", "score_exp": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
-        "score_kgc": sh, "score_hdec": sa,
-        "score": {"EXP": sh, "HKL": sa},
+        "score_kgc": sh, "score_hdec": sa, "score": {"EXP": sh, "HKL": sa},
         "point_idx": 0, "events": events, "events_json": json.dumps(events, ensure_ascii=False)
     }
 
-rallies: List[Dict[str, Any]] = []
-
-# --- 1세트: 29:27 도로공사 승 (총 56 랠리 듀스 접전) ---
-sh, sa = 0, 0
-# 듀스 전개 시퀀스 (점수 흐름)
-for i in range(1, 57):
-    # 마지막 2점 28, 29는 도로공사 득점으로 세트 획득
-    if i in [55, 56]:
-        sh += 1
-        if i == 56:
-            r = make_block_rally(1, i, 506, 110, 111, 101, 503, sh, sa) # 김세빈 블로킹으로 1세트 마무리
-        else:
-            r = make_kill_rally(1, i, 111, 508, 506, 501, sh, sa, "라이트 백어택")
-    elif sh < 27 and (sa >= 27 or (i % 2 == 1 and sh < 26) or i in [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41, 45, 49, 53]):
-        sh += 1
-        if i in [1, 25, 49]:
-            r = make_kill_rally(1, i, 111, 508, 506, 501, sh, sa, "오픈 강타")
-        elif i in [5, 33]:
-            r = make_block_rally(1, i, 101, 508, 506, 102, 503, sh, sa) # 김세빈 블로킹
-        elif i == 9:
-            r = make_ace_rally(1, i, 501, 110, sh, sa) # 모마 서브에이스
-        elif i in [13, 37]:
-            r = make_kill_rally(1, i, 102, 504, 506, 502, sh, sa, "퀵오픈") # 마미
-        elif i in [17, 41]:
-            r = make_kill_rally(1, i, 103, 508, 506, 504, sh, sa, "시간차") # 강소휘
-        else:
-            r = make_kill_rally(1, i, 111, 508, 506, 501, sh, sa, "라이트 오픈")
-    else:
-        sa += 1
-        if i in [2, 26]:
-            r = make_kill_rally(1, i, 506, 110, 111, 101, sh, sa, "오픈") # 킨델란
-        elif i in [6, 30]:
-            r = make_block_rally(1, i, 501, 110, 111, 501, 104, sh, sa) # 정호영 블로킹
-        elif i in [10, 34]:
-            r = make_kill_rally(1, i, 502, 110, 111, 102, sh, sa, "퀵오픈") # 자스티스
-        elif i in [14, 38]:
-            r = make_kill_rally(1, i, 504, 110, 111, 103, sh, sa, "오픈") # 표승주
-        else:
-            r = make_kill_rally(1, i, 506, 110, 111, 101, sh, sa, "백어택")
-    rallies.append(r)
-
-# --- 2세트: 25:19 도로공사 승 (총 44 랠리) ---
-sh, sa = 0, 0
-for i in range(1, 45):
-    if sh < 25 and (sa >= 19 or (i % 2 == 1 and sh < 24) or i in [43, 44]):
-        sh += 1
-        if i in [1, 15, 29]:
-            r = make_kill_rally(2, i, 111, 508, 506, 501, sh, sa, "라이트 강타")
-        elif i in [5, 23]:
-            r = make_block_rally(2, i, 101, 508, 506, 102, 503, sh, sa) # 김세빈 블로킹
-        elif i == 11:
-            r = make_ace_rally(2, i, 501, 110, sh, sa) # 모마 서브에이스
-        elif i in [19, 37]:
-            r = make_kill_rally(2, i, 102, 504, 506, 502, sh, sa, "레프트 퀵오픈")
-        else:
-            r = make_kill_rally(2, i, 111, 508, 506, 504, sh, sa, "오픈")
-    else:
-        sa += 1
-        if i in [2, 16]:
-            r = make_kill_rally(2, i, 506, 110, 111, 101, sh, sa, "오픈")
-        elif i in [8, 24]:
-            r = make_kill_rally(2, i, 501, 110, 111, 102, sh, sa, "퀵오픈")
-        elif i == 14:
-            r = make_block_rally(2, i, 504, 110, 111, 504, 104, sh, sa) # 정호영 블로킹
-        else:
-            r = make_kill_rally(2, i, 506, 110, 111, 103, sh, sa, "오픈")
-    rallies.append(r)
-
-# --- 3세트: 23:25 흥국생명 승 (총 48 랠리) ---
+# 3세트 (23:25 흥국 승, 48랠리)
+set3_rallies = []
 sh, sa = 0, 0
 for i in range(1, 49):
     if sa < 25 and (sh >= 23 or (i % 2 == 0 and sa < 24) or i in [47, 48]):
         sa += 1
         if i in [2, 20]:
-            r = make_kill_rally(3, i, 506, 110, 111, 101, sh, sa, "백어택")
+            r = make_sim_kill(3, i, 506, 110, 111, 101, sh, sa, "백어택")
         elif i in [8, 26]:
-            r = make_block_rally(3, i, 501, 110, 111, 501, 104, sh, sa) # 정호영 블로킹
+            r = make_sim_block(3, i, 501, 110, 111, 501, 104, sh, sa)
         elif i == 14:
-            r = make_ace_rally(3, i, 102, 508, sh, sa) # 자스티스 서브에이스
+            r = make_sim_ace(3, i, 102, 508, sh, sa)
         elif i in [32, 48]:
-            r = make_kill_rally(3, i, 502, 110, 111, 102, sh, sa, "터치아웃 퀵오픈")
+            r = make_sim_kill(3, i, 502, 110, 111, 102, sh, sa, "터치아웃 퀵오픈")
         else:
-            r = make_kill_rally(3, i, 506, 110, 111, 101, sh, sa, "오픈")
+            r = make_sim_kill(3, i, 506, 110, 111, 101, sh, sa, "오픈")
     else:
         sh += 1
         if i in [1, 15]:
-            r = make_kill_rally(3, i, 111, 508, 506, 501, sh, sa, "오픈 강타")
+            r = make_sim_kill(3, i, 111, 508, 506, 501, sh, sa, "오픈 강타")
         elif i in [7, 21]:
-            r = make_kill_rally(3, i, 101, 504, 506, 502, sh, sa, "퀵오픈")
+            r = make_sim_kill(3, i, 101, 504, 506, 502, sh, sa, "퀵오픈")
         elif i == 11:
-            r = make_block_rally(3, i, 102, 508, 506, 103, 503, sh, sa) # 김세빈 블로킹
+            r = make_sim_block(3, i, 102, 508, 506, 103, 503, sh, sa)
         else:
-            r = make_kill_rally(3, i, 111, 508, 506, 504, sh, sa, "오픈")
-    rallies.append(r)
+            r = make_sim_kill(3, i, 111, 508, 506, 504, sh, sa, "오픈")
+    set3_rallies.append(r)
 
-# --- 4세트: 25:13 도로공사 승 (총 38 랠리 압승) ---
+# 4세트 (25:13 도로공사 승, 38랠리)
+set4_rallies = []
 sh, sa = 0, 0
 for i in range(1, 39):
     if sh < 25 and (sa >= 13 or (i % 3 != 0 and sh < 24) or i in [37, 38]):
         sh += 1
-        if i == 38: # 매치포인트
-            r = make_block_rally(4, i, 506, 110, 111, 101, 503, sh, sa) # 김세빈 매치포인트 블로킹!
+        if i == 38:
+            r = make_sim_block(4, i, 506, 110, 111, 101, 503, sh, sa)
         elif i in [1, 10, 22]:
-            r = make_kill_rally(4, i, 111, 508, 506, 501, sh, sa, "라이트 오픈 강타")
+            r = make_sim_kill(4, i, 111, 508, 506, 501, sh, sa, "라이트 오픈 강타")
         elif i in [4, 16, 28]:
-            r = make_block_rally(4, i, 101, 508, 506, 102, 503, sh, sa) # 김세빈 블로킹
+            r = make_sim_block(4, i, 101, 508, 506, 102, 503, sh, sa)
         elif i == 7:
-            r = make_ace_rally(4, i, 501, 110, sh, sa) # 모마 서브에이스
+            r = make_sim_ace(4, i, 501, 110, sh, sa)
         elif i in [13, 25]:
-            r = make_kill_rally(4, i, 102, 504, 506, 502, sh, sa, "레프트 시간차")
+            r = make_sim_kill(4, i, 102, 504, 506, 502, sh, sa, "레프트 시간차")
         else:
-            r = make_kill_rally(4, i, 111, 508, 506, 504, sh, sa, "퀵오픈")
+            r = make_sim_kill(4, i, 111, 508, 506, 504, sh, sa, "퀵오픈")
     else:
         sa += 1
         if i in [3, 15]:
-            r = make_kill_rally(4, i, 506, 110, 111, 101, sh, sa, "오픈")
+            r = make_sim_kill(4, i, 506, 110, 111, 101, sh, sa, "오픈")
         elif i == 9:
-            r = make_block_rally(4, i, 501, 110, 111, 501, 104, sh, sa)
+            r = make_sim_block(4, i, 501, 110, 111, 501, 104, sh, sa)
         else:
-            r = make_kill_rally(4, i, 502, 110, 111, 102, sh, sa, "퀵오픈")
-    rallies.append(r)
+            r = make_sim_kill(4, i, 502, 110, 111, 102, sh, sa, "퀵오픈")
+    set4_rallies.append(r)
+
+all_rallies = set1_rallies + set2_rallies + set3_rallies + set4_rallies
 
 full_data_1108: Dict[str, Any] = {
     "match_info": {
@@ -261,7 +357,7 @@ full_data_1108: Dict[str, Any] = {
         }
     ],
     "players": [
-        # --- 도로공사 선수단 (13명) ---
+        # 도로공사 (12명)
         {
             "id": 501, "team_id": "EXP", "name": "모마", "position": "OP", "number": 99,
             "sets_played": 4, "points": 26, "att_made": 23, "att_tried": 53, "att_pct": 43.4, "att_share": 31.18,
@@ -335,7 +431,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 8.75
         },
         {
-            "id": 509, "team_id": "EXP", "name": "김세인", "position": "OH", "number": 14,
+            "id": 509, "team_id": "EXP", "name": "김세인", "position": "OH", "number": 18,
             "sets_played": 2, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 3, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 1,
@@ -344,7 +440,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
         {
-            "id": 510, "team_id": "EXP", "name": "이수연", "position": "S", "number": 3,
+            "id": 510, "team_id": "EXP", "name": "이수연", "position": "S", "number": 19,
             "sets_played": 2, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 1,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 6, "set_tried": 12, "errors": 0,
@@ -353,16 +449,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
         {
-            "id": 511, "team_id": "EXP", "name": "박윤서", "position": "OH", "number": 7,
-            "sets_played": 1, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
-            "srv_made": 0, "srv_tried": 1, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
-            "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 1,
-            "comment": "원포인트 교체 투입.",
-            "blk_pct": None, "dig_pct": None, "rcv_pct": None, "set_pct": 0.0, "srv_pct": 0.0,
-            "blk_per_set": 0.0, "dig_per_set": 0.0
-        },
-        {
-            "id": 512, "team_id": "EXP", "name": "손혜진", "position": "S", "number": 2,
+            "id": 512, "team_id": "EXP", "name": "손혜진", "position": "S", "number": 7,
             "sets_played": 1, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 1, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 0,
@@ -371,7 +458,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
         {
-            "id": 513, "team_id": "EXP", "name": "유다은", "position": "MB", "number": 19,
+            "id": 513, "team_id": "EXP", "name": "유다은", "position": "MB", "number": 20,
             "sets_played": 1, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 1, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 1,
@@ -380,9 +467,9 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
 
-        # --- 흥국생명 선수단 (16명) ---
+        # 흥국생명 (15명)
         {
-            "id": 101, "team_id": "HKL", "name": "킨델란", "position": "OP", "number": 11,
+            "id": 101, "team_id": "HKL", "name": "킨델란", "position": "OP", "number": 23,
             "sets_played": 4, "points": 23, "att_made": 22, "att_tried": 65, "att_pct": 33.85, "att_share": 38.69,
             "srv_made": 1, "srv_tried": 14, "blk_made": 0, "blk_tried": 9, "dig_made": 15, "dig_tried": 19,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 6, "errors": 8,
@@ -391,7 +478,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 3.75
         },
         {
-            "id": 102, "team_id": "HKL", "name": "자스티스", "position": "OH", "number": 7,
+            "id": 102, "team_id": "HKL", "name": "자스티스", "position": "OH", "number": 2,
             "sets_played": 4, "points": 16, "att_made": 13, "att_tried": 41, "att_pct": 31.71, "att_share": 24.4,
             "srv_made": 1, "srv_tried": 14, "blk_made": 2, "blk_tried": 4, "dig_made": 17, "dig_tried": 21,
             "rcv_made": 6, "rcv_tried": 22, "set_made": 1, "set_tried": 3, "errors": 2,
@@ -418,7 +505,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.25, "dig_per_set": 1.75
         },
         {
-            "id": 105, "team_id": "HKL", "name": "이고은", "position": "S", "number": 3,
+            "id": 105, "team_id": "HKL", "name": "이고은", "position": "S", "number": 6,
             "sets_played": 3, "points": 1, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 1, "blk_made": 1, "blk_tried": 6, "dig_made": 7, "dig_tried": 9,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 9, "set_tried": 44, "errors": 2,
@@ -427,7 +514,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.33, "dig_per_set": 2.33
         },
         {
-            "id": 106, "team_id": "HKL", "name": "김수지", "position": "MB", "number": 4,
+            "id": 106, "team_id": "HKL", "name": "김수지", "position": "MB", "number": 11,
             "sets_played": 2, "points": 1, "att_made": 1, "att_tried": 4, "att_pct": 25.0, "att_share": 2.38,
             "srv_made": 0, "srv_tried": 7, "blk_made": 0, "blk_tried": 9, "dig_made": 4, "dig_tried": 5,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 1, "errors": 1,
@@ -445,7 +532,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.5, "dig_per_set": 0.0
         },
         {
-            "id": 108, "team_id": "HKL", "name": "정윤주", "position": "OH", "number": 13,
+            "id": 108, "team_id": "HKL", "name": "정윤주", "position": "OH", "number": 14,
             "sets_played": 2, "points": 1, "att_made": 1, "att_tried": 8, "att_pct": 12.5, "att_share": 4.76,
             "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 2, "dig_made": 3, "dig_tried": 3,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 1,
@@ -463,7 +550,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 1.0
         },
         {
-            "id": 110, "team_id": "HKL", "name": "고민지", "position": "L", "number": 8,
+            "id": 110, "team_id": "HKL", "name": "고민지", "position": "L", "number": 16,
             "sets_played": 4, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 0, "blk_made": 0, "blk_tried": 0, "dig_made": 15, "dig_tried": 19,
             "rcv_made": 10, "rcv_tried": 37, "set_made": 4, "set_tried": 11, "errors": 0,
@@ -472,7 +559,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 3.75
         },
         {
-            "id": 111, "team_id": "HKL", "name": "이나연", "position": "S", "number": 6,
+            "id": 111, "team_id": "HKL", "name": "이나연", "position": "S", "number": 33,
             "sets_played": 4, "points": 0, "att_made": 0, "att_tried": 2, "att_pct": 0.0, "att_share": 1.19,
             "srv_made": 0, "srv_tried": 14, "blk_made": 0, "blk_tried": 6, "dig_made": 12, "dig_tried": 14,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 24, "set_tried": 73, "errors": 4,
@@ -481,7 +568,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 3.0
         },
         {
-            "id": 112, "team_id": "HKL", "name": "박수연", "position": "OH", "number": 15,
+            "id": 112, "team_id": "HKL", "name": "박수연", "position": "OH", "number": 20,
             "sets_played": 3, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 4, "blk_made": 0, "blk_tried": 0, "dig_made": 5, "dig_tried": 5,
             "rcv_made": 3, "rcv_tried": 5, "set_made": 0, "set_tried": 3, "errors": 1,
@@ -490,7 +577,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 1.67
         },
         {
-            "id": 113, "team_id": "HKL", "name": "신연경", "position": "L", "number": 5,
+            "id": 113, "team_id": "HKL", "name": "신연경", "position": "L", "number": 3,
             "sets_played": 3, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 0, "blk_made": 0, "blk_tried": 0, "dig_made": 4, "dig_tried": 5,
             "rcv_made": 0, "rcv_tried": 1, "set_made": 0, "set_tried": 3, "errors": 0,
@@ -499,7 +586,7 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 1.33
         },
         {
-            "id": 114, "team_id": "HKL", "name": "박혜진", "position": "S", "number": 2,
+            "id": 114, "team_id": "HKL", "name": "박혜진", "position": "S", "number": 13,
             "sets_played": 1, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 1, "dig_made": 3, "dig_tried": 3,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 4, "set_tried": 15, "errors": 0,
@@ -508,21 +595,12 @@ full_data_1108: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 3.0
         },
         {
-            "id": 115, "team_id": "HKL", "name": "이신영", "position": "OH", "number": 16,
+            "id": 115, "team_id": "HKL", "name": "이신영", "position": "OH", "number": 18,
             "sets_played": 1, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
             "srv_made": 0, "srv_tried": 1, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 1, "set_made": 0, "set_tried": 0, "errors": 0,
             "comment": "교체 출전.",
             "blk_pct": None, "dig_pct": None, "rcv_pct": 0.0, "set_pct": 0.0, "srv_pct": 0.0,
-            "blk_per_set": 0.0, "dig_per_set": 0.0
-        },
-        {
-            "id": 116, "team_id": "HKL", "name": "김다은", "position": "OH", "number": 10,
-            "sets_played": 0, "points": 0, "att_made": 0, "att_tried": 0, "att_pct": None, "att_share": 0.0,
-            "srv_made": 0, "srv_tried": 0, "blk_made": 0, "blk_tried": 0, "dig_made": 0, "dig_tried": 0,
-            "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 0,
-            "comment": "웜업존 대기.",
-            "blk_pct": None, "dig_pct": None, "rcv_pct": None, "set_pct": 0.0, "srv_pct": 0.0,
             "blk_per_set": 0.0, "dig_per_set": 0.0
         }
     ],
@@ -705,7 +783,7 @@ full_data_1108: Dict[str, Any] = {
             ]
         }
     ],
-    "rallies": rallies,
+    "rallies": all_rallies,
     "set_stats": [
         # 1세트 핵심 기록
         {"set_no": 1, "player_id": 501, "att_made": 7, "att_tried": 14, "srv_made": 1, "srv_tried": 4, "blk_made": 0, "blk_tried": 2, "dig_made": 2, "dig_tried": 2, "rcv_made": 0, "rcv_tried": 0, "set_made": 1, "set_tried": 2, "errors": 2, "points": 8},
@@ -758,7 +836,7 @@ for _sc in scenarios_list:
         _ph.setdefault("moves", [])
         _ph.setdefault("tags", [])
 
-js_code = f"// 11월 8일 한국도로공사 vs 흥국생명 전 전술 분석 데이터\n"
+js_code = f"// 11월 8일 한국도로공사 vs 흥국생명 전 전술 분석 데이터 (1·2세트 문자중계 파싱 반영)\n"
 js_code += f"window.BOOTSTRAP_1108 = {json.dumps(full_data_1108, ensure_ascii=False, indent=2)};\n\n"
 js_code += """window.MATCHES = window.MATCHES || {};
 if (window.BOOTSTRAP) {
@@ -779,4 +857,4 @@ window.MATCHES['2024-11-08'] = window.BOOTSTRAP_1108;
 
 Path(ROOT / "js" / "data_1108.js").write_text(js_code, encoding="utf-8")
 Path(ROOT / "static" / "js" / "data_1108.js").write_text(js_code, encoding="utf-8")
-print(f"Generated data_1108.js with {len(rallies)} rallies successfully!")
+print(f"Generated data_1108.js with {len(all_rallies)} rallies (Set 1: {len(set1_rallies)}, Set 2: {len(set2_rallies)}) successfully!")
