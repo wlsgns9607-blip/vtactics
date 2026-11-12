@@ -1438,7 +1438,9 @@
             (dateVal.includes('11-04') && window.MATCHES['2026-11-04']) ? '2026-11-04' :
               (dateVal.includes('11-03') && window.MATCHES['2024-11-03']) ? '2024-11-03' :
                 (dateVal.includes('11-03') && window.MATCHES['2026-11-03']) ? '2026-11-03' :
-                  (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
+                  (dateVal.includes('11-08') && window.MATCHES['2024-11-08']) ? '2024-11-08' :
+            (dateVal.includes('11-08') && window.MATCHES['2026-11-08']) ? '2026-11-08' :
+              (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
                     (dateVal.includes('11-07') && window.MATCHES['2026-11-07']) ? '2026-11-07' : null;
     if (!key || !window.MATCHES[key]) return false;
     stopAll(); stopTween();
