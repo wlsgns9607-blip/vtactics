@@ -10,7 +10,7 @@
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" />
-  <link rel="stylesheet" href="css/style.css?v=20261111_10" />
+  <link rel="stylesheet" href="css/style.css?v=20261112_01" />
 </head>
 
 <body>
@@ -32,16 +32,8 @@
               <label for="matchDateInput" class="date-label">
                 <span class="cal-icon">📅</span> 경기일자 선택:
               </label>
-              <input
-                type="date"
-                id="matchDateInput"
-                name="date"
-                value="2024-11-04"
-                min="2024-01-01"
-                max="2027-12-31"
-                class="match-date-input"
-                title="경기 날짜를 선택하세요"
-              />
+              <input type="date" id="matchDateInput" name="date" value="2024-11-04" min="2024-01-01" max="2027-12-31"
+                class="match-date-input" title="경기 날짜를 선택하세요" />
               <select id="matchSelect" class="match-select" title="경기 선택">
                 <option value="2024-11-04" style="background-color:#1a202c;color:#ffffff;" selected>🔥 [11월 4일] 흥국생명 vs 정관장 (3:0 완승 · 킨델란 22점)</option>
                 <option value="2024-11-03" style="background-color:#1a202c;color:#ffffff;">🏐 [11월 3일] IBK기업은행 vs 현대건설 (3:0 완승 · 빅토리아 21점)</option>
@@ -59,159 +51,157 @@
               <span class="match-venue" id="matchVenueText">인천 삼산월드체육관 · 정규리그 (흥국생명 3:0 완승)</span>
             </div>
           </form>
-          <span class="match-venue" id="matchVenueText">인천 삼산월드체육관 · 정규리그 (흥국생명 3:0 완승)</span>
         </div>
-        </form>
-      </div>
-  </div>
-
-  <div class="scoreboard" id="scoreboard"><!-- JS --></div>
-
-  <div class="controls">
-    <button class="btn btn-primary" id="btnPlay" title="재생 (Space)">▶ <span>재생</span></button>
-    <button class="btn" id="btnPause" title="일시정지 (Space)">⏸ <span>일시정지</span></button>
-    <button class="btn" id="btnRotate" title="사이드 패널에서 선택한 팀 로테이션 (R)">↻ <span>로테이션</span></button>
-    <button class="btn" id="btnReset" title="초기화 (Esc)">↺ <span>초기화</span></button>
-    <div class="divider"></div>
-    <label class="mini-select" title="재생 속도">
-      <span>속도</span>
-      <select id="speed">
-        <option value="0.25">x0.25</option>
-        <option value="0.5">x0.5</option>
-        <option value="1" selected>x1</option>
-        <option value="1.5">x1.5</option>
-        <option value="2">x2</option>
-        <option value="3">x3</option>
-        <option value="5">x5</option>
-      </select>
-    </label>
-    <button class="btn btn-ghost" id="btnHome" title="홈팀 전환 (테마 변경)">🏠 <span id="homeLabel">HOME</span></button>
-    <button class="btn btn-ghost" id="btnTheme" title="다크/라이트 전환">◐</button>
-  </div>
-  </header>
-
-  <!-- ═════════════ 세트 선택 바 ═════════════ -->
-  <section class="setbar panel">
-    <div class="setbar-row">
-      <div class="setbtns" id="setBtns" role="tablist" aria-label="세트 선택"><!-- JS --></div>
-      <button class="btn btn-review" id="btnReview" title="최종 리뷰 작성 (데이터 요약 포함)">📝 <span>최종리뷰</span></button>
-    </div>
-    <div class="set-headline" id="setHeadline"></div>
-  </section>
-
-  <!-- ═════════════ 코트 ═════════════ -->
-  <section class="court-wrap panel">
-    <div class="court-top">
-      <div class="status-chip" id="statusChip">대기</div>
-      <div class="court-meta" id="courtMeta"></div>
-      <label class="toggle"><input type="checkbox" id="autoFocus" checked /> 자동 포커스</label>
-    </div>
-    <svg id="court" viewBox="-14 -14 208 118" preserveAspectRatio="xMidYMid meet" aria-label="배구 코트 탑뷰">
-      <defs>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="1.4" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <radialGradient id="ballGrad" cx="35%" cy="35%" r="70%">
-          <stop offset="0%" stop-color="#fff8d6" />
-          <stop offset="60%" stop-color="#ffd23f" />
-          <stop offset="100%" stop-color="#e09a00" />
-        </radialGradient>
-      </defs>
-      <g id="layer-floor"></g>
-      <g id="layer-trails"></g>
-      <g id="layer-tokens"></g>
-      <g id="layer-ball"></g>
-      <g id="layer-call"></g>
-    </svg>
-    <div class="legend">
-      <span><i class="lg lg-home"></i><b id="lgHome"></b></span>
-      <span><i class="lg lg-away"></i><b id="lgAway"></b></span>
-      <span><i class="lg lg-trail"></i>이동 동선</span>
-      <span><i class="lg lg-ball"></i>공 궤적</span>
-      <span class="muted">선수를 클릭하면 기록이 표시됩니다</span>
-    </div>
-  </section>
-
-  <!-- ═════════════ 사이드 패널 ═════════════ -->
-  <aside class="side panel">
-    <div class="match-stats" id="matchStats"></div>
-    <div class="insights" id="insights"></div>
-
-    <!-- 선수 검색 및 빠른 찾기 영역 -->
-    <div class="player-search-section" id="playerSearchSection">
-      <div class="search-head">
-        <span class="search-title">🔍 선수별 기록 빠른 검색</span>
-        <span class="search-count" id="searchCount"></span>
-      </div>
-      <div class="search-input-wrap">
-        <span class="search-icon">🔎</span>
-        <input type="text" id="playerSearchInput" class="player-search-input"
-          placeholder="선수명, 등번호, 포지션 검색 (예: 메가, 종휘, 88, MB)..." autocomplete="off" />
-        <button type="button" id="playerSearchClear" class="search-clear-btn" title="검색어 지우기"
-          style="display:none;">✕</button>
       </div>
 
-      <!-- 빠른 선수 추천 칩스 -->
-      <div class="quick-chips" id="quickChips">
-        <span class="chips-label">주요선수:</span>
-        <button type="button" class="q-chip" data-q="메가">메가 <small>#88</small></button>
-        <button type="button" class="q-chip" data-q="종휘">종휘 <small>#17</small></button>
-        <button type="button" class="q-chip" data-q="조던">조던 <small>#21</small></button>
-        <button type="button" class="q-chip" data-q="배유나">배유나 <small>#10</small></button>
-        <button type="button" class="q-chip" data-q="신은지">신은지 <small>#16</small></button>
-        <button type="button" class="q-chip" data-q="박은진">박은진 <small>#6</small></button>
-        <button type="button" class="q-chip" data-q="김다인">김다인 <small>#3</small></button>
-        <button type="button" class="q-chip" data-q="염혜선">염혜선 <small>#3</small></button>
-        <button type="button" class="q-chip q-chip-all" data-q="">전체</button>
-      </div>
-    </div>
+      <div class="scoreboard" id="scoreboard"><!-- JS --></div>
 
-    <div class="tabs" id="teamTabs"></div>
-    <div class="player-list" id="playerList"></div>
-    <div class="player-card" id="playerCard"></div>
-  </aside>
+      <div class="controls">
+        <button class="btn btn-primary" id="btnPlay" title="재생 (Space)">▶ <span>재생</span></button>
+        <button class="btn" id="btnPause" title="일시정지 (Space)">⏸ <span>일시정지</span></button>
+        <button class="btn" id="btnRotate" title="사이드 패널에서 선택한 팀 로테이션 (R)">↻ <span>로테이션</span></button>
+        <button class="btn" id="btnReset" title="초기화 (Esc)">↺ <span>초기화</span></button>
+        <div class="divider"></div>
+        <label class="mini-select" title="재생 속도">
+          <span>속도</span>
+          <select id="speed">
+            <option value="0.25">x0.25</option>
+            <option value="0.5">x0.5</option>
+            <option value="1" selected>x1</option>
+            <option value="1.5">x1.5</option>
+            <option value="2">x2</option>
+            <option value="3">x3</option>
+            <option value="5">x5</option>
+          </select>
+        </label>
+        <button class="btn btn-ghost" id="btnHome" title="홈팀 전환 (테마 변경)">🏠 <span id="homeLabel">HOME</span></button>
+        <button class="btn btn-ghost" id="btnTheme" title="다크/라이트 전환">◐</button>
+      </div>
+    </header>
 
-  <!-- ═════════════ 하단 패널 ═════════════ -->
-  <section class="bottom panel">
-    <div class="scenarios">
-      <div class="mode-tabs" id="modeTabs">
-        <button class="mode-tab active" data-mode="scenario">🎬 전술 시나리오</button>
-        <button class="mode-tab" data-mode="replay">📼 세트 리플레이</button>
+    <!-- ═════════════ 세트 선택 바 ═════════════ -->
+    <section class="setbar panel">
+      <div class="setbar-row">
+        <div class="setbtns" id="setBtns" role="tablist" aria-label="세트 선택"><!-- JS --></div>
+        <button class="btn btn-review" id="btnReview" title="최종 리뷰 작성 (데이터 요약 포함)">📝 <span>최종리뷰</span></button>
       </div>
-      <div id="scenarioList" class="scenario-list"></div>
-      <div id="replayPane" hidden>
-        <div class="rally-filters" id="rallyFilters"></div>
-        <div class="rally-list" id="rallyList"></div>
+      <div class="set-headline" id="setHeadline"></div>
+    </section>
+
+    <!-- ═════════════ 코트 ═════════════ -->
+    <section class="court-wrap panel">
+      <div class="court-top">
+        <div class="status-chip" id="statusChip">대기</div>
+        <div class="court-meta" id="courtMeta"></div>
+
+        <label class="toggle"><input type="checkbox" id="autoFocus" checked /> 자동 포커스</label>
       </div>
-    </div>
-    <div class="cast">
-      <div class="timeline" id="timeline"></div>
-      <div class="progress">
-        <div class="progress-bar" id="progressBar"></div>
+      <svg id="court" viewBox="-14 -14 208 118" preserveAspectRatio="xMidYMid meet" aria-label="배구 코트 탑뷰">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="1.4" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <radialGradient id="ballGrad" cx="35%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#fff8d6" />
+            <stop offset="60%" stop-color="#ffd23f" />
+            <stop offset="100%" stop-color="#e09a00" />
+          </radialGradient>
+        </defs>
+        <g id="layer-floor"></g>
+        <g id="layer-trails"></g>
+        <g id="layer-tokens"></g>
+        <g id="layer-ball"></g>
+        <g id="layer-call"></g>
+      </svg>
+      <div class="legend">
+        <span><i class="lg lg-home"></i><b id="lgHome"></b></span>
+        <span><i class="lg lg-away"></i><b id="lgAway"></b></span>
+        <span><i class="lg lg-trail"></i>이동 동선</span>
+        <span><i class="lg lg-ball"></i>공 궤적</span>
+        <span class="muted">선수를 클릭하면 기록이 표시됩니다</span>
       </div>
-      <div class="caster">
-        <div class="caster-head">
-          <span class="mic">🎙</span>
-          <span class="caster-phase" id="casterPhase">해설</span>
-          <span class="caster-tags" id="casterTags"></span>
+    </section>
+
+    <!-- ═════════════ 사이드 패널 ═════════════ -->
+    <aside class="side panel">
+      <div class="match-stats" id="matchStats"></div>
+      <div class="insights" id="insights"></div>
+
+      <!-- 선수 검색 및 빠른 찾기 영역 -->
+      <div class="player-search-section" id="playerSearchSection">
+        <div class="search-head">
+          <span class="search-title">🔍 선수별 기록 빠른 검색</span>
+          <span class="search-count" id="searchCount"></span>
         </div>
-        <p class="caster-text" id="casterText"></p>
+        <div class="search-input-wrap">
+          <span class="search-icon">🔎</span>
+          <input type="text" id="playerSearchInput" class="player-search-input"
+            placeholder="선수명, 등번호, 포지션 검색 (예: 메가, 종휘, 88, MB)..." autocomplete="off" />
+          <button type="button" id="playerSearchClear" class="search-clear-btn" title="검색어 지우기"
+            style="display:none;">✕</button>
+        </div>
+
+        <!-- 빠른 선수 추천 칩스 -->
+        <div class="quick-chips" id="quickChips">
+          <span class="chips-label">주요선수:</span>
+          <button type="button" class="q-chip" data-q="메가">메가 <small>#88</small></button>
+          <button type="button" class="q-chip" data-q="종휘">종휘 <small>#17</small></button>
+          <button type="button" class="q-chip" data-q="조던">조던 <small>#21</small></button>
+          <button type="button" class="q-chip" data-q="배유나">배유나 <small>#10</small></button>
+          <button type="button" class="q-chip" data-q="신은지">신은지 <small>#16</small></button>
+          <button type="button" class="q-chip" data-q="박은진">박은진 <small>#6</small></button>
+          <button type="button" class="q-chip" data-q="김다인">김다인 <small>#3</small></button>
+          <button type="button" class="q-chip" data-q="염혜선">염혜선 <small>#3</small></button>
+          <button type="button" class="q-chip q-chip-all" data-q="">전체</button>
+        </div>
       </div>
-      <ol class="cast-log" id="castLog"></ol>
-    </div>
-  </section>
+
+      <div class="tabs" id="teamTabs"></div>
+      <div class="player-list" id="playerList"></div>
+      <div class="player-card" id="playerCard"></div>
+    </aside>
+
+    <!-- ═════════════ 하단 패널 ═════════════ -->
+    <section class="bottom panel">
+      <div class="scenarios">
+        <div class="mode-tabs" id="modeTabs">
+          <button class="mode-tab active" data-mode="scenario">🎬 전술 시나리오</button>
+          <button class="mode-tab" data-mode="replay">📼 세트 리플레이</button>
+        </div>
+        <div id="scenarioList" class="scenario-list"></div>
+        <div id="replayPane" hidden>
+          <div class="rally-filters" id="rallyFilters"></div>
+          <div class="rally-list" id="rallyList"></div>
+        </div>
+      </div>
+      <div class="cast">
+        <div class="timeline" id="timeline"></div>
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="caster">
+          <div class="caster-head">
+            <span class="mic">🎙</span>
+            <span class="caster-phase" id="casterPhase">해설</span>
+            <span class="caster-tags" id="casterTags"></span>
+          </div>
+          <p class="caster-text" id="casterText"></p>
+        </div>
+        <ol class="cast-log" id="castLog"></ol>
+      </div>
+    </section>
   </div>
 
   <!-- 최종 리뷰 화면 (review.js 가 채움) -->
   <div class="overlay" id="reviewOverlay" hidden></div>
 
   <!-- 서버 없이 열 때 쓰는 폴백 데이터 (db/seed.py 가 생성) -->
-  <script src="js/data.js?v=20261111_09"></script>
   <script src="js/data_1103.js?v=20261111_09"></script>
+  <script src="js/data.js?v=20261111_09"></script>
   <script src="js/data_1104.js?v=20261111_09"></script>
   <script src="js/app.js?v=20261111_09"></script>
   <script src="js/review.js?v=20261111_09"></script>
