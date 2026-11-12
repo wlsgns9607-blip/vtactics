@@ -1431,20 +1431,16 @@
 
   function switchMatch(dateVal) {
     if (!window.MATCHES) return false;
-    const key = window.MATCHES[dateVal] ? dateVal :
-      window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
-        window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') :
-          (dateVal.includes('11-04') && window.MATCHES['2024-11-04']) ? '2024-11-04' :
-            (dateVal.includes('11-04') && window.MATCHES['2026-11-04']) ? '2026-11-04' :
-              (dateVal.includes('11-03') && window.MATCHES['2024-11-03']) ? '2024-11-03' :
-                (dateVal.includes('11-03') && window.MATCHES['2026-11-03']) ? '2026-11-03' :
-                  (dateVal.includes('11-08') && window.MATCHES['2024-11-08']) ? '2024-11-08' :
-            (dateVal.includes('11-08') && window.MATCHES['2026-11-08']) ? '2026-11-08' :
-              (dateVal.includes('11-07') && window.MATCHES['2024-11-07']) ? '2024-11-07' :
-                    (dateVal.includes('11-07') && window.MATCHES['2026-11-07']) ? '2026-11-07' : null;
-    if (!key || !window.MATCHES[key]) return false;
+    const key = (dateVal.includes('11-08') && (window.MATCHES['2024-11-08'] || window.MATCHES['2026-11-08'])) ? (window.MATCHES['2024-11-08'] ? '2024-11-08' : '2026-11-08') :
+      (dateVal.includes('11-03') && (window.MATCHES['2024-11-03'] || window.MATCHES['2026-11-03'])) ? (window.MATCHES['2024-11-03'] ? '2024-11-03' : '2026-11-03') :
+        (dateVal.includes('11-07') && (window.MATCHES['2024-11-07'] || window.MATCHES['2026-11-07'])) ? (window.MATCHES['2024-11-07'] ? '2024-11-07' : '2026-11-07') :
+          (dateVal.includes('11-04') && (window.MATCHES['2024-11-04'] || window.MATCHES['2026-11-04'])) ? (window.MATCHES['2024-11-04'] ? '2024-11-04' : '2026-11-04') :
+            (window.MATCHES[dateVal] ? dateVal :
+              window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
+                window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') : null);
+    const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null);
+    if (!raw) return false;
     stopAll(); stopTween();
-    const raw = window.MATCHES[key];
     S.matchDate = key;
     for (const k in HL) delete HL[k]; // 이전 경기 하이라이트 캐시 제거
     indexData(raw);
@@ -1557,23 +1553,29 @@
     function normalizeDate(raw) {
       if (!raw) return '2024-11-04';
       const s = String(raw).trim().toLowerCase();
+      if (s.includes('도로') || s.includes('모마') || s.includes('강소휘') || s.includes('김세빈') ||
+        s.includes('11-08') || s.includes('1108') || s.includes('11/08') || s.includes('11/8') ||
+        s.includes('11.08') || s.includes('11.8') || s === '08' || s === '8' ||
+        s.endsWith('-08') || s.endsWith('.08') || s.endsWith('/08')) {
+        return '2024-11-08';
+      }
       if (s.includes('기업') || s.includes('ibk') || s.includes('빅토리아') || s.includes('최정민') || s.includes('이소영') ||
         s.includes('11-03') || s.includes('1103') || s.includes('11/03') || s.includes('11/3') ||
         s.includes('11.03') || s.includes('11.3') || s === '03' || s === '3' ||
         s.endsWith('-03') || s.endsWith('.03') || s.endsWith('/03')) {
         return '2024-11-03';
       }
-      if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
-        s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
-        s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
-        s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
-        return '2024-11-04';
-      }
       if (s.includes('현대') || s.includes('메가') ||
         s.includes('11-07') || s.includes('1107') || s.includes('11/07') || s.includes('11/7') ||
         s.includes('11.07') || s.includes('11.7') || s === '07' || s === '7' ||
         s.endsWith('-07') || s.endsWith('.07') || s.endsWith('/07')) {
         return '2024-11-07';
+      }
+      if (s.includes('흥국') || s.includes('자스티스') || s.includes('킨델란') ||
+        s.includes('11-04') || s.includes('1104') || s.includes('11/04') || s.includes('11/4') ||
+        s.includes('11.04') || s.includes('11.4') || s === '04' || s === '4' ||
+        s.endsWith('-04') || s.endsWith('.04') || s.endsWith('/04')) {
+        return '2024-11-04';
       }
       return s;
     }
@@ -1596,7 +1598,20 @@
       const d = new Date(dateVal + 'T00:00:00');
       const dayName = isNaN(d.getTime()) ? '월' : DAYS[d.getDay()];
 
-      if (dateVal.includes('11-03')) {
+      if (dateVal.includes('11-08')) {
+        switchMatch(dateVal);
+        if (display) {
+          display.innerHTML = `
+            <span class="match-badge active-match" style="background:rgba(11,78,162,0.25);border-color:#0B4EA2;">
+              <i class="dot-live" style="background:#0B4EA2;"></i> <b id="matchDateText">2024년 11월 8일 (${dayName})</b> 19:00
+            </span>
+            <span class="match-venue" id="matchVenueText">김천실내체육관 · 정규리그 (한국도로공사 3:1 승리)</span>
+          `;
+        }
+        setCaster('📅 경기 날짜 선택', ['#2024-11-08', '#한국도로공사', '#흥국생명'],
+          '11월 8일 [한국도로공사 vs 흥국생명] 정규리그 전술 분석 데이터가 선택되었습니다. 도로공사 3:1 승리, 모마 26득점 폭발과 김세빈 블로킹 7득점 대활약을 분석할 수 있습니다.',
+          new Set(), false);
+      } else if (dateVal.includes('11-03')) {
         switchMatch(dateVal);
         if (display) {
           display.innerHTML = `
@@ -1654,7 +1669,7 @@
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
-          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.03(기업은행전), 11.04(흥국생명전), 또는 11.07(현대건설전)을 선택해 주세요.`,
+          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.03(기업은행전), 11.04(흥국생명전), 11.07(현대건설전), 또는 11.08(도로공사전)을 선택해 주세요.`,
           new Set(), false);
       }
     };
