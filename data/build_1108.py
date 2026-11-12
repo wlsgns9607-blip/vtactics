@@ -25,6 +25,7 @@ EXP_PLAYERS = {
     "이수연": (510, 19, "S", "EXP"),
     "손혜진": (512, 7, "S", "EXP"),
     "유다은": (513, 20, "MB", "EXP"),
+    "박윤서": (514, 1, "OH", "EXP"),
 }
 
 # 흥국생명 선수단
@@ -266,33 +267,8 @@ def make_sim_ace(set_no, r_no, s_id, rcv_id, sh, sa):
 # 3세트 (23:25 흥국 승, 48랠리 - 실제 문자 중계 로그 파싱)
 set3_rallies = parse_set_broadcast(3, ROOT / "data" / "raw_set3_1108.txt", 23, 25)
 
-# 4세트 (25:13 도로공사 승, 38랠리)
-set4_rallies = []
-sh, sa = 0, 0
-for i in range(1, 39):
-    if sh < 25 and (sa >= 13 or (i % 3 != 0 and sh < 24) or i in [37, 38]):
-        sh += 1
-        if i == 38:
-            r = make_sim_block(4, i, 506, 110, 111, 101, 503, sh, sa)
-        elif i in [1, 10, 22]:
-            r = make_sim_kill(4, i, 111, 508, 506, 501, sh, sa, "라이트 오픈 강타")
-        elif i in [4, 16, 28]:
-            r = make_sim_block(4, i, 101, 508, 506, 102, 503, sh, sa)
-        elif i == 7:
-            r = make_sim_ace(4, i, 501, 110, sh, sa)
-        elif i in [13, 25]:
-            r = make_sim_kill(4, i, 102, 504, 506, 502, sh, sa, "레프트 시간차")
-        else:
-            r = make_sim_kill(4, i, 111, 508, 506, 504, sh, sa, "퀵오픈")
-    else:
-        sa += 1
-        if i in [3, 15]:
-            r = make_sim_kill(4, i, 506, 110, 111, 101, sh, sa, "오픈")
-        elif i == 9:
-            r = make_sim_block(4, i, 501, 110, 111, 501, 104, sh, sa)
-        else:
-            r = make_sim_kill(4, i, 502, 110, 111, 102, sh, sa, "퀵오픈")
-    set4_rallies.append(r)
+# 4세트 (25:13 도로공사 승, 38랠리 - 실제 문자 중계 로그 파싱)
+set4_rallies = parse_set_broadcast(4, ROOT / "data" / "raw_set4_1108.txt", 25, 13)
 
 all_rallies = set1_rallies + set2_rallies + set3_rallies + set4_rallies
 
