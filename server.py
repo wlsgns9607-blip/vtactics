@@ -79,6 +79,9 @@ class Handler(SimpleHTTPRequestHandler):
             if parts == ["bootstrap"]:
                 raw_date = q.get("date", q.get("matchDate", ["2024-11-04"]))[0]
                 s_date = str(raw_date).strip()
+                if "11-16" in s_date or "1116" in s_date or "16" == s_date or ("현대" in s_date and "도로" in s_date):
+                    from data.build_1116 import full_data_1116  # type: ignore
+                    return self.send_json(full_data_1116)
                 if "11-08" in s_date or "1108" in s_date or "도로" in s_date or "모마" in s_date or "8" == s_date:
                     from data.build_1108 import full_data_1108  # type: ignore
                     return self.send_json(full_data_1108)

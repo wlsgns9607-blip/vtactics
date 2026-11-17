@@ -1431,14 +1431,15 @@
 
   function switchMatch(dateVal) {
     if (!window.MATCHES) return false;
-    const key = (dateVal.includes('11-08') && (window.MATCHES['2024-11-08'] || window.MATCHES['2026-11-08'])) ? (window.MATCHES['2024-11-08'] ? '2024-11-08' : '2026-11-08') :
+    const key = (dateVal.includes('11-16') && (window.MATCHES['2024-11-16'] || window.MATCHES['2026-11-16'])) ? (window.MATCHES['2024-11-16'] ? '2024-11-16' : '2026-11-16') :
+      (dateVal.includes('11-08') && (window.MATCHES['2024-11-08'] || window.MATCHES['2026-11-08'])) ? (window.MATCHES['2024-11-08'] ? '2024-11-08' : '2026-11-08') :
       (dateVal.includes('11-03') && (window.MATCHES['2024-11-03'] || window.MATCHES['2026-11-03'])) ? (window.MATCHES['2024-11-03'] ? '2024-11-03' : '2026-11-03') :
         (dateVal.includes('11-07') && (window.MATCHES['2024-11-07'] || window.MATCHES['2026-11-07'])) ? (window.MATCHES['2024-11-07'] ? '2024-11-07' : '2026-11-07') :
           (dateVal.includes('11-04') && (window.MATCHES['2024-11-04'] || window.MATCHES['2026-11-04'])) ? (window.MATCHES['2024-11-04'] ? '2024-11-04' : '2026-11-04') :
             (window.MATCHES[dateVal] ? dateVal :
               window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
                 window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') : null);
-    const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null);
+    const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-16') ? window.BOOTSTRAP_1116 : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null));
     if (!raw) return false;
     stopAll(); stopTween();
     S.matchDate = key;
@@ -1553,6 +1554,11 @@
     function normalizeDate(raw) {
       if (!raw) return '2024-11-04';
       const s = String(raw).trim().toLowerCase();
+      if (s.includes('11-16') || s.includes('1116') || s.includes('11/16') || s.includes('11.16') ||
+        s === '16' || s.endsWith('-16') || s.endsWith('.16') || s.endsWith('/16') ||
+        (s.includes('현대') && s.includes('도로'))) {
+        return '2024-11-16';
+      }
       if (s.includes('도로') || s.includes('모마') || s.includes('강소휘') || s.includes('김세빈') ||
         s.includes('11-08') || s.includes('1108') || s.includes('11/08') || s.includes('11/8') ||
         s.includes('11.08') || s.includes('11.8') || s === '08' || s === '8' ||
@@ -1598,7 +1604,20 @@
       const d = new Date(dateVal + 'T00:00:00');
       const dayName = isNaN(d.getTime()) ? '월' : DAYS[d.getDay()];
 
-      if (dateVal.includes('11-08')) {
+      if (dateVal.includes('11-16')) {
+        switchMatch(dateVal);
+        if (display) {
+          display.innerHTML = `
+            <span class="match-badge active-match" style="background:rgba(0,45,98,0.25);border-color:#002D62;">
+              <i class="dot-live" style="background:#002D62;"></i> <b id="matchDateText">2024년 11월 16일 (${dayName})</b> 16:00
+            </span>
+            <span class="match-venue" id="matchVenueText">수원실내체육관 · 정규리그 (한국도로공사 3:0 완승)</span>
+          `;
+        }
+        setCaster('📅 경기 날짜 선택', ['#2024-11-16', '#현대건설', '#한국도로공사'],
+          '11월 16일 [현대건설 vs 한국도로공사] 정규리그 전술 분석 데이터가 선택되었습니다. 도로공사 3:0 셧아웃 완승, 모마 17득점 폭발과 강소휘 BEST 플레이어 1위 대활약을 분석할 수 있습니다.',
+          new Set(), false);
+      } else if (dateVal.includes('11-08')) {
         switchMatch(dateVal);
         if (display) {
           display.innerHTML = `
@@ -1669,7 +1688,7 @@
           });
         }
         setCaster('📅 경기 안내', [`#${dateVal}`, `#${dayName}요일`],
-          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.03(기업은행전), 11.04(흥국생명전), 11.07(현대건설전), 또는 11.08(도로공사전)을 선택해 주세요.`,
+          `선택하신 ${formatted}에는 등록된 경기 데이터가 없습니다. 상단의 11.03(기업은행전), 11.04(흥국생명전), 11.07(현대건설전), 11.08(도로공사전), 또는 11.16(현대-도로전)을 선택해 주세요.`,
           new Set(), false);
       }
     };
