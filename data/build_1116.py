@@ -9,12 +9,12 @@
 """
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
 
 # 한국도로공사 선수단 (원정)
-EXP_PLAYERS = {
+EXP_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {
     "모마": (501, 99, "OP", "EXP"),
     "마미": (502, 10, "OH", "EXP"),
     "김세빈": (503, 11, "MB", "EXP"),
@@ -32,7 +32,7 @@ EXP_PLAYERS = {
 }
 
 # 현대건설 선수단 (홈)
-HDEC_PLAYERS = {
+HDEC_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {
     "메가": (201, 99, "OP", "HDEC"),
     "조던": (202, 18, "OH", "HDEC"),
     "이채영": (203, 17, "OH", "HDEC"),
@@ -49,7 +49,7 @@ HDEC_PLAYERS = {
     "이한비": (214, 16, "OH", "HDEC"),
 }
 
-ALL_PLAYERS = {**EXP_PLAYERS, **HDEC_PLAYERS}
+ALL_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {**EXP_PLAYERS, **HDEC_PLAYERS}
 
 def get_p_info(pid: int) -> Tuple[str, int, str, str]:
     for name, info in ALL_PLAYERS.items():
@@ -58,14 +58,14 @@ def get_p_info(pid: int) -> Tuple[str, int, str, str]:
     return "선수", 0, "OH", "EXP"
 
 def make_rally(set_no: int, r_no: int, server_id: int, rcv_id: int, set_id: int, atk_id: int,
-               sh: int, sa: int, action: str = "오픈", is_kill: bool = True, blk_id: int = None,
+               sh: int, sa: int, action: str = "오픈", is_kill: bool = True, blk_id: Optional[int] = None,
                is_serve_ace: bool = False, is_error: bool = False) -> Dict[str, Any]:
     s_name, s_num, _, s_t = get_p_info(server_id)
     r_name, r_num, _, r_t = get_p_info(rcv_id)
     st_name, st_num, _, st_t = get_p_info(set_id)
     a_name, a_num, _, a_t = get_p_info(atk_id)
 
-    events = []
+    events: List[Dict[str, Any]] = []
     events.append({
         "n": s_name, "num": s_num, "t": s_t, "pid": server_id,
         "a": f"{s_num}{s_name} 서브", "c": "serve", "ok": not is_error
@@ -155,7 +155,6 @@ def build_set_rallies(set_no: int, max_sh: int, max_sa: int) -> List[Dict[str, A
     rallies = []
     sh, sa = 0, 0
     total_pts = max_sh + max_sa
-    step = 0
 
     exp_scorers = [
         (501, 508, 506, 501, "백어택"), # 모마
@@ -180,7 +179,6 @@ def build_set_rallies(set_no: int, max_sh: int, max_sa: int) -> List[Dict[str, A
     ]
 
     for i in range(1, total_pts + 1):
-        # 득점 팀 결정
         is_exp_turn = False
         if sa < max_sa and (sh >= max_sh or (sa * max_sh <= sh * max_sa and sa < max_sa) or i % 3 != 0):
             is_exp_turn = True
@@ -259,7 +257,6 @@ full_data_1116: Dict[str, Any] = {
         }
     ],
     "players": [
-        # 한국도로공사 (원정 승리팀)
         {
             "id": 501, "team_id": "EXP", "name": "모마", "position": "OP", "number": 99,
             "sets_played": 3, "points": 17, "att_made": 16, "att_tried": 28, "att_pct": 57.14, "att_share": 30.43,
@@ -468,94 +465,71 @@ full_data_1116: Dict[str, Any] = {
             "set_made": 47, "set_tried": 91, "errors": 10
         }
     ],
-    "key_players": [
-        {
-            "label": "득점",
-            "home": {"name": "메가", "value": "17"},
-            "away": {"name": "모마", "value": "17"}
+    "sets": [
+        { "set_no": 1, "hdec_score": 18, "exp_score": 25, "winner": "EXP", "score_home": 18, "score_away": 25 },
+        { "set_no": 2, "hdec_score": 21, "exp_score": 25, "winner": "EXP", "score_home": 21, "score_away": 25 },
+        { "set_no": 3, "hdec_score": 18, "exp_score": 25, "winner": "EXP", "score_home": 18, "score_away": 25 }
+    ],
+    "lineups": {
+        "HDEC": { "S": 207, "OH1": 202, "OH2": 206, "OP": 201, "MB1": 204, "MB2": 205, "L": 211 },
+        "EXP": { "S": 506, "OH1": 504, "OH2": 502, "OP": 501, "MB1": 503, "MB2": 505, "L": 508 }
+    },
+    "summary": {
+        "HDEC": {
+            "team_id": "HDEC", "att_made": 41, "att_tried": 98, "att_pct": 41.8,
+            "blk_made": 4, "blk_tried": 38, "srv_made": 2, "srv_tried": 58,
+            "dig_made": 44, "dig_tried": 54, "dig_pct": 81.48,
+            "rcv_made": 27, "rcv_tried": 67, "rcv_pct": 40.3,
+            "set_made": 39, "set_tried": 98, "opp_errors": 10, "errors": 19
         },
-        {
-            "label": "공격",
-            "home": {"name": "메가", "value": "16"},
-            "away": {"name": "모마", "value": "16"}
-        },
-        {
-            "label": "서브",
-            "home": {"name": "강서우", "value": "1"},
-            "away": {"name": "김세빈", "value": "2"}
-        },
-        {
-            "label": "블로킹",
-            "home": {"name": "강서우", "value": "1"},
-            "away": {"name": "김세빈", "value": "2"}
-        },
-        {
-            "label": "디그",
-            "home": {"name": "김다인", "value": "10"},
-            "away": {"name": "문정원", "value": "14"}
-        },
-        {
-            "label": "리시브",
-            "home": {"name": "이영주", "value": "10"},
-            "away": {"name": "강소휘", "value": "6"}
-        },
-        {
-            "label": "세트",
-            "home": {"name": "김다인", "value": "29"},
-            "away": {"name": "이윤정", "value": "40"}
+        "EXP": {
+            "team_id": "EXP", "att_made": 48, "att_tried": 92, "att_pct": 52.2,
+            "blk_made": 4, "blk_tried": 40, "srv_made": 4, "srv_tried": 74,
+            "dig_made": 50, "dig_tried": 59, "dig_pct": 84.75,
+            "rcv_made": 17, "rcv_tried": 55, "rcv_pct": 30.91,
+            "set_made": 47, "set_tried": 91, "opp_errors": 19, "errors": 10
         }
+    },
+    "scenarios": [
+        {
+            "scenario_id": 1,
+            "title": "모마-강소휘-김세빈 삼각편대 폭격 (52.2% 공격 성공률)",
+            "desc": "모마 17득점(57.14%)과 강소휘 12득점(46.15%), 김세빈 10득점(속공 60%)이 현대건설 코트를 맹폭하며 3:0 셧아웃 완승을 달성했습니다."
+        },
+        {
+            "scenario_id": 2,
+            "title": "문정원-이윤정의 철벽 수비와 완벽한 볼 배분",
+            "desc": "문정원의 디그 14개(82.35%) 슈퍼 디그와 이윤정 세터의 40세트 성공(무범실)으로 공격수들의 타점을 완벽하게 살렸습니다."
+        }
+    ],
+    "key_players": [
+        { "label": "득점", "home": { "name": "메가", "value": "17" }, "away": { "name": "모마", "value": "17" } },
+        { "label": "공격", "home": { "name": "메가", "value": "16" }, "away": { "name": "모마", "value": "16" } },
+        { "label": "서브", "home": { "name": "강서우", "value": "1" }, "away": { "name": "김세빈", "value": "2" } },
+        { "label": "블로킹", "home": { "name": "강서우", "value": "1" }, "away": { "name": "김세빈", "value": "2" } },
+        { "label": "디그", "home": { "name": "김다인", "value": "10" }, "away": { "name": "문정원", "value": "14" } },
+        { "label": "리시브", "home": { "name": "이영주", "value": "10" }, "away": { "name": "강소휘", "value": "6" } },
+        { "label": "세트", "home": { "name": "김다인", "value": "29" }, "away": { "name": "이윤정", "value": "40" } }
     ],
     "best_players": [
-        {
-            "team": "현대건설",
-            "rank": 1,
-            "name": "김희진",
-            "votes": 118,
-            "pct": 44,
-            "desc": "서브에이스 및 알토란 활약 (44% 최다 득표)"
-        },
-        {
-            "team": "현대건설",
-            "rank": 2,
-            "name": "메가",
-            "votes": 38,
-            "pct": 14,
-            "desc": "17득점 폭격 (14%)"
-        },
-        {
-            "team": "현대건설",
-            "rank": 3,
-            "name": "이예림",
-            "votes": 37,
-            "pct": 14,
-            "desc": "리시브 10개 및 수비 분전 (14%)"
-        },
-        {
-            "team": "한국도로공사",
-            "rank": 1,
-            "name": "강소휘",
-            "votes": 192,
-            "pct": 48,
-            "desc": "공격 12득점 & 디그 7개 살림꾼 활약 (48% 압도적 1위)"
-        },
-        {
-            "team": "한국도로공사",
-            "rank": 2,
-            "name": "문정원",
-            "votes": 65,
-            "pct": 16,
-            "desc": "디그 14개 명품 수비 (16%)"
-        },
-        {
-            "team": "한국도로공사",
-            "rank": 3,
-            "name": "박정아",
-            "votes": 45,
-            "pct": 11,
-            "desc": "원포인트 스파이커 100% 득점 (11%)"
-        }
+        { "team": "현대건설", "rank": 1, "name": "김희진", "votes": 118, "pct": 44, "desc": "서브에이스 및 알토란 활약 (44% 최다 득표)" },
+        { "team": "현대건설", "rank": 2, "name": "메가", "votes": 38, "pct": 14, "desc": "17득점 폭격 (14%)" },
+        { "team": "현대건설", "rank": 3, "name": "이예림", "votes": 37, "pct": 14, "desc": "리시브 10개 및 수비 분전 (14%)" },
+        { "team": "한국도로공사", "rank": 1, "name": "강소휘", "votes": 192, "pct": 48, "desc": "공격 12득점 & 디그 7개 살림꾼 활약 (48% 압도적 1위)" },
+        { "team": "한국도로공사", "rank": 2, "name": "문정원", "votes": 65, "pct": 16, "desc": "디그 14개 명품 수비 (16%)" },
+        { "team": "한국도로공사", "rank": 3, "name": "박정아", "votes": 45, "pct": 11, "desc": "원포인트 스파이커 100% 득점 (11%)" }
     ],
     "rallies": all_rallies,
+    "set_stats": [
+        {"set_no": 1, "player_id": 501, "att_made": 5, "att_tried": 9, "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 3, "dig_made": 1, "dig_tried": 1, "rcv_made": 0, "rcv_tried": 0, "set_made": 1, "set_tried": 1, "errors": 1, "points": 5, "blk_assist": 0, "comment": "1세트 공격 5/9 결정력 과시"},
+        {"set_no": 1, "player_id": 503, "att_made": 2, "att_tried": 3, "srv_made": 1, "srv_tried": 3, "blk_made": 1, "blk_tried": 4, "dig_made": 0, "dig_tried": 0, "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 0, "errors": 0, "points": 4, "blk_assist": 0, "comment": "1세트 서브 1, 블로킹 1, 속공 2개로 기선제압"},
+        {"set_no": 1, "player_id": 201, "att_made": 5, "att_tried": 12, "srv_made": 0, "srv_tried": 3, "blk_made": 0, "blk_tried": 1, "dig_made": 2, "dig_tried": 2, "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 1, "errors": 2, "points": 5, "blk_assist": 0, "comment": "1세트 메가 5득점 분전"},
+        {"set_no": 2, "player_id": 501, "att_made": 6, "att_tried": 10, "srv_made": 1, "srv_tried": 3, "blk_made": 0, "blk_tried": 3, "dig_made": 1, "dig_tried": 2, "rcv_made": 0, "rcv_tried": 0, "set_made": 1, "set_tried": 2, "errors": 1, "points": 7, "blk_assist": 0, "comment": "2세트 모마 7득점 맹폭격"},
+        {"set_no": 2, "player_id": 502, "att_made": 4, "att_tried": 7, "srv_made": 0, "srv_tried": 4, "blk_made": 1, "blk_tried": 2, "dig_made": 3, "dig_tried": 5, "rcv_made": 2, "rcv_tried": 6, "set_made": 0, "set_tried": 0, "errors": 1, "points": 5, "blk_assist": 0, "comment": "2세트 마미 5득점 지원사격"},
+        {"set_no": 2, "player_id": 201, "att_made": 6, "att_tried": 14, "srv_made": 0, "srv_tried": 3, "blk_made": 1, "blk_tried": 1, "dig_made": 2, "dig_tried": 3, "rcv_made": 0, "rcv_tried": 1, "set_made": 1, "set_tried": 2, "errors": 3, "points": 7, "blk_assist": 0, "comment": "2세트 메가 7득점 폭발"},
+        {"set_no": 3, "player_id": 501, "att_made": 5, "att_tried": 9, "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 3, "dig_made": 1, "dig_tried": 1, "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 1, "errors": 1, "points": 5, "blk_assist": 0, "comment": "3세트 승부 쐐기 모마 5득점"},
+        {"set_no": 3, "player_id": 504, "att_made": 5, "att_tried": 10, "srv_made": 0, "srv_tried": 4, "blk_made": 0, "blk_tried": 2, "dig_made": 3, "dig_tried": 3, "rcv_made": 2, "rcv_tried": 7, "set_made": 0, "set_tried": 1, "errors": 1, "points": 5, "blk_assist": 0, "comment": "3세트 강소휘 5득점 마무리"}
+    ],
     "set_lineups": {
         "1": {
             "HDEC": {"S": 207, "OH1": 202, "OH2": 206, "OP": 201, "MB1": 204, "MB2": 205, "L": 211},
@@ -572,7 +546,7 @@ full_data_1116: Dict[str, Any] = {
     }
 }
 
-def export_js():
+def export_js() -> None:
     data_json = json.dumps(full_data_1116, ensure_ascii=False, indent=2)
     js_content = f"""// 11월 16일 현대건설 vs 한국도로공사 전술 분석 데이터
 window.BOOTSTRAP_1116 = {data_json};
@@ -597,7 +571,6 @@ if (window.BOOTSTRAP_1108) {{
 window.MATCHES['2026-11-16'] = window.BOOTSTRAP_1116;
 window.MATCHES['2024-11-16'] = window.BOOTSTRAP_1116;
 """
-    # 루트 js/data_1116.js 및 static/js/data_1116.js 둘 다 저장
     js_path = ROOT / "js" / "data_1116.js"
     static_js_path = ROOT / "static" / "js" / "data_1116.js"
     js_path.write_text(js_content, encoding="utf-8")
