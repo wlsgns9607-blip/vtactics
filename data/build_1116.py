@@ -640,33 +640,112 @@ full_data_1116: Dict[str, Any] = {
     },
     "scenarios": [
         {
-            "scenario_id": 1,
-            "title": "모마-강소휘-김세빈 삼각편대 폭격 (52.2% 공격 성공률)",
-            "desc": "모마 17득점(57.14%)과 강소휘 12득점(46.15%), 김세빈 10득점(속공 60%)이 현대건설 코트를 맹폭하며 3:0 셧아웃 완승을 달성했습니다."
+            "id": 1,
+            "code": "EXP_MOMA_ATTACK",
+            "title": "⚡ 모마 17득점 폭격 & 삼각편대 (52.2% 공성률)",
+            "subtitle": "모마의 압도적 고공 강타와 강소휘-김세빈의 정밀한 지원사격으로 3:0 셧아웃 완승",
+            "attack_team": "EXP",
+            "sort_order": 0,
+            "phases": [
+                {
+                    "name": "포메이션", "dur": 1300,
+                    "moves": [
+                        {"who": "def.Z1", "to": [-6, 78], "delay": 0, "end": 1},
+                        {"who": "def.Z2", "to": [84, 78], "delay": 0, "end": 1},
+                        {"who": "def.Z3", "to": [84, 45], "delay": 0, "end": 1},
+                        {"who": "def.Z4", "to": [84, 12], "delay": 0, "end": 1},
+                        {"who": "def.Z5", "to": [22, 15], "delay": 0, "end": 1},
+                        {"who": "def.Z6", "to": [22, 45], "delay": 0, "end": 1},
+                        {"who": "atk.OHF", "to": [32, 20], "delay": 0, "end": 1},
+                        {"who": "atk.L", "to": [28, 45], "delay": 0, "end": 1},
+                        {"who": "atk.OHB", "to": [32, 70], "delay": 0, "end": 1},
+                        {"who": "atk.MBF", "to": [78, 40], "delay": 0, "end": 1},
+                        {"who": "atk.OP", "to": [80, 84], "delay": 0, "end": 1},
+                        {"who": "atk.S", "to": [74, 64], "delay": 0, "end": 1},
+                    ],
+                    "focus": "atk.OP",
+                    "tags": ["#모마", "#17득점", "#양팀최다"],
+                    "text": "11월 16일 현대건설 vs 한국도로공사. 모마의 17득점 맹폭과 강소휘-김세빈의 삼각편대 승부처를 분석합니다."
+                },
+                {
+                    "name": "서브 & 리시브", "dur": 1300,
+                    "ball": [{"from": ["def", -4, 78], "to": ["atk", 28, 45], "h": 30, "delay": 0, "end": 1}],
+                    "moves": [{"who": "atk.S", "to": [83, 60], "delay": 0.15, "end": 0.9, "trail": True}],
+                    "focus": "atk.L",
+                    "tags": ["#문정원디그", "#리시브안정"],
+                    "text": "문정원의 안정적인 리시브가 이윤정 세터의 머리 위로 완벽하게 연결됩니다."
+                },
+                {
+                    "name": "세트 & 스파이크", "dur": 1500,
+                    "ball": [
+                        {"from": ["atk", 28, 45], "to": ["atk", 83, 60], "h": 18, "delay": 0, "end": 0.4},
+                        {"from": ["atk", 83, 60], "to": ["atk", 85, 82], "h": 22, "delay": 0.45, "end": 0.85},
+                        {"from": ["atk", 85, 82], "to": ["def", 20, 20], "h": 12, "delay": 0.88, "end": 1.0}
+                    ],
+                    "moves": [
+                        {"who": "atk.OP", "to": [85, 82], "delay": 0.4, "end": 0.85, "trail": True},
+                        {"who": "def.Z2", "to": [85, 78], "delay": 0.45, "end": 0.85},
+                        {"who": "def.Z3", "to": [85, 60], "delay": 0.45, "end": 0.85}
+                    ],
+                    "focus": "atk.OP",
+                    "tags": ["#모마강타", "#백어택"],
+                    "text": "모마가 상대 2인 블로킹을 뚫고 대각 코트에 내리꽂으며 득점을 올립니다!"
+                }
+            ]
         },
         {
-            "scenario_id": 2,
-            "title": "문정원-이윤정의 철벽 수비와 완벽한 볼 배분",
-            "desc": "문정원의 디그 14개(82.35%) 슈퍼 디그와 이윤정 세터의 40세트 성공(무범실)으로 공격수들의 타점을 완벽하게 살렸습니다."
+            "id": 2,
+            "code": "EXP_SEBIN_WALL",
+            "title": "🛡️ 문정원 14디그 & 김세빈 중앙 속공/블로킹",
+            "subtitle": "문정원의 명품 수비(82.4%)와 김세빈의 중앙 블로킹/속공으로 현대건설 추격 완벽 차단",
+            "attack_team": "EXP",
+            "sort_order": 1,
+            "phases": [
+                {
+                    "name": "현대건설 공격 전개", "dur": 1300,
+                    "moves": [
+                        {"who": "atk.MBF", "to": [85, 50], "delay": 0.2, "end": 0.8, "trail": True},
+                        {"who": "def.Z4", "to": [80, 20], "delay": 0.1, "end": 0.7}
+                    ],
+                    "focus": "atk.MBF",
+                    "tags": ["#김세빈블로킹", "#중앙장악"],
+                    "text": "현대건설 메가와 조던의 오픈 공격을 김세빈이 네트 앞에서 완벽히 리딩합니다."
+                },
+                {
+                    "name": "셧다운 블로킹 & 득점", "dur": 1500,
+                    "ball": [{"from": ["atk", 85, 50], "to": ["atk", 65, 45], "h": 14, "delay": 0.3, "end": 0.9}],
+                    "moves": [
+                        {"who": "def.Z3", "to": [85, 48], "delay": 0.1, "end": 0.6},
+                        {"who": "def.Z4", "to": [85, 25], "delay": 0.1, "end": 0.6}
+                    ],
+                    "focus": "def.Z3",
+                    "tags": ["#블로킹성공", "#도로공사완승"],
+                    "text": "김세빈의 높은 손모양이 상대 공격을 완벽히 차단하며 도로공사가 승기를 굳힙니다!"
+                }
+            ]
         }
     ],
-    "key_players": [
-        { "label": "득점", "home": { "name": "메가", "value": "17" }, "away": { "name": "모마", "value": "17" } },
-        { "label": "공격", "home": { "name": "메가", "value": "16" }, "away": { "name": "모마", "value": "16" } },
-        { "label": "서브", "home": { "name": "강서우", "value": "1" }, "away": { "name": "김세빈", "value": "2" } },
-        { "label": "블로킹", "home": { "name": "강서우", "value": "1" }, "away": { "name": "김세빈", "value": "2" } },
-        { "label": "디그", "home": { "name": "김다인", "value": "10" }, "away": { "name": "문정원", "value": "14" } },
-        { "label": "리시브", "home": { "name": "이영주", "value": "10" }, "away": { "name": "강소휘", "value": "6" } },
-        { "label": "세트", "home": { "name": "김다인", "value": "29" }, "away": { "name": "이윤정", "value": "40" } }
-    ],
-    "best_players": [
-        { "team": "현대건설", "rank": 1, "name": "김희진", "votes": 118, "pct": 44, "desc": "서브에이스 및 알토란 활약 (44% 최다 득표)" },
-        { "team": "현대건설", "rank": 2, "name": "메가", "votes": 38, "pct": 14, "desc": "17득점 폭격 (14%)" },
-        { "team": "현대건설", "rank": 3, "name": "이예림", "votes": 37, "pct": 14, "desc": "리시브 10개 및 수비 분전 (14%)" },
-        { "team": "한국도로공사", "rank": 1, "name": "강소휘", "votes": 192, "pct": 48, "desc": "공격 12득점 & 디그 7개 살림꾼 활약 (48% 압도적 1위)" },
-        { "team": "한국도로공사", "rank": 2, "name": "문정원", "votes": 65, "pct": 16, "desc": "디그 14개 명품 수비 (16%)" },
-        { "team": "한국도로공사", "rank": 3, "name": "박정아", "votes": 45, "pct": 11, "desc": "원포인트 스파이커 100% 득점 (11%)" }
-    ],
+    "key_players": {
+        "points": {"HDEC": {"name": "메가", "val": 17}, "EXP": {"name": "모마", "val": 17}},
+        "attacks": {"HDEC": {"name": "메가", "val": 16}, "EXP": {"name": "모마", "val": 16}},
+        "serves": {"HDEC": {"name": "강서우", "val": 1}, "EXP": {"name": "김세빈", "val": 2}},
+        "blocks": {"HDEC": {"name": "강서우", "val": 1}, "EXP": {"name": "김세빈", "val": 2}},
+        "digs": {"HDEC": {"name": "김다인", "val": 10}, "EXP": {"name": "문정원", "val": 14}},
+        "receives": {"HDEC": {"name": "이영주", "val": 10}, "EXP": {"name": "강소휘", "val": 6}},
+        "sets": {"HDEC": {"name": "김다인", "val": 29}, "EXP": {"name": "이윤정", "val": 40}}
+    },
+    "best_players": {
+        "HDEC": [
+            {"rank": 1, "name": "김희진", "votes": 118, "pct": 44, "pos": "MB"},
+            {"rank": 2, "name": "메가", "votes": 38, "pct": 14, "pos": "OP"},
+            {"rank": 3, "name": "이예림", "votes": 37, "pct": 14, "pos": "OH"}
+        ],
+        "EXP": [
+            {"rank": 1, "name": "강소휘", "votes": 192, "pct": 48, "pos": "OH"},
+            {"rank": 2, "name": "문정원", "votes": 65, "pct": 16, "pos": "L"},
+            {"rank": 3, "name": "박정아", "votes": 45, "pct": 11, "pos": "OH"}
+        ]
+    },
     "rallies": all_rallies,
     "set_stats": [
         {"set_no": 1, "player_id": 501, "att_made": 5, "att_tried": 9, "srv_made": 0, "srv_tried": 2, "blk_made": 0, "blk_tried": 3, "dig_made": 1, "dig_tried": 1, "rcv_made": 0, "rcv_tried": 0, "set_made": 1, "set_tried": 1, "errors": 1, "points": 5, "blk_assist": 0, "comment": "1세트 공격 5/9 결정력 과시"},

@@ -1073,18 +1073,20 @@
         </div>
       </div>`;
     }
-    if (RAW.key_players) {
+    if (RAW.key_players && !Array.isArray(RAW.key_players)) {
       const kp = RAW.key_players;
       const t1 = D.teamIds[0], t2 = D.teamIds[1];
-      insHtml += `<div class="key-player-box" style="margin-top:8px;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.08);font-size:11px;">
-        <div style="font-weight:700;font-size:11px;color:#38bdf8;margin-bottom:4px;">⚡ 키플레이어 매치업</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;line-height:1.4;">
-          <div>득점: <b style="color:${color(t1)}">${kp.points[t1].name} ${kp.points[t1].val}</b> vs <b style="color:${color(t2)}">${kp.points[t2].name} ${kp.points[t2].val}</b></div>
-          <div>공격: <b style="color:${color(t1)}">${kp.attacks[t1].name} ${kp.attacks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.attacks[t2].name} ${kp.attacks[t2].val}</b></div>
-          <div>블록: <b style="color:${color(t1)}">${kp.blocks[t1].name} ${kp.blocks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.blocks[t2].name} ${kp.blocks[t2].val}</b></div>
-          <div>디그: <b style="color:${color(t1)}">${kp.digs[t1].name} ${kp.digs[t1].val}</b> vs <b style="color:${color(t2)}">${kp.digs[t2].name} ${kp.digs[t2].val}</b></div>
-        </div>
-      </div>`;
+      if (kp.points && kp.points[t1] && kp.points[t2]) {
+        insHtml += `<div class="key-player-box" style="margin-top:8px;padding:8px 10px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.08);font-size:11px;">
+          <div style="font-weight:700;font-size:11px;color:#38bdf8;margin-bottom:4px;">⚡ 키플레이어 매치업</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;line-height:1.4;">
+            <div>득점: <b style="color:${color(t1)}">${kp.points[t1].name} ${kp.points[t1].val}</b> vs <b style="color:${color(t2)}">${kp.points[t2].name} ${kp.points[t2].val}</b></div>
+            ${kp.attacks && kp.attacks[t1] ? `<div>공격: <b style="color:${color(t1)}">${kp.attacks[t1].name} ${kp.attacks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.attacks[t2].name} ${kp.attacks[t2].val}</b></div>` : ''}
+            ${kp.blocks && kp.blocks[t1] ? `<div>블록: <b style="color:${color(t1)}">${kp.blocks[t1].name} ${kp.blocks[t1].val}</b> vs <b style="color:${color(t2)}">${kp.blocks[t2].name} ${kp.blocks[t2].val}</b></div>` : ''}
+            ${kp.digs && kp.digs[t1] ? `<div>디그: <b style="color:${color(t1)}">${kp.digs[t1].name} ${kp.digs[t1].val}</b> vs <b style="color:${color(t2)}">${kp.digs[t2].name} ${kp.digs[t2].val}</b></div>` : ''}
+          </div>
+        </div>`;
+      }
     }
     $('insights').innerHTML = insHtml;
   }
@@ -1312,6 +1314,14 @@
       return;
     }
     const sc = scen();
+    if (!sc || !sc.phases || !Array.isArray(sc.phases)) {
+      $('timeline').innerHTML = '';
+      if (sc) {
+        const teamName = (sc.attack_team && D.teams[sc.attack_team]) ? D.teams[sc.attack_team].short_name : '';
+        $('courtMeta').textContent = `${D.setNo ? D.view.label + ' 기준 · ' : ''}${sc.title || ''}${teamName ? ' · 공격 ' + teamName : ''}`;
+      }
+      return;
+    }
     $('timeline').innerHTML = sc.phases.map((ph, i) => {
       const cls = i === S.phase && !S.finished ? 'current' : (i < S.phase || (S.finished && i <= S.phase)) ? 'done' : '';
       return `<button class="ph ${cls}" data-i="${i}"><span class="i">${i + 1}</span>${esc(ph.name)}</button>`;
@@ -1485,7 +1495,36 @@
   function updateQuickChips(dateVal) {
     const chipsEl = $('quickChips');
     if (!chipsEl) return;
-    if (dateVal.includes('11-03')) {
+    if (dateVal.includes('11-16')) {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="메가">메가</button>
+        <button type="button" class="q-chip" data-q="모마">모마</button>
+        <button type="button" class="q-chip" data-q="조던">조던</button>
+        <button type="button" class="q-chip" data-q="강소휘">강소휘</button>
+        <button type="button" class="q-chip" data-q="마미">마미</button>
+        <button type="button" class="q-chip" data-q="김세빈">김세빈</button>
+        <button type="button" class="q-chip" data-q="김다인">김다인</button>
+        <button type="button" class="q-chip" data-q="이윤정">이윤정</button>
+        <button type="button" class="q-chip" data-q="문정원">문정원</button>
+        <button type="button" class="q-chip" data-q="김희진">김희진</button>
+        <button type="button" class="q-chip" data-q="이예림">이예림</button>
+      `;
+    } else if (dateVal.includes('11-08')) {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="모마">모마</button>
+        <button type="button" class="q-chip" data-q="킨델란">킨델란</button>
+        <button type="button" class="q-chip" data-q="자스티스">자스티스</button>
+        <button type="button" class="q-chip" data-q="강소휘">강소휘</button>
+        <button type="button" class="q-chip" data-q="마미">마미</button>
+        <button type="button" class="q-chip" data-q="김세빈">김세빈</button>
+        <button type="button" class="q-chip" data-q="정호영">정호영</button>
+        <button type="button" class="q-chip" data-q="문정원">문정원</button>
+        <button type="button" class="q-chip" data-q="이윤정">이윤정</button>
+        <button type="button" class="q-chip" data-q="이나연">이나연</button>
+      `;
+    } else if (dateVal.includes('11-03')) {
       chipsEl.innerHTML = `
         <button type="button" class="q-chip active" data-q="">전체</button>
         <button type="button" class="q-chip" data-q="빅토리아">빅토리아</button>
@@ -1826,6 +1865,22 @@
     selectPlayer(D.lineups[S.home].OH1, { silent: true });
     renderScenarios(); renderModeUI(); renderTimeline(); updateControls(); introCaster(); bind();
     renderCourt();
+    const titleEl = $('mainTitle') || document.querySelector('h1');
+    if (titleEl) {
+      titleEl.textContent = `[${D.teams[S.home].short_name} vs ${D.teams[away()].short_name}] V-리그 전술 분석 & 리뷰 판`;
+    }
+    const dateInput = $('matchDateInput');
+    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : S.matchDate);
+    const matchSel = $('matchSelect');
+    if (matchSel && S.matchDate) {
+      const optVal = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
+      matchSel.value = optVal;
+    }
+    const matchDateText = $('matchDateText');
+    if (matchDateText && D.match_info) {
+      matchDateText.textContent = `${D.match_info.date} (${D.match_info.day || '토'})`;
+    }
+    updateQuickChips(S.matchDate || '2024-11-16');
     requestAnimationFrame(tick);
     resolveReady(window.VT);
   }
