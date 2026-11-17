@@ -26,30 +26,174 @@ EXP_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {
     "김세인": (509, 18, "OH", "EXP"),
     "이수연": (510, 19, "S", "EXP"),
     "손혜진": (512, 7, "S", "EXP"),
-    "김현아": (515, 13, "MB", "EXP"),
+    "김현아": (515, 15, "MB", "EXP"),
     "유다은": (513, 20, "MB", "EXP"),
     "박윤서": (514, 1, "OH", "EXP"),
 }
 
 # 현대건설 선수단 (홈)
 HDEC_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {
-    "메가": (201, 99, "OP", "HDEC"),
-    "조던": (202, 18, "OH", "HDEC"),
-    "이채영": (203, 17, "OH", "HDEC"),
+    "메가": (201, 88, "OP", "HDEC"),
+    "조던": (202, 21, "OH", "HDEC"),
+    "이채영": (203, 2, "OH", "HDEC"),
     "강서우": (204, 11, "MB", "HDEC"),
     "김희진": (205, 4, "MB", "HDEC"),
-    "이예림": (206, 7, "OH", "HDEC"),
+    "이예림": (206, 1, "OH", "HDEC"),
     "김다인": (207, 3, "S", "HDEC"),
-    "배유나": (208, 12, "MB", "HDEC"),
-    "구솔": (209, 6, "S", "HDEC"),
+    "배유나": (208, 10, "MB", "HDEC"),
+    "구솔": (209, 99, "S", "HDEC"),
     "김연견": (210, 8, "L", "HDEC"),
     "이영주": (211, 5, "L", "HDEC"),
-    "나현수": (212, 15, "OP", "HDEC"),
-    "한미르": (213, 1, "OH", "HDEC"),
+    "나현수": (212, 9, "OP", "HDEC"),
+    "한미르": (213, 18, "OH", "HDEC"),
     "이한비": (214, 16, "OH", "HDEC"),
 }
 
 ALL_PLAYERS: Dict[str, Tuple[int, int, str, str]] = {**EXP_PLAYERS, **HDEC_PLAYERS}
+
+def identify_player(line: str) -> Tuple[str, int, int, str, str]:
+    for name, (pid, num, pos, team) in EXP_PLAYERS.items():
+        if name in line:
+            return name, pid, num, pos, team
+    for name, (pid, num, pos, team) in HDEC_PLAYERS.items():
+        if name in line:
+            return name, pid, num, pos, team
+    return "선수", 999, 0, "OH", "HDEC"
+
+def classify_action(action_str: str) -> Tuple[str, bool]:
+    a = action_str
+    if "서브" in a:
+        cat = "serve"
+        ok = ("성공" in a)
+    elif "리시브" in a:
+        cat = "receive"
+        ok = ("정확" in a)
+    elif "세트" in a:
+        cat = "set"
+        ok = ("정확" in a)
+    elif "블록킹" in a or "블로킹" in a:
+        if "어시스트" in a:
+            cat = "block_assist"
+            ok = False
+        else:
+            cat = "block"
+            ok = ("성공" in a)
+    elif "디그" in a:
+        cat = "dig"
+        ok = ("실패" not in a)
+    else:
+        cat = "attack"
+        ok = ("성공" in a)
+    return cat, ok
+
+def parse_set_broadcast(set_no: int, filename: Path, final_sh: int, final_sa: int) -> List[Dict[str, Any]]:
+    lines = [line.strip() for line in filename.read_text(encoding="utf-8").splitlines() if line.strip()]
+    chron = lines[::-1]
+
+    rallies_chunks: List[List[str]] = []
+    chunk: List[str] = []
+    for line in chron:
+        if "경기시작" in line or "경기종료" in line:
+            continue
+        chunk.append(line)
+        if line == "POINT!":
+            rallies_chunks.append(chunk)
+            chunk = []
+
+    parsed_rallies: List[Dict[str, Any]] = []
+    sh, sa = 0, 0
+
+    for r_idx, r_chunk in enumerate(rallies_chunks, 1):
+        event_lines: List[Tuple[str, Tuple[str, int, int, str, str]]] = []
+        scorer: str = "HDEC"
+        cause: str = "kill"
+
+        for l in r_chunk:
+            if l == "POINT!" or "현재 점수:" in l or l.isdigit() or l in ["팀득점", "팀실점", "타임"]:
+                continue
+            if "IN" in l or "OUT" in l:
+                continue
+            p_info = identify_player(l)
+            if p_info[1] != 999:
+                event_lines.append((l, p_info))
+
+        has_success = False
+        has_error = False
+        error_team = None
+        success_team = None
+
+        for l, p in reversed(event_lines):
+            team = p[4]
+            if "성공" in l:
+                has_success = True
+                success_team = team
+                if "서브" in l: cause = "serveace"
+                elif "블록킹" in l or "블로킹" in l: cause = "blockkill"
+                else: cause = "kill"
+                break
+            elif any(err in l for err in ["아웃", "네트걸림", "포히트", "기타범실", "범실", "라인오버", "오버넷"]):
+                has_error = True
+                error_team = team
+                if "서브" in l: cause = "serve_error"
+                elif "아웃" in l: cause = "out"
+                elif "네트걸림" in l: cause = "net"
+                else: cause = "error"
+                break
+
+        if has_success and success_team:
+            scorer = success_team
+        elif has_error and error_team:
+            scorer = "HDEC" if error_team == "EXP" else "EXP"
+        else:
+            scorer = "HDEC" if sh < final_sh else "EXP"
+
+        if scorer == "HDEC":
+            sh += 1
+        else:
+            sa += 1
+
+        events: List[Dict[str, Any]] = []
+        server_name = "선수"
+        server_team = "HDEC"
+        for raw_act, (name, pid, num, pos, team) in event_lines:
+            cat, ok = classify_action(raw_act)
+            if cat == "serve":
+                server_name = name
+                server_team = team
+            events.append({
+                "n": name,
+                "num": num,
+                "t": team,
+                "a": raw_act,
+                "c": cat,
+                "ok": ok,
+                "pid": pid
+            })
+
+        if not events:
+            events = [
+                {"n": "메가" if scorer == "HDEC" else "모마", "num": 88 if scorer == "HDEC" else 99, "t": scorer, "a": "공격 성공", "c": "attack", "ok": True, "pid": 201 if scorer == "HDEC" else 501}
+            ]
+
+        parsed_rallies.append({
+            "set_no": set_no,
+            "rally_no": r_idx,
+            "scorer": scorer,
+            "server": server_name,
+            "server_team": server_team,
+            "cause": cause,
+            "score_hdec": sh,
+            "score_exp": sa,
+            "score_home": sh,
+            "score_away": sa,
+            "score_kgc": sh,
+            "score": {"HDEC": sh, "EXP": sa},
+            "point_idx": len(events) - 1,
+            "events": events,
+            "events_json": json.dumps(events, ensure_ascii=False)
+        })
+
+    return parsed_rallies
 
 def get_p_info(pid: int) -> Tuple[str, int, str, str]:
     for name, info in ALL_PLAYERS.items():
@@ -216,7 +360,11 @@ def build_set_rallies(set_no: int, max_sh: int, max_sa: int) -> List[Dict[str, A
         rallies.append(r)
     return rallies
 
-set1_rallies = build_set_rallies(1, 18, 25)
+raw_set1_path = ROOT / "data" / "raw_set1_1116.txt"
+if raw_set1_path.exists():
+    set1_rallies = parse_set_broadcast(1, raw_set1_path, 18, 25)
+else:
+    set1_rallies = build_set_rallies(1, 18, 25)
 set2_rallies = build_set_rallies(2, 21, 25)
 set3_rallies = build_set_rallies(3, 18, 25)
 all_rallies = set1_rallies + set2_rallies + set3_rallies
@@ -350,7 +498,7 @@ full_data_1116: Dict[str, Any] = {
 
         # 현대건설
         {
-            "id": 201, "team_id": "HDEC", "name": "메가", "position": "OP", "number": 99,
+            "id": 201, "team_id": "HDEC", "name": "메가", "position": "OP", "number": 88,
             "sets_played": 3, "points": 17, "att_made": 16, "att_tried": 39, "att_pct": 41.03, "att_share": 39.8,
             "srv_made": 0, "srv_tried": 9, "blk_made": 1, "blk_tried": 2, "dig_made": 6, "dig_tried": 7,
             "rcv_made": 0, "rcv_tried": 1, "set_made": 1, "set_tried": 4, "errors": 7,
@@ -359,7 +507,7 @@ full_data_1116: Dict[str, Any] = {
             "blk_per_set": 0.33, "dig_per_set": 2.0
         },
         {
-            "id": 202, "team_id": "HDEC", "name": "조던", "position": "OH", "number": 18,
+            "id": 202, "team_id": "HDEC", "name": "조던", "position": "OH", "number": 21,
             "sets_played": 3, "points": 15, "att_made": 15, "att_tried": 30, "att_pct": 50.0, "att_share": 30.61,
             "srv_made": 0, "srv_tried": 7, "blk_made": 0, "blk_tried": 6, "dig_made": 5, "dig_tried": 5,
             "rcv_made": 2, "rcv_tried": 13, "set_made": 0, "set_tried": 1, "errors": 6,
@@ -368,7 +516,7 @@ full_data_1116: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 1.67
         },
         {
-            "id": 203, "team_id": "HDEC", "name": "이채영", "position": "OH", "number": 17,
+            "id": 203, "team_id": "HDEC", "name": "이채영", "position": "OH", "number": 2,
             "sets_played": 2, "points": 5, "att_made": 4, "att_tried": 6, "att_pct": 66.67, "att_share": 6.12,
             "srv_made": 0, "srv_tried": 6, "blk_made": 1, "blk_tried": 4, "dig_made": 0, "dig_tried": 3,
             "rcv_made": 4, "rcv_tried": 15, "set_made": 3, "set_tried": 4, "errors": 1,
@@ -395,7 +543,7 @@ full_data_1116: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
         {
-            "id": 206, "team_id": "HDEC", "name": "이예림", "position": "OH", "number": 7,
+            "id": 206, "team_id": "HDEC", "name": "이예림", "position": "OH", "number": 1,
             "sets_played": 2, "points": 2, "att_made": 2, "att_tried": 8, "att_pct": 25.0, "att_share": 8.16,
             "srv_made": 0, "srv_tried": 5, "blk_made": 0, "blk_tried": 4, "dig_made": 6, "dig_tried": 8,
             "rcv_made": 10, "rcv_tried": 17, "set_made": 0, "set_tried": 0, "errors": 1,
@@ -413,7 +561,7 @@ full_data_1116: Dict[str, Any] = {
             "blk_per_set": 0.33, "dig_per_set": 3.33
         },
         {
-            "id": 208, "team_id": "HDEC", "name": "배유나", "position": "MB", "number": 12,
+            "id": 208, "team_id": "HDEC", "name": "배유나", "position": "MB", "number": 10,
             "sets_played": 2, "points": 1, "att_made": 1, "att_tried": 2, "att_pct": 50.0, "att_share": 2.04,
             "srv_made": 0, "srv_tried": 3, "blk_made": 0, "blk_tried": 5, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 2, "set_made": 0, "set_tried": 0, "errors": 0,
@@ -422,7 +570,7 @@ full_data_1116: Dict[str, Any] = {
             "blk_per_set": 0.0, "dig_per_set": 0.0
         },
         {
-            "id": 209, "team_id": "HDEC", "name": "구솔", "position": "S", "number": 6,
+            "id": 209, "team_id": "HDEC", "name": "구솔", "position": "S", "number": 99,
             "sets_played": 1, "points": 1, "att_made": 1, "att_tried": 1, "att_pct": 100.0, "att_share": 1.02,
             "srv_made": 0, "srv_tried": 0, "blk_made": 0, "blk_tried": 2, "dig_made": 0, "dig_tried": 0,
             "rcv_made": 0, "rcv_tried": 0, "set_made": 2, "set_tried": 9, "errors": 0,
