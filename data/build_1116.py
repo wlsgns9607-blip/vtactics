@@ -199,7 +199,7 @@ def build_set_rallies(set_no: int, max_sh: int, max_sa: int) -> List[Dict[str, A
             elif sa in [7, 18] and set_no == 1:
                 r = make_rally(set_no, i, 503, 211, 506, 503, sh, sa, is_serve_ace=True)
             elif sa in [11] and set_no == 2:
-                r = make_rally(set_no, i, 501, 210, 506, 501, is_serve_ace=True)
+                r = make_rally(set_no, i, 501, 210, 506, 501, sh, sa, is_serve_ace=True)
             else:
                 r = make_rally(set_no, i, 207, 508, 506, aid, sh, sa, act)
         else:
