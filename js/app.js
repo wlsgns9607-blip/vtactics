@@ -1280,11 +1280,38 @@
   }
 
   function renderScenarios() {
-    $('scenarioList').innerHTML = D.scenarios.map((s, i) => `
-      <button class="sc-btn ${i === S.scenario ? 'active' : ''}" data-i="${i}">
-        <span class="t"><span class="n">${i + 1}.</span>${esc(s.title)}</span>
-        <span class="s">${esc(s.subtitle)}</span></button>`).join('');
-    $('scenarioList').querySelectorAll('.sc-btn').forEach((b) => b.addEventListener('click', () => chooseScenario(+b.dataset.i)));
+    const listEl = $('scenarioList');
+    if (!listEl) return;
+    const hasSets = D.scenarios.some((s) => s.set_no);
+    let filterHtml = '';
+    const currentFilter = S.scenFilter || (D.setNo === 1 ? '1' : (D.setNo === 3 ? '3' : 'all'));
+    if (hasSets) {
+      filterHtml = `<div class="scen-filters" style="display:flex;gap:6px;padding:4px 6px 8px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:6px;">
+        <button type="button" class="rf ${currentFilter === 'all' ? 'active' : ''}" data-sf="all" style="padding:2px 8px;font-size:11px;">전체 (${D.scenarios.length})</button>
+        <button type="button" class="rf ${currentFilter === '1' ? 'active' : ''}" data-sf="1" style="padding:2px 8px;font-size:11px;">1세트 5대 득점</button>
+        <button type="button" class="rf ${currentFilter === '3' ? 'active' : ''}" data-sf="3" style="padding:2px 8px;font-size:11px;">3세트 5대 득점</button>
+      </div>`;
+    }
+    const items = D.scenarios.filter((s) => currentFilter === 'all' || String(s.set_no) === currentFilter);
+    listEl.innerHTML = filterHtml + items.map((s) => {
+      const globalIdx = D.scenarios.indexOf(s);
+      return `
+      <button class="sc-btn ${globalIdx === S.scenario ? 'active' : ''}" data-i="${globalIdx}">
+        <span class="t"><span class="n">${s.set_no ? `[${s.set_no}세트] ` : ''}</span>${esc(s.title.replace(/^\[.*?\]\s*/, ''))}</span>
+        <span class="s">${esc(s.subtitle)}</span></button>`;
+    }).join('');
+
+    listEl.querySelectorAll('.rf').forEach((b) => b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      S.scenFilter = b.dataset.sf;
+      const firstInGroup = D.scenarios.findIndex((s) => S.scenFilter === 'all' || String(s.set_no) === S.scenFilter);
+      if (firstInGroup !== -1 && (S.scenFilter !== 'all' && D.scenarios[S.scenario].set_no !== +S.scenFilter)) {
+        S.scenario = firstInGroup;
+      }
+      renderScenarios();
+      idle();
+    }));
+    listEl.querySelectorAll('.sc-btn').forEach((b) => b.addEventListener('click', () => chooseScenario(+b.dataset.i)));
   }
 
   function renderModeUI() {
@@ -1415,6 +1442,8 @@
     stopAll(); stopTween();
     useView(n);
     if (n === 0 && S.mode === 'replay') S.mode = 'scenario';
+    if (n === 1 || n === 3) S.scenFilter = String(n);
+    else if (n === 0) S.scenFilter = 'all';
     D.teamIds.forEach((t) => { S.rot[t] = [...BASE_ROT]; S.rotCount[t] = 0; });
     S.rp = null; S.live = null; S.lastScore = {};
     buildTokens();
