@@ -7,15 +7,25 @@
 (() => {
   'use strict';
   const $ = (id) => document.getElementById(id);
-  const LS_KEY = 'vtactics.review.v1';
-  const SECTIONS = [
-    ['summary', '총평', '경기 전체를 한두 문단으로'],
-    ['turning', '승부처', '흐름이 바뀐 세트·구간'],
-    ['KGC', '정관장 평가', ''],
-    ['HDEC', '현대건설 평가', ''],
-    ['players', '선수 코멘트', '눈에 띈 선수'],
-    ['next', '개선점 · 다음 경기 포인트', ''],
-  ];
+
+  function getMatchKey() {
+    return (VT && VT.D && ((VT.D.match_info && (VT.D.match_info.date || VT.D.match_info.alt_date)) || VT.D.date)) || '2024-11-16';
+  }
+  function getStorageKey() {
+    return 'vtactics.review.' + getMatchKey();
+  }
+  function getSections() {
+    const [a, b] = D.teamIds;
+    return [
+      ['summary', '총평', '경기 전체를 한두 문단으로'],
+      ['turning', '승부처', '흐름이 바뀐 세트·구간'],
+      [a, `${VT.short(a)} 평가`, ''],
+      [b, `${VT.short(b)} 평가`, ''],
+      ['players', '선수 코멘트', '눈에 띈 선수'],
+      ['next', '개선점 · 다음 경기 포인트', ''],
+    ];
+  }
+
   const MET = [
     ['att_pct', '공격 성공률(%)', true], ['rcv_pct', '리시브 정확(%)', true], ['dig_pct', '디그 성공률(%)', true],
     ['blk_made', '블로킹 득점', false], ['srv_made', '서브 득점', false], ['errors', '범실', false],
@@ -26,27 +36,50 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const nz = (v) => (v == null ? '-' : v);
 
+  function getSetTeamScore(s, tid) {
+    if (!s) return 0;
+    if (s[tid.toLowerCase() + '_score'] !== undefined) return s[tid.toLowerCase() + '_score'];
+    if (s['score_' + tid.toLowerCase()] !== undefined) return s['score_' + tid.toLowerCase()];
+    const t0 = RAW.teams && RAW.teams[0] ? RAW.teams[0].id : D.teamIds[0];
+    if (s.score_home !== undefined && s.score_away !== undefined) {
+      return tid === t0 ? s.score_home : s.score_away;
+    }
+    return 0;
+  }
+
   // ───────── 저장/불러오기 ─────────
   async function load() {
+    const mKey = getMatchKey();
     serverMode = !!(window.VT && VT.D && VT.D.serverMode);
     if (serverMode) {
       try {
-        const r = await fetch('api/review', { cache: 'no-store' });
-        if (r.ok) { const j = await r.json(); return { c: j.content || {}, at: j.updated_at }; }
+        const r = await fetch(`api/review?date=${encodeURIComponent(mKey)}`, { cache: 'no-store' });
+        if (r.ok) {
+          const j = await r.json();
+          if (j.content && Object.keys(j.content).length) return { c: j.content, at: j.updated_at };
+        }
       } catch (e) { serverMode = false; }
     }
-    try { const j = JSON.parse(localStorage.getItem(LS_KEY) || 'null'); if (j) return { c: j.content || {}, at: j.updated_at }; } catch (e) { /* ignore */ }
+    try {
+      const j = JSON.parse(localStorage.getItem(getStorageKey()) || 'null');
+      if (j && j.content) return { c: j.content, at: j.updated_at };
+    } catch (e) { /* ignore */ }
     return { c: {}, at: null };
   }
   function status(t, cls = '') { if (el.status) { el.status.textContent = t; el.status.className = 'ed-status ' + cls; } }
   function scheduleSave() { status('입력 중…'); clearTimeout(saveTimer); saveTimer = setTimeout(save, 700); }
   async function save() {
     clearTimeout(saveTimer);
+    const mKey = getMatchKey();
     const now = new Date().toLocaleString('ko-KR');
-    try { localStorage.setItem(LS_KEY, JSON.stringify({ content, updated_at: now })); } catch (e) { /* ignore */ }
+    try { localStorage.setItem(getStorageKey(), JSON.stringify({ content, updated_at: now })); } catch (e) { /* ignore */ }
     if (serverMode) {
       try {
-        const r = await fetch('api/review', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(content) });
+        const r = await fetch(`api/review?date=${encodeURIComponent(mKey)}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ match_date: mKey, ...content })
+        });
         if (!r.ok) throw new Error(r.status);
         const j = await r.json();
         return status(`✓ DB에 저장됨 ${j.updated_at || ''}`, 'ok');
@@ -65,7 +98,13 @@
     const tm = (t) => `<div class="tm"><div class="nm" style="color:${VT.color(t)}">${esc(D.teams[t].name || VT.short(t))}</div><div class="sc" style="color:${VT.color(t)}">${wins[t]}</div></div>`;
     return `<div class="rv-card"><h3>최종 결과 <span class="tag">FINAL</span></h3>
       <div class="rv-final">${tm(a)}<span class="dash">:</span>${tm(b)}</div>
-      <div class="set-pills">${RAW.sets.map((s) => `<span class="set-pill" style="--wc:${VT.color(s.winner)}">${s.set_no}세트 정 ${s.kgc_score} : ${s.hdec_score} 현</span>`).join('')}</div></div>`;
+      <div class="set-pills">${RAW.sets.map((s) => {
+        const sa = getSetTeamScore(s, a);
+        const sb = getSetTeamScore(s, b);
+        const sNameA = VT.short(a)[0];
+        const sNameB = VT.short(b)[0];
+        return `<span class="set-pill" style="--wc:${VT.color(s.winner)}">${s.set_no}세트 ${esc(sNameA)} ${sa} : ${sb} ${esc(sNameB)}</span>`;
+      }).join('')}</div></div>`;
   }
 
   function compareTable() {
@@ -91,7 +130,7 @@
         <thead><tr><th>항목</th>${cols.map((n) => `<th>${n}세트</th>`).join('')}<th>전체</th></tr></thead>
         <tbody>${rows.map(([lab, key, mode]) => `<tr><td>${lab}</td>${cols.map((n) => cell(n, key, mode)).join('')}${cell(0, key, mode)}</tr>`).join('')}</tbody>
       </table></div>
-      <p class="rv-note" style="margin:8px 0 0">굵은 쪽이 해당 항목 우세(범실은 적은 쪽). 세트 합산은 공식 경기 기록표와 선수별 198개 항목이 모두 일치하도록 검증했습니다.</p></div>`;
+      <p class="rv-note" style="margin:8px 0 0">굵은 쪽이 해당 항목 우세(범실은 적은 쪽). 세트 합산은 공식 경기 기록표와 선수별 항목이 모두 일치하도록 검증했습니다.</p></div>`;
   }
 
   function chartSVG(key) {
@@ -140,7 +179,7 @@
     const cnt = {};
     D.teamIds.forEach((t) => (cnt[t] = {}));
     RAW.rallies.forEach((r) => { cnt[r.scorer][r.cause] = (cnt[r.scorer][r.cause] || 0) + 1; });
-    const K = { kill: '공격', blockkill: '블로킹', out: '상대 아웃', net: '상대 네트', overnet: '상대 오버넷', touchnet: '상대 터치넷', drop: '상대 수비 실패', fault: '상대 기타범실' };
+    const K = { kill: '공격', blockkill: '블로킹', out: '상대 아웃', net: '상대 네트', overnet: '상대 오버넷', touchnet: '상대 터치넷', drop: '상대 수비 실패', fault: '상대 기타범실', serveace: '서브에이스', serve_error: '상대 서브범실' };
     const line = (t) => Object.entries(cnt[t]).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${K[k] || k} ${v}`).join(' · ');
     items.push(`<li><span class="k">HOW THEY SCORED</span><b>${esc(VT.short(a))}</b> ${esc(line(a))}<br><b>${esc(VT.short(b))}</b> ${esc(line(b))}</li>`);
     return `<div class="rv-card"><h3>자동 데이터 인사이트 <span class="tag">AUTO</span></h3><ul class="rv-insights">${items.join('')}</ul></div>`;
@@ -172,13 +211,23 @@
   // ───────── 에디터 ─────────
   function editorHTML() {
     const sets = content.sets || {};
+    const [a, b] = D.teamIds;
+    const winsA = RAW.sets.filter((s) => s.winner === a).length;
+    const winsB = RAW.sets.filter((s) => s.winner === b).length;
+    const winTeam = winsA >= winsB ? a : b;
+    const winScore = Math.max(winsA, winsB);
+    const loseScore = Math.min(winsA, winsB);
+    const exTitle = `${VT.short(winTeam)} ${winScore}:${loseScore} 승 — 공격 성공률과 서브가 갈랐다`;
+    const playedSets = RAW.sets.map((s) => s.set_no);
+    const sections = getSections();
+
     return `<div class="rv-card rv-editor"><h3>내 리뷰 작성 <span class="tag">WRITE</span></h3>
-      <input class="ed-title" id="edTitle" placeholder="리뷰 제목 (예: 정관장 3:1 승 — 블로킹과 리시브가 갈랐다)" value="${esc(content.title || '')}" maxlength="120" />
-      ${SECTIONS.map(([k, label, hint]) => `<div class="ed-sec"><div class="ed-sec-h"><label for="ed_${k}">${label}${hint ? `<span class="hint">${hint}</span>` : ''}</label>
+      <input class="ed-title" id="edTitle" placeholder="리뷰 제목 (예: ${esc(exTitle)})" value="${esc(content.title || '')}" maxlength="120" />
+      ${sections.map(([k, label, hint]) => `<div class="ed-sec"><div class="ed-sec-h"><label for="ed_${k}">${label}${hint ? `<span class="hint">${hint}</span>` : ''}</label>
         <button class="ed-ins" data-ins="${k}" type="button" title="왼쪽 데이터 요약에서 숫자를 골라 커서 위치에 넣습니다">+ 데이터 삽입</button></div>
         <textarea class="ed-ta" id="ed_${k}" data-k="${k}" placeholder="직접 작성하세요">${esc(content[k] || '')}</textarea></div>`).join('')}
       <div class="ed-sec"><div class="ed-sec-h"><label>세트별 메모</label></div>
-        <div class="ed-sets">${[1, 2, 3, 4].map((n) => `<div><div class="lab">${n}SET</div><textarea class="ed-ta sm" data-set="${n}" placeholder="${n}세트 메모">${esc(sets[n] || '')}</textarea></div>`).join('')}</div></div>
+        <div class="ed-sets">${playedSets.map((n) => `<div><div class="lab">${n}SET</div><textarea class="ed-ta sm" data-set="${n}" placeholder="${n}세트 메모">${esc(sets[n] || '')}</textarea></div>`).join('')}</div></div>
       <div class="ed-bar">
         <button class="btn" id="edCopy" type="button">복사</button><button class="btn" id="edMd" type="button">.md 저장</button>
         <button class="btn" id="edPrint" type="button">인쇄</button><button class="btn btn-primary" id="edSave" type="button">저장</button>
@@ -190,22 +239,42 @@
     const wins = (t) => RAW.sets.filter((s) => s.winner === t).length;
     const team = (t, s) => `${VT.short(t)}: 공격 ${s.att_pct}%(${s.att_made}/${s.att_tried}), 블로킹 득점 ${s.blk_made}, 서브 득점 ${s.srv_made}, 디그 ${s.dig_pct}%, 리시브 ${s.rcv_pct}%, 범실 ${s.errors}`;
     const topP = (t) => Object.values(V[0].players).filter((p) => p.team_id === t).sort((x, y) => (y.points || 0) - (x.points || 0)).slice(0, 3).map((p) => `${p.name} ${p.points}점`).join(', ');
+    const playedSets = RAW.sets.map((s) => s.set_no);
+
+    if (k === a) return `[데이터] ${team(a, sumOf(0, a))} / 득점 상위 ${topP(a)}`;
+    if (k === b) return `[데이터] ${team(b, sumOf(0, b))} / 득점 상위 ${topP(b)}`;
+
     switch (k) {
-      case 'summary': return `[데이터] 세트 스코어 ${VT.short(a)} ${wins(a)}:${wins(b)} ${VT.short(b)} (${RAW.sets.map((s) => `${s.kgc_score}:${s.hdec_score}`).join(', ')})`;
-      case 'turning': return `[데이터] ${RAW.sets.map((s) => `${s.set_no}세트 ${VT.short(s.winner)} 승 ${s.kgc_score}:${s.hdec_score}`).join(' / ')}`;
-      case 'KGC': return `[데이터] ${team('KGC', sumOf(0, 'KGC'))} / 득점 상위 ${topP('KGC')}`;
-      case 'HDEC': return `[데이터] ${team('HDEC', sumOf(0, 'HDEC'))} / 득점 상위 ${topP('HDEC')}`;
-      case 'players': return `[데이터] 득점 상위 — ${topP(a)} | ${topP(b)}`;
-      default: return `[데이터] 세트별 공격 성공률 ${a}: ${[1, 2, 3, 4].map((n) => sumOf(n, a).att_pct).join('→')}% / ${b}: ${[1, 2, 3, 4].map((n) => sumOf(n, b).att_pct).join('→')}%`;
+      case 'summary':
+        return `[데이터] 세트 스코어 ${VT.short(a)} ${wins(a)}:${wins(b)} ${VT.short(b)} (${RAW.sets.map((s) => `${getSetTeamScore(s, a)}:${getSetTeamScore(s, b)}`).join(', ')})`;
+      case 'turning':
+        return `[데이터] ${RAW.sets.map((s) => `${s.set_no}세트 ${VT.short(s.winner)} 승 (${getSetTeamScore(s, a)}:${getSetTeamScore(s, b)})`).join(' / ')}`;
+      case 'players':
+        return `[데이터] 득점 상위 — ${topP(a)} | ${topP(b)}`;
+      default:
+        return `[데이터] 세트별 공격 성공률 ${VT.short(a)}: ${playedSets.map((n) => sumOf(n, a).att_pct).join('→')}% / ${VT.short(b)}: ${playedSets.map((n) => sumOf(n, b).att_pct).join('→')}%`;
     }
   }
 
   function toMarkdown() {
     const sets = content.sets || {};
-    const out = [`# ${content.title || '경기 리뷰'}`, '', `> ${VT.short(D.teamIds[0])} vs ${VT.short(D.teamIds[1])} · ${RAW.sets.map((s) => `${s.set_no}세트 ${s.kgc_score}:${s.hdec_score}`).join(' · ')}`, ''];
-    SECTIONS.forEach(([k, l]) => { if ((content[k] || '').trim()) out.push(`## ${l}`, '', content[k].trim(), ''); });
-    const m = [1, 2, 3, 4].filter((n) => (sets[n] || '').trim());
-    if (m.length) { out.push('## 세트별 메모', ''); m.forEach((n) => out.push(`- **${n}세트**: ${sets[n].trim().replace(/\n/g, ' ')}`)); out.push(''); }
+    const [a, b] = D.teamIds;
+    const playedSets = RAW.sets.map((s) => s.set_no);
+    const out = [
+      `# ${content.title || '경기 리뷰'}`,
+      '',
+      `> ${VT.short(a)} vs ${VT.short(b)} · ${RAW.sets.map((s) => `${s.set_no}세트 ${getSetTeamScore(s, a)}:${getSetTeamScore(s, b)}`).join(' · ')}`,
+      ''
+    ];
+    getSections().forEach(([k, l]) => {
+      if ((content[k] || '').trim()) out.push(`## ${l}`, '', content[k].trim(), '');
+    });
+    const m = playedSets.filter((n) => (sets[n] || '').trim());
+    if (m.length) {
+      out.push('## 세트별 메모', '');
+      m.forEach((n) => out.push(`- **${n}세트**: ${sets[n].trim().replace(/\n/g, ' ')}`));
+      out.push('');
+    }
     return out.join('\n');
   }
 

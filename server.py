@@ -132,11 +132,21 @@ class Handler(SimpleHTTPRequestHandler):
                     r["events"] = json.loads(r.pop("events_json"))
                 return self.send_json(out)
             if parts == ["review"]:
-                r = rows("SELECT content_json, updated_at FROM reviews WHERE id=1")
-                if not r:
-                    return self.send_json({"content": {}, "updated_at": None})
-                return self.send_json({"content": json.loads(r[0]["content_json"]),
-                                       "updated_at": r[0]["updated_at"]})
+                q_date = q.get("date", [None])[0]
+                con = db()
+                try:
+                    con.execute("CREATE TABLE IF NOT EXISTS match_reviews (match_date TEXT PRIMARY KEY, content_json TEXT, updated_at TEXT)")
+                    r = None
+                    if q_date:
+                        r = [dict(row) for row in con.execute("SELECT content_json, updated_at FROM match_reviews WHERE match_date=?", (q_date,))]
+                    if not r:
+                        r = [dict(row) for row in con.execute("SELECT content_json, updated_at FROM reviews WHERE id=1")]
+                    if not r:
+                        return self.send_json({"content": {}, "updated_at": None})
+                    return self.send_json({"content": json.loads(r[0]["content_json"]),
+                                           "updated_at": r[0]["updated_at"]})
+                finally:
+                    con.close()
             return self.send_json({"error": "unknown endpoint"}, 404)
         except (sqlite3.Error, ValueError) as e:
             return self.send_json({"error": str(e)}, 500)
@@ -153,8 +163,17 @@ class Handler(SimpleHTTPRequestHandler):
             data = json.loads(self.rfile.read(n).decode("utf-8"))
             if not isinstance(data, dict):
                 return self.send_json({"error": "JSON object required"}, 400)
+            q = parse_qs(url.query)
+            q_date = q.get("date", [data.get("match_date", "2024-11-16")])[0]
             con = db()
             try:
+                con.execute("CREATE TABLE IF NOT EXISTS match_reviews (match_date TEXT PRIMARY KEY, content_json TEXT, updated_at TEXT)")
+                con.execute(
+                    "INSERT INTO match_reviews (match_date, content_json, updated_at) "
+                    "VALUES (?, ?, datetime('now','localtime')) "
+                    "ON CONFLICT(match_date) DO UPDATE SET content_json=excluded.content_json, "
+                    "updated_at=excluded.updated_at",
+                    (q_date, json.dumps(data, ensure_ascii=False)))
                 con.execute(
                     "INSERT INTO reviews (id, content_json, updated_at) "
                     "VALUES (1, ?, datetime('now','localtime')) "
@@ -162,7 +181,7 @@ class Handler(SimpleHTTPRequestHandler):
                     "updated_at=excluded.updated_at",
                     (json.dumps(data, ensure_ascii=False),))
                 con.commit()
-                ts = con.execute("SELECT updated_at FROM reviews WHERE id=1").fetchone()[0]
+                ts = con.execute("SELECT updated_at FROM match_reviews WHERE match_date=?", (q_date,)).fetchone()[0]
             finally:
                 con.close()
             return self.send_json({"ok": True, "updated_at": ts})
