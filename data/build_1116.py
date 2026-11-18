@@ -188,7 +188,7 @@ def parse_set_broadcast(set_no: int, filename: Path, final_sh: int, final_sa: in
             "score_away": sa,
             "score_kgc": sh,
             "score": {"HDEC": sh, "EXP": sa},
-            "point_idx": len(events) - 1,
+            "point_idx": len(events),
             "events": events,
             "events_json": json.dumps(events, ensure_ascii=False)
         })
@@ -289,7 +289,7 @@ def make_rally(set_no: int, r_no: int, server_id: int, rcv_id: int, set_id: int,
         "score_home": sh,
         "score_away": sa,
         "score": {"HDEC": sh, "EXP": sa},
-        "point_idx": r_no - 1,
+        "point_idx": len(events),
         "events": events,
         "events_json": json.dumps(events, ensure_ascii=False)
     }
@@ -366,7 +366,12 @@ if raw_set1_path.exists():
 else:
     set1_rallies = build_set_rallies(1, 18, 25)
 set2_rallies = build_set_rallies(2, 21, 25)
-set3_rallies = build_set_rallies(3, 18, 25)
+
+raw_set3_path = ROOT / "data" / "raw_set3_1116.txt"
+if raw_set3_path.exists():
+    set3_rallies = parse_set_broadcast(3, raw_set3_path, 18, 25)
+else:
+    set3_rallies = build_set_rallies(3, 18, 25)
 all_rallies = set1_rallies + set2_rallies + set3_rallies
 
 full_data_1116: Dict[str, Any] = {

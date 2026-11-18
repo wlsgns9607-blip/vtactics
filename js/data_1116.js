@@ -1318,7 +1318,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 1,
         "EXP": 0
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "마미",
@@ -1375,7 +1375,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 2,
         "EXP": 0
       },
-      "point_idx": 14,
+      "point_idx": 15,
       "events": [
         {
           "n": "김현지",
@@ -1531,7 +1531,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 2,
         "EXP": 1
       },
-      "point_idx": 1,
+      "point_idx": 2,
       "events": [
         {
           "n": "마미",
@@ -1570,7 +1570,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 3,
         "EXP": 1
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "김현지",
@@ -1627,7 +1627,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 3,
         "EXP": 2
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "강소휘",
@@ -1693,7 +1693,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 2
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "모마",
@@ -1750,7 +1750,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 3
       },
-      "point_idx": 1,
+      "point_idx": 2,
       "events": [
         {
           "n": "마미",
@@ -1789,7 +1789,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 4
       },
-      "point_idx": 5,
+      "point_idx": 6,
       "events": [
         {
           "n": "강소휘",
@@ -1864,7 +1864,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 5
       },
-      "point_idx": 11,
+      "point_idx": 12,
       "events": [
         {
           "n": "강소휘",
@@ -1993,7 +1993,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 5
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "이영주",
@@ -2059,7 +2059,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 6
       },
-      "point_idx": 8,
+      "point_idx": 9,
       "events": [
         {
           "n": "문정원",
@@ -2161,7 +2161,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 7
       },
-      "point_idx": 8,
+      "point_idx": 9,
       "events": [
         {
           "n": "나현수",
@@ -2263,7 +2263,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 6,
         "EXP": 7
       },
-      "point_idx": 9,
+      "point_idx": 10,
       "events": [
         {
           "n": "김세빈",
@@ -2374,7 +2374,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 7
       },
-      "point_idx": 9,
+      "point_idx": 10,
       "events": [
         {
           "n": "메가",
@@ -2485,7 +2485,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 8
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "메가",
@@ -2542,7 +2542,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 9
       },
-      "point_idx": 20,
+      "point_idx": 21,
       "events": [
         {
           "n": "이예림",
@@ -2752,7 +2752,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 10
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "이윤정",
@@ -2818,7 +2818,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 11
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -2875,7 +2875,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 8,
         "EXP": 11
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -2932,7 +2932,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 8,
         "EXP": 12
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "강소휘",
@@ -2998,7 +2998,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 12
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "마미",
@@ -3055,7 +3055,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 13
       },
-      "point_idx": 7,
+      "point_idx": 8,
       "events": [
         {
           "n": "모마",
@@ -3148,7 +3148,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 14
       },
-      "point_idx": 7,
+      "point_idx": 8,
       "events": [
         {
           "n": "김현지",
@@ -3241,7 +3241,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 14
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "김현지",
@@ -3298,7 +3298,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 15
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "강소휘",
@@ -3364,7 +3364,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 16
       },
-      "point_idx": 1,
+      "point_idx": 2,
       "events": [
         {
           "n": "배유나",
@@ -3403,7 +3403,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 11,
         "EXP": 16
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "조던",
@@ -3469,7 +3469,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 12,
         "EXP": 16
       },
-      "point_idx": 13,
+      "point_idx": 14,
       "events": [
         {
           "n": "이채영",
@@ -3616,7 +3616,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 12,
         "EXP": 17
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "마미",
@@ -3682,7 +3682,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 13,
         "EXP": 17
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "김연견",
@@ -3748,7 +3748,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 13,
         "EXP": 18
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "김세빈",
@@ -3814,7 +3814,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 14,
         "EXP": 18
       },
-      "point_idx": 1,
+      "point_idx": 2,
       "events": [
         {
           "n": "이예림",
@@ -3853,7 +3853,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 15,
         "EXP": 18
       },
-      "point_idx": 6,
+      "point_idx": 7,
       "events": [
         {
           "n": "메가",
@@ -3937,7 +3937,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 15,
         "EXP": 19
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "문정원",
@@ -4003,7 +4003,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 15,
         "EXP": 20
       },
-      "point_idx": 7,
+      "point_idx": 8,
       "events": [
         {
           "n": "이윤정",
@@ -4096,7 +4096,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 15,
         "EXP": 21
       },
-      "point_idx": 8,
+      "point_idx": 9,
       "events": [
         {
           "n": "나현수",
@@ -4198,7 +4198,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 16,
         "EXP": 21
       },
-      "point_idx": 19,
+      "point_idx": 20,
       "events": [
         {
           "n": "이영주",
@@ -4399,7 +4399,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 17,
         "EXP": 21
       },
-      "point_idx": 4,
+      "point_idx": 5,
       "events": [
         {
           "n": "마미",
@@ -4465,7 +4465,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 17,
         "EXP": 22
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "이예림",
@@ -4522,7 +4522,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 17,
         "EXP": 23
       },
-      "point_idx": 6,
+      "point_idx": 7,
       "events": [
         {
           "n": "이예림",
@@ -4606,7 +4606,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 18,
         "EXP": 23
       },
-      "point_idx": 2,
+      "point_idx": 3,
       "events": [
         {
           "n": "마미",
@@ -4654,7 +4654,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 18,
         "EXP": 24
       },
-      "point_idx": 10,
+      "point_idx": 11,
       "events": [
         {
           "n": "한미르",
@@ -4774,7 +4774,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 18,
         "EXP": 25
       },
-      "point_idx": 7,
+      "point_idx": 8,
       "events": [
         {
           "n": "구솔",
@@ -4866,7 +4866,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 0,
         "EXP": 1
       },
-      "point_idx": 0,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -4922,7 +4922,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 0,
         "EXP": 2
       },
-      "point_idx": 1,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -4978,7 +4978,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 1,
         "EXP": 2
       },
-      "point_idx": 2,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5034,7 +5034,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 1,
         "EXP": 3
       },
-      "point_idx": 3,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5146,7 +5146,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 2,
         "EXP": 4
       },
-      "point_idx": 5,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5202,7 +5202,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 2,
         "EXP": 5
       },
-      "point_idx": 6,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5258,7 +5258,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 2,
         "EXP": 6
       },
-      "point_idx": 7,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5314,7 +5314,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 3,
         "EXP": 6
       },
-      "point_idx": 8,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5370,7 +5370,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 3,
         "EXP": 7
       },
-      "point_idx": 9,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5426,7 +5426,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 3,
         "EXP": 8
       },
-      "point_idx": 10,
+      "point_idx": 5,
       "events": [
         {
           "n": "김다인",
@@ -5491,7 +5491,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 8
       },
-      "point_idx": 11,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5547,7 +5547,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 9
       },
-      "point_idx": 12,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5603,7 +5603,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 4,
         "EXP": 10
       },
-      "point_idx": 13,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5659,7 +5659,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 10
       },
-      "point_idx": 14,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5715,7 +5715,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 11
       },
-      "point_idx": 15,
+      "point_idx": 3,
       "events": [
         {
           "n": "모마",
@@ -5762,7 +5762,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 5,
         "EXP": 12
       },
-      "point_idx": 16,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5818,7 +5818,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 6,
         "EXP": 12
       },
-      "point_idx": 17,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -5874,7 +5874,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 6,
         "EXP": 13
       },
-      "point_idx": 18,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5930,7 +5930,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 6,
         "EXP": 14
       },
-      "point_idx": 19,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -5986,7 +5986,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 14
       },
-      "point_idx": 20,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -6042,7 +6042,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 15
       },
-      "point_idx": 21,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6098,7 +6098,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 7,
         "EXP": 16
       },
-      "point_idx": 22,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6154,7 +6154,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 8,
         "EXP": 16
       },
-      "point_idx": 23,
+      "point_idx": 3,
       "events": [
         {
           "n": "강서우",
@@ -6201,7 +6201,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 8,
         "EXP": 17
       },
-      "point_idx": 24,
+      "point_idx": 5,
       "events": [
         {
           "n": "김다인",
@@ -6266,7 +6266,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 8,
         "EXP": 18
       },
-      "point_idx": 25,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6322,7 +6322,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 18
       },
-      "point_idx": 26,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -6378,7 +6378,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 19
       },
-      "point_idx": 27,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6434,7 +6434,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 9,
         "EXP": 20
       },
-      "point_idx": 28,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6490,7 +6490,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 20
       },
-      "point_idx": 29,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -6546,7 +6546,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 21
       },
-      "point_idx": 30,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6602,7 +6602,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 10,
         "EXP": 22
       },
-      "point_idx": 31,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6658,7 +6658,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 11,
         "EXP": 22
       },
-      "point_idx": 32,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -6714,7 +6714,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 11,
         "EXP": 23
       },
-      "point_idx": 33,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6770,7 +6770,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 11,
         "EXP": 24
       },
-      "point_idx": 34,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6826,7 +6826,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 12,
         "EXP": 24
       },
-      "point_idx": 35,
+      "point_idx": 5,
       "events": [
         {
           "n": "이윤정",
@@ -6891,7 +6891,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 12,
         "EXP": 25
       },
-      "point_idx": 36,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
@@ -6947,7 +6947,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 13,
         "EXP": 25
       },
-      "point_idx": 37,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7003,7 +7003,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 14,
         "EXP": 25
       },
-      "point_idx": 38,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7059,7 +7059,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 15,
         "EXP": 25
       },
-      "point_idx": 39,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7115,7 +7115,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 16,
         "EXP": 25
       },
-      "point_idx": 40,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7171,7 +7171,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 17,
         "EXP": 25
       },
-      "point_idx": 41,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7227,7 +7227,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 18,
         "EXP": 25
       },
-      "point_idx": 42,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7283,7 +7283,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 19,
         "EXP": 25
       },
-      "point_idx": 43,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7339,7 +7339,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 20,
         "EXP": 25
       },
-      "point_idx": 44,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7395,7 +7395,7 @@ window.BOOTSTRAP_1116 = {
         "HDEC": 21,
         "EXP": 25
       },
-      "point_idx": 45,
+      "point_idx": 4,
       "events": [
         {
           "n": "이윤정",
@@ -7440,240 +7440,941 @@ window.BOOTSTRAP_1116 = {
       "set_no": 3,
       "rally_no": 1,
       "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
+      "server": "이윤정",
+      "server_team": "EXP",
       "cause": "kill",
       "score_hdec": 0,
       "score_exp": 1,
       "score_home": 0,
       "score_away": 1,
+      "score_kgc": 0,
       "score": {
         "HDEC": 0,
         "EXP": 1
       },
-      "point_idx": 0,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 백어택 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 2,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 0,
-      "score_exp": 2,
-      "score_home": 0,
-      "score_away": 2,
-      "score": {
-        "HDEC": 0,
-        "EXP": 2
-      },
-      "point_idx": 1,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 3,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 1,
-      "score_exp": 2,
-      "score_home": 1,
-      "score_away": 2,
-      "score": {
-        "HDEC": 1,
-        "EXP": 2
-      },
-      "point_idx": 2,
+      "point_idx": 13,
       "events": [
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
           "a": "6이윤정 서브",
           "c": "serve",
-          "ok": true
+          "ok": false,
+          "pid": 506
         },
         {
-          "n": "이영주",
-          "num": 5,
+          "n": "이채영",
+          "num": 2,
           "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
+          "a": "2이채영 리시브 정확",
           "c": "receive",
-          "ok": true
+          "ok": true,
+          "pid": 203
         },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
+          "a": "3김다인 세트",
           "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 속공",
+          "c": "attack",
+          "ok": false,
+          "pid": 204
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 505
         },
         {
           "n": "메가",
           "num": 88,
           "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 백어택 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 4,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 1,
-      "score_exp": 3,
-      "score_home": 1,
-      "score_away": 3,
-      "score": {
-        "HDEC": 1,
-        "EXP": 3
-      },
-      "point_idx": 3,
-      "events": [
+          "a": "88메가 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 201
+        },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
+          "a": "3김다인 세트",
           "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 502
         },
         {
           "n": "강소휘",
           "num": 97,
           "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 오픈 성공",
+          "a": "97강소휘 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "모마 오픈 성공",
           "c": "attack",
-          "ok": true
+          "ok": true,
+          "pid": 501
         }
       ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 506}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 속공\", \"c\": \"attack\", \"ok\": false, \"pid\": 204}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 505}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 201}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 201}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 502}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"모마 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 501}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 2,
+      "scorer": "HDEC",
+      "server": "이윤정",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 1,
+      "score_exp": 1,
+      "score_home": 1,
+      "score_away": 1,
+      "score_kgc": 1,
+      "score": {
+        "HDEC": 1,
+        "EXP": 1
+      },
+      "point_idx": 12,
+      "events": [
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 211
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 203
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "조던 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 202}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 506}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 202}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 505}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 502}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 211}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 203}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"조던 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 3,
+      "scorer": "EXP",
+      "server": "강서우",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 1,
+      "score_exp": 2,
+      "score_home": 1,
+      "score_away": 2,
+      "score_kgc": 1,
+      "score": {
+        "HDEC": 1,
+        "EXP": 2
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 204
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "마미 퀵오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 502
+        }
+      ],
+      "events_json": "[{\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 501}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 204}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"마미 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 502}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 4,
+      "scorer": "HDEC",
+      "server": "마미",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 2,
+      "score_exp": 2,
+      "score_home": 2,
+      "score_away": 2,
+      "score_kgc": 2,
+      "score": {
+        "HDEC": 2,
+        "EXP": 2
+      },
+      "point_idx": 9,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 211
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 201
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 203
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "조던 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 203}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 502}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 211}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 201}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 203}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"조던 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 202}]"
     },
     {
       "set_no": 3,
       "rally_no": 5,
       "scorer": "EXP",
-      "server": "김다인",
+      "server": "메가",
       "server_team": "HDEC",
       "cause": "kill",
-      "score_hdec": 1,
-      "score_exp": 4,
-      "score_home": 1,
-      "score_away": 4,
+      "score_hdec": 2,
+      "score_exp": 3,
+      "score_home": 2,
+      "score_away": 3,
+      "score_kgc": 2,
       "score": {
-        "HDEC": 1,
+        "HDEC": 2,
+        "EXP": 3
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "모마 시간차 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 501
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 505}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 201}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"모마 시간차 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 501}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 6,
+      "scorer": "EXP",
+      "server": "김현지",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 2,
+      "score_exp": 4,
+      "score_home": 2,
+      "score_away": 4,
+      "score_kgc": 2,
+      "score": {
+        "HDEC": 2,
         "EXP": 4
+      },
+      "point_idx": 8,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "강소휘 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 504
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 505}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 202}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 503}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 504}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 7,
+      "scorer": "HDEC",
+      "server": "김현지",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 3,
+      "score_exp": 4,
+      "score_home": 3,
+      "score_away": 4,
+      "score_kgc": 3,
+      "score": {
+        "HDEC": 3,
+        "EXP": 4
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "메가 백어택 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 201
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 505}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"메가 백어택 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 201}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 8,
+      "scorer": "EXP",
+      "server": "조던",
+      "server_team": "HDEC",
+      "cause": "serve_error",
+      "score_hdec": 3,
+      "score_exp": 5,
+      "score_home": 3,
+      "score_away": 5,
+      "score_kgc": 3,
+      "score": {
+        "HDEC": 3,
+        "EXP": 5
+      },
+      "point_idx": 2,
+      "events": [
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 서브 네트걸림",
+          "c": "serve",
+          "ok": false,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 502}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 서브 네트걸림\", \"c\": \"serve\", \"ok\": false, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 9,
+      "scorer": "HDEC",
+      "server": "모마",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 4,
+      "score_exp": 5,
+      "score_home": 4,
+      "score_away": 5,
+      "score_kgc": 4,
+      "score": {
+        "HDEC": 4,
+        "EXP": 5
+      },
+      "point_idx": 12,
+      "events": [
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 스파이크서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "김희진",
+          "num": 4,
+          "t": "HDEC",
+          "a": "15김희진 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 205
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 501
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "김희진",
+          "num": 4,
+          "t": "HDEC",
+          "a": "15김희진 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 205
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 211
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "이채영 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 203
+        }
+      ],
+      "events_json": "[{\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 스파이크서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 501}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"a\": \"15김희진 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 205}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 503}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 501}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 504}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"a\": \"15김희진 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 205}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 207}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 211}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"이채영 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 203}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 10,
+      "scorer": "EXP",
+      "server": "김희진",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 4,
+      "score_exp": 6,
+      "score_home": 4,
+      "score_away": 6,
+      "score_kgc": 4,
+      "score": {
+        "HDEC": 4,
+        "EXP": 6
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "김희진",
+          "num": 4,
+          "t": "HDEC",
+          "a": "15김희진 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 205
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "김세빈 속공 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 503
+        }
+      ],
+      "events_json": "[{\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 503}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"a\": \"15김희진 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 205}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 속공 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 503}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 11,
+      "scorer": "HDEC",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "serve_error",
+      "score_hdec": 5,
+      "score_exp": 6,
+      "score_home": 5,
+      "score_away": 6,
+      "score_kgc": 5,
+      "score": {
+        "HDEC": 5,
+        "EXP": 6
+      },
+      "point_idx": 2,
+      "events": [
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 스파이크서브 네트걸림",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        }
+      ],
+      "events_json": "[{\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 201}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 스파이크서브 네트걸림\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 12,
+      "scorer": "HDEC",
+      "server": "김다인",
+      "server_team": "HDEC",
+      "cause": "blockkill",
+      "score_hdec": 6,
+      "score_exp": 6,
+      "score_home": 6,
+      "score_away": 6,
+      "score_kgc": 6,
+      "score": {
+        "HDEC": 6,
+        "EXP": 6
       },
       "point_idx": 4,
       "events": [
@@ -7681,441 +8382,40 @@ window.BOOTSTRAP_1116 = {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
           "a": "3김다인 서브",
           "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "김세빈",
-          "num": 11,
-          "t": "EXP",
-          "pid": 503,
-          "a": "11김세빈 속공 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"pid\": 503, \"a\": \"11김세빈 속공 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 6,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 2,
-      "score_exp": 4,
-      "score_home": 2,
-      "score_away": 4,
-      "score": {
-        "HDEC": 2,
-        "EXP": 4
-      },
-      "point_idx": 5,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "조던",
-          "num": 21,
-          "t": "HDEC",
-          "pid": 202,
-          "a": "21조던 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"pid\": 202, \"a\": \"21조던 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 7,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 2,
-      "score_exp": 5,
-      "score_home": 2,
-      "score_away": 5,
-      "score": {
-        "HDEC": 2,
-        "EXP": 5
-      },
-      "point_idx": 6,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 8,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 2,
-      "score_exp": 6,
-      "score_home": 2,
-      "score_away": 6,
-      "score": {
-        "HDEC": 2,
-        "EXP": 6
-      },
-      "point_idx": 7,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 9,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 3,
-      "score_exp": 6,
-      "score_home": 3,
-      "score_away": 6,
-      "score": {
-        "HDEC": 3,
-        "EXP": 6
-      },
-      "point_idx": 8,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "이채영",
-          "num": 2,
-          "t": "HDEC",
-          "pid": 203,
-          "a": "2이채영 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"pid\": 203, \"a\": \"2이채영 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 10,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 3,
-      "score_exp": 7,
-      "score_home": 3,
-      "score_away": 7,
-      "score": {
-        "HDEC": 3,
-        "EXP": 7
-      },
-      "point_idx": 9,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 207
         },
         {
           "n": "강소휘",
           "num": 97,
           "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 11,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "blockkill",
-      "score_hdec": 3,
-      "score_exp": 8,
-      "score_home": 3,
-      "score_away": 8,
-      "score": {
-        "HDEC": 3,
-        "EXP": 8
-      },
-      "point_idx": 10,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
+          "a": "97강소휘 리시브 정확",
           "c": "receive",
-          "ok": true
+          "ok": true,
+          "pid": 504
         },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "메가",
-          "num": 88,
-          "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 오픈",
-          "c": "attack",
-          "ok": false
-        },
-        {
-          "n": "김세빈",
-          "num": 11,
-          "t": "EXP",
-          "pid": 503,
-          "a": "11김세빈 블록킹 성공",
-          "c": "block",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 오픈\", \"c\": \"attack\", \"ok\": false}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"pid\": 503, \"a\": \"11김세빈 블록킹 성공\", \"c\": \"block\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 12,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 4,
-      "score_exp": 8,
-      "score_home": 4,
-      "score_away": 8,
-      "score": {
-        "HDEC": 4,
-        "EXP": 8
-      },
-      "point_idx": 11,
-      "events": [
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "메가",
-          "num": 88,
-          "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 오픈 성공",
+          "a": "6이윤정 오픈",
           "c": "attack",
-          "ok": true
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "이채영 블록킹 성공",
+          "c": "block",
+          "ok": true,
+          "pid": 203
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 207}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 506}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"이채영 블록킹 성공\", \"c\": \"block\", \"ok\": true, \"pid\": 203}]"
     },
     {
       "set_no": 3,
@@ -8124,278 +8424,499 @@ window.BOOTSTRAP_1116 = {
       "server": "김다인",
       "server_team": "HDEC",
       "cause": "kill",
-      "score_hdec": 4,
-      "score_exp": 9,
-      "score_home": 4,
-      "score_away": 9,
+      "score_hdec": 6,
+      "score_exp": 7,
+      "score_home": 6,
+      "score_away": 7,
+      "score_kgc": 6,
       "score": {
-        "HDEC": 4,
-        "EXP": 9
+        "HDEC": 6,
+        "EXP": 7
       },
-      "point_idx": 12,
+      "point_idx": 4,
       "events": [
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
           "a": "3김다인 서브",
           "c": "serve",
-          "ok": true
+          "ok": false,
+          "pid": 207
         },
         {
           "n": "문정원",
           "num": 12,
           "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
+          "a": "12문정원 리시브",
           "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 508
         },
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
           "a": "6이윤정 세트 정확",
           "c": "set",
-          "ok": true
+          "ok": true,
+          "pid": 506
         },
         {
-          "n": "박정아",
-          "num": 9,
+          "n": "김세빈",
+          "num": 11,
           "t": "EXP",
-          "pid": 507,
-          "a": "9박정아 오픈 성공",
+          "a": "김세빈 오픈 성공",
           "c": "attack",
-          "ok": true
+          "ok": true,
+          "pid": 503
         }
       ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"pid\": 507, \"a\": \"9박정아 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 207}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 503}]"
     },
     {
       "set_no": 3,
       "rally_no": 14,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 4,
-      "score_exp": 10,
-      "score_home": 4,
-      "score_away": 10,
-      "score": {
-        "HDEC": 4,
-        "EXP": 10
-      },
-      "point_idx": 13,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 백어택 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 15,
       "scorer": "HDEC",
-      "server": "이윤정",
+      "server": "김세빈",
       "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 5,
-      "score_exp": 10,
-      "score_home": 5,
-      "score_away": 10,
+      "cause": "blockkill",
+      "score_hdec": 7,
+      "score_exp": 7,
+      "score_home": 7,
+      "score_away": 7,
+      "score_kgc": 7,
       "score": {
-        "HDEC": 5,
-        "EXP": 10
+        "HDEC": 7,
+        "EXP": 7
       },
       "point_idx": 14,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
+          "a": "11김세빈 서브",
           "c": "serve",
-          "ok": true
+          "ok": false,
+          "pid": 503
         },
         {
           "n": "이영주",
           "num": 5,
           "t": "HDEC",
-          "pid": 211,
           "a": "5이영주 리시브 정확",
           "c": "receive",
-          "ok": true
+          "ok": true,
+          "pid": 211
         },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
+          "a": "3김다인 세트",
           "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 207
         },
         {
-          "n": "조던",
-          "num": 21,
+          "n": "이채영",
+          "num": 2,
           "t": "HDEC",
-          "pid": 202,
-          "a": "21조던 퀵오픈 성공",
+          "a": "2이채영 퀵오픈",
           "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"pid\": 202, \"a\": \"21조던 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 16,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 5,
-      "score_exp": 11,
-      "score_home": 5,
-      "score_away": 11,
-      "score": {
-        "HDEC": 5,
-        "EXP": 11
-      },
-      "point_idx": 15,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 203
         },
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 17,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 5,
-      "score_exp": 12,
-      "score_home": 5,
-      "score_away": 12,
-      "score": {
-        "HDEC": 5,
-        "EXP": 12
-      },
-      "point_idx": 16,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
+          "a": "6이윤정 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 506
         },
         {
           "n": "강소휘",
           "num": 97,
           "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 오픈 성공",
+          "a": "97강소휘 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 오픈",
           "c": "attack",
-          "ok": true
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 블록킹",
+          "c": "block",
+          "ok": false,
+          "pid": 204
+        },
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 505
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "강서우 블록킹 성공",
+          "c": "block",
+          "ok": true,
+          "pid": 204
         }
       ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 203}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 503}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 211}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 203}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 502}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 블록킹\", \"c\": \"block\", \"ok\": false, \"pid\": 204}, {\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 505}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 503}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 501}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"강서우 블록킹 성공\", \"c\": \"block\", \"ok\": true, \"pid\": 204}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 15,
+      "scorer": "HDEC",
+      "server": "이채영",
+      "server_team": "HDEC",
+      "cause": "blockkill",
+      "score_hdec": 8,
+      "score_exp": 7,
+      "score_home": 8,
+      "score_away": 7,
+      "score_kgc": 8,
+      "score": {
+        "HDEC": 8,
+        "EXP": 7
+      },
+      "point_idx": 12,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 블록킹 어시스트",
+          "c": "block_assist",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "김연견",
+          "num": 8,
+          "t": "HDEC",
+          "a": "8김연견 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 210
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "메가 블록킹 성공",
+          "c": "block",
+          "ok": true,
+          "pid": 201
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 블록킹 어시스트\", \"c\": \"block_assist\", \"ok\": false, \"pid\": 203}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 203}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 502}, {\"n\": \"김연견\", \"num\": 8, \"t\": \"HDEC\", \"a\": \"8김연견 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 210}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 504}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 502}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"메가 블록킹 성공\", \"c\": \"block\", \"ok\": true, \"pid\": 201}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 16,
+      "scorer": "HDEC",
+      "server": "이채영",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 9,
+      "score_exp": 7,
+      "score_home": 9,
+      "score_away": 7,
+      "score_kgc": 9,
+      "score": {
+        "HDEC": 9,
+        "EXP": 7
+      },
+      "point_idx": 9,
+      "events": [
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 블록킹 어시스트",
+          "c": "block_assist",
+          "ok": false,
+          "pid": 204
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김연견",
+          "num": 8,
+          "t": "HDEC",
+          "a": "8김연견 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 210
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 203
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "조던 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 블록킹 어시스트\", \"c\": \"block_assist\", \"ok\": false, \"pid\": 204}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 203}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 501}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 202}, {\"n\": \"김연견\", \"num\": 8, \"t\": \"HDEC\", \"a\": \"8김연견 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 210}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 203}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"조던 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 17,
+      "scorer": "EXP",
+      "server": "이채영",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 9,
+      "score_exp": 8,
+      "score_home": 9,
+      "score_away": 8,
+      "score_kgc": 9,
+      "score": {
+        "HDEC": 9,
+        "EXP": 8
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "마미 퀵오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 502
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 505}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 203}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"마미 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 502}]"
     },
     {
       "set_no": 3,
@@ -8404,959 +8925,1363 @@ window.BOOTSTRAP_1116 = {
       "server": "이윤정",
       "server_team": "EXP",
       "cause": "kill",
-      "score_hdec": 6,
-      "score_exp": 12,
-      "score_home": 6,
-      "score_away": 12,
+      "score_hdec": 10,
+      "score_exp": 8,
+      "score_home": 10,
+      "score_away": 8,
+      "score_kgc": 10,
       "score": {
-        "HDEC": 6,
-        "EXP": 12
+        "HDEC": 10,
+        "EXP": 8
       },
-      "point_idx": 17,
+      "point_idx": 5,
       "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
         {
           "n": "강서우",
           "num": 11,
           "t": "HDEC",
-          "pid": 204,
-          "a": "11강서우 속공 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"pid\": 204, \"a\": \"11강서우 속공 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 19,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 6,
-      "score_exp": 13,
-      "score_home": 6,
-      "score_away": 13,
-      "score": {
-        "HDEC": 6,
-        "EXP": 13
-      },
-      "point_idx": 18,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "김세빈",
-          "num": 11,
-          "t": "EXP",
-          "pid": 503,
-          "a": "11김세빈 속공 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"pid\": 503, \"a\": \"11김세빈 속공 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 20,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 6,
-      "score_exp": 14,
-      "score_home": 6,
-      "score_away": 14,
-      "score": {
-        "HDEC": 6,
-        "EXP": 14
-      },
-      "point_idx": 19,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 21,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 7,
-      "score_exp": 14,
-      "score_home": 7,
-      "score_away": 14,
-      "score": {
-        "HDEC": 7,
-        "EXP": 14
-      },
-      "point_idx": 20,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "김희진",
-          "num": 4,
-          "t": "HDEC",
-          "pid": 205,
-          "a": "4김희진 이동 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"pid\": 205, \"a\": \"4김희진 이동 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 22,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 7,
-      "score_exp": 15,
-      "score_home": 7,
-      "score_away": 15,
-      "score": {
-        "HDEC": 7,
-        "EXP": 15
-      },
-      "point_idx": 21,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 23,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 7,
-      "score_exp": 16,
-      "score_home": 7,
-      "score_away": 16,
-      "score": {
-        "HDEC": 7,
-        "EXP": 16
-      },
-      "point_idx": 22,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "강소휘",
-          "num": 97,
-          "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 24,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 8,
-      "score_exp": 16,
-      "score_home": 8,
-      "score_away": 16,
-      "score": {
-        "HDEC": 8,
-        "EXP": 16
-      },
-      "point_idx": 23,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "이예림",
-          "num": 1,
-          "t": "HDEC",
-          "pid": 206,
-          "a": "1이예림 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"이예림\", \"num\": 1, \"t\": \"HDEC\", \"pid\": 206, \"a\": \"1이예림 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 25,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "blockkill",
-      "score_hdec": 8,
-      "score_exp": 17,
-      "score_home": 8,
-      "score_away": 17,
-      "score": {
-        "HDEC": 8,
-        "EXP": 17
-      },
-      "point_idx": 24,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "메가",
-          "num": 88,
-          "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 오픈",
-          "c": "attack",
-          "ok": false
-        },
-        {
-          "n": "김세빈",
-          "num": 11,
-          "t": "EXP",
-          "pid": 503,
-          "a": "11김세빈 블록킹 성공",
+          "a": "11강서우 블록킹 실패",
           "c": "block",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 오픈\", \"c\": \"attack\", \"ok\": false}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"pid\": 503, \"a\": \"11김세빈 블록킹 성공\", \"c\": \"block\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 26,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 8,
-      "score_exp": 18,
-      "score_home": 8,
-      "score_away": 18,
-      "score": {
-        "HDEC": 8,
-        "EXP": 18
-      },
-      "point_idx": 25,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 204
         },
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "박정아",
-          "num": 9,
-          "t": "EXP",
-          "pid": 507,
-          "a": "9박정아 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"pid\": 507, \"a\": \"9박정아 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 27,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 9,
-      "score_exp": 18,
-      "score_home": 9,
-      "score_away": 18,
-      "score": {
-        "HDEC": 9,
-        "EXP": 18
-      },
-      "point_idx": 26,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
           "a": "6이윤정 서브",
           "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "메가",
-          "num": 88,
-          "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 백어택 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 28,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 9,
-      "score_exp": 19,
-      "score_home": 9,
-      "score_away": 19,
-      "score": {
-        "HDEC": 9,
-        "EXP": 19
-      },
-      "point_idx": 27,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 백어택 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 29,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 9,
-      "score_exp": 20,
-      "score_home": 9,
-      "score_away": 20,
-      "score": {
-        "HDEC": 9,
-        "EXP": 20
-      },
-      "point_idx": 28,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 30,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 10,
-      "score_exp": 20,
-      "score_home": 10,
-      "score_away": 20,
-      "score": {
-        "HDEC": 10,
-        "EXP": 20
-      },
-      "point_idx": 29,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "조던",
-          "num": 21,
-          "t": "HDEC",
-          "pid": 202,
-          "a": "21조던 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"pid\": 202, \"a\": \"21조던 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 31,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 10,
-      "score_exp": 21,
-      "score_home": 10,
-      "score_away": 21,
-      "score": {
-        "HDEC": 10,
-        "EXP": 21
-      },
-      "point_idx": 30,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "강소휘",
-          "num": 97,
-          "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 32,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 10,
-      "score_exp": 22,
-      "score_home": 10,
-      "score_away": 22,
-      "score": {
-        "HDEC": 10,
-        "EXP": 22
-      },
-      "point_idx": 31,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "김세빈",
-          "num": 11,
-          "t": "EXP",
-          "pid": 503,
-          "a": "11김세빈 속공 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"pid\": 503, \"a\": \"11김세빈 속공 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 33,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 11,
-      "score_exp": 22,
-      "score_home": 11,
-      "score_away": 22,
-      "score": {
-        "HDEC": 11,
-        "EXP": 22
-      },
-      "point_idx": 32,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 506
         },
         {
           "n": "이채영",
           "num": 2,
           "t": "HDEC",
-          "pid": 203,
-          "a": "2이채영 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"pid\": 203, \"a\": \"2이채영 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 34,
-      "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 11,
-      "score_exp": 23,
-      "score_home": 11,
-      "score_away": 23,
-      "score": {
-        "HDEC": 11,
-        "EXP": 23
-      },
-      "point_idx": 33,
-      "events": [
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
         },
         {
-          "n": "문정원",
-          "num": 12,
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "메가 시간차 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 201
+        }
+      ],
+      "events_json": "[{\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 204}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 506}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"메가 시간차 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 201}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 19,
+      "scorer": "EXP",
+      "server": "강서우",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 10,
+      "score_exp": 9,
+      "score_home": 10,
+      "score_away": 9,
+      "score_kgc": 10,
+      "score": {
+        "HDEC": 10,
+        "EXP": 9
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 204
+        },
+        {
+          "n": "마미",
+          "num": 10,
           "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
+          "a": "10마미 리시브 정확",
           "c": "receive",
-          "ok": true
+          "ok": true,
+          "pid": 502
         },
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
           "a": "6이윤정 세트 정확",
           "c": "set",
-          "ok": true
+          "ok": true,
+          "pid": 506
         },
         {
           "n": "모마",
           "num": 99,
           "t": "EXP",
-          "pid": 501,
-          "a": "99모마 오픈 성공",
+          "a": "모마 퀵오픈 성공",
           "c": "attack",
-          "ok": true
+          "ok": true,
+          "pid": 501
         }
       ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 204}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"모마 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 501}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 20,
+      "scorer": "HDEC",
+      "server": "마미",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 11,
+      "score_exp": 9,
+      "score_home": 11,
+      "score_away": 9,
+      "score_kgc": 11,
+      "score": {
+        "HDEC": 11,
+        "EXP": 9
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "조던 시간차 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 203}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 502}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"조던 시간차 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 21,
+      "scorer": "EXP",
+      "server": "메가",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 11,
+      "score_exp": 10,
+      "score_home": 11,
+      "score_away": 10,
+      "score_kgc": 11,
+      "score": {
+        "HDEC": 11,
+        "EXP": 10
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 스파이크서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "강소휘 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 504
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 505}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 스파이크서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 201}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 504}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 22,
+      "scorer": "EXP",
+      "server": "김현지",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 11,
+      "score_exp": 11,
+      "score_home": 11,
+      "score_away": 11,
+      "score_kgc": 11,
+      "score": {
+        "HDEC": 11,
+        "EXP": 11
+      },
+      "point_idx": 9,
+      "events": [
+        {
+          "n": "김희진",
+          "num": 4,
+          "t": "HDEC",
+          "a": "15김희진 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 205
+        },
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "강소휘 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 504
+        }
+      ],
+      "events_json": "[{\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"a\": \"15김희진 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 205}, {\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 505}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 202}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 501}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"강소휘 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 504}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 23,
+      "scorer": "HDEC",
+      "server": "김현지",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 12,
+      "score_exp": 11,
+      "score_home": 12,
+      "score_away": 11,
+      "score_kgc": 12,
+      "score": {
+        "HDEC": 12,
+        "EXP": 11
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 211
+        },
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "메가 백어택 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 201
+        }
+      ],
+      "events_json": "[{\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 211}, {\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 505}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"메가 백어택 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 201}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 24,
+      "scorer": "HDEC",
+      "server": "조던",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 13,
+      "score_exp": 11,
+      "score_home": 13,
+      "score_away": 11,
+      "score_kgc": 13,
+      "score": {
+        "HDEC": 13,
+        "EXP": 11
+      },
+      "point_idx": 9,
+      "events": [
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 201
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "이채영 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 203
+        }
+      ],
+      "events_json": "[{\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 503}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 202}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 504}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 201}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"이채영 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 203}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 25,
+      "scorer": "HDEC",
+      "server": "조던",
+      "server_team": "HDEC",
+      "cause": "out",
+      "score_hdec": 14,
+      "score_exp": 11,
+      "score_home": 14,
+      "score_away": 11,
+      "score_kgc": 14,
+      "score": {
+        "HDEC": 14,
+        "EXP": 11
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "마미",
+          "num": 10,
+          "t": "EXP",
+          "a": "10마미 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 502
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 퀵오픈 아웃",
+          "c": "attack",
+          "ok": false,
+          "pid": 501
+        }
+      ],
+      "events_json": "[{\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 501}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 202}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"a\": \"10마미 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 502}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 퀵오픈 아웃\", \"c\": \"attack\", \"ok\": false, \"pid\": 501}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 26,
+      "scorer": "EXP",
+      "server": "조던",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 14,
+      "score_exp": 12,
+      "score_home": 14,
+      "score_away": 12,
+      "score_kgc": 14,
+      "score": {
+        "HDEC": 14,
+        "EXP": 12
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "모마 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 501
+        }
+      ],
+      "events_json": "[{\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 202}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"모마 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 501}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 27,
+      "scorer": "HDEC",
+      "server": "모마",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 15,
+      "score_exp": 12,
+      "score_home": 15,
+      "score_away": 12,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 12
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 스파이크서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "이채영 퀵오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 203
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 203}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 스파이크서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 501}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"이채영 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 203}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 28,
+      "scorer": "EXP",
+      "server": "김희진",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 15,
+      "score_exp": 13,
+      "score_home": 15,
+      "score_away": 13,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 13
+      },
+      "point_idx": 18,
+      "events": [
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "김희진",
+          "num": 4,
+          "t": "HDEC",
+          "a": "15김희진 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 205
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 퀵오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 202
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 유효 블로킹",
+          "c": "block",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 202
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 506
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "김세빈 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 503
+        }
+      ],
+      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 506}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"a\": \"15김희진 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 205}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 504}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 퀵오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 504}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 202}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 201}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 유효 블로킹\", \"c\": \"block\", \"ok\": false, \"pid\": 504}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 504}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 202}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 207}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 506}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 503}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 29,
+      "scorer": "EXP",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "out",
+      "score_hdec": 15,
+      "score_exp": 14,
+      "score_home": 15,
+      "score_away": 14,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 14
+      },
+      "point_idx": 18,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "박정아",
+          "num": 9,
+          "t": "EXP",
+          "a": "9박정아 블록킹",
+          "c": "block",
+          "ok": false,
+          "pid": 507
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 201
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "문정원",
+          "num": 12,
+          "t": "EXP",
+          "a": "12문정원 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 508
+        },
+        {
+          "n": "이윤정",
+          "num": 6,
+          "t": "EXP",
+          "a": "6이윤정 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 506
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "99모마 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 501
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 201
+        },
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 211
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 오픈",
+          "c": "attack",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 블록킹",
+          "c": "block",
+          "ok": false,
+          "pid": 503
+        },
+        {
+          "n": "이영주",
+          "num": 5,
+          "t": "HDEC",
+          "a": "5이영주 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 211
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 백어택 아웃",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 203}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 207}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"a\": \"9박정아 블록킹\", \"c\": \"block\", \"ok\": false, \"pid\": 507}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 201}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"a\": \"12문정원 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 508}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 506}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"99모마 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 501}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 201}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 211}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 오픈\", \"c\": \"attack\", \"ok\": false, \"pid\": 203}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 블록킹\", \"c\": \"block\", \"ok\": false, \"pid\": 503}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 211}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 백어택 아웃\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 30,
+      "scorer": "EXP",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 15,
+      "score_exp": 15,
+      "score_home": 15,
+      "score_away": 15,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 15
+      },
+      "point_idx": 3,
+      "events": [
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "박정아",
+          "num": 9,
+          "t": "EXP",
+          "a": "박정아 오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 507
+        }
+      ],
+      "events_json": "[{\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"a\": \"박정아 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 507}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 31,
+      "scorer": "EXP",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "out",
+      "score_hdec": 15,
+      "score_exp": 16,
+      "score_home": 15,
+      "score_away": 16,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 16
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "메가",
+          "num": 88,
+          "t": "HDEC",
+          "a": "88메가 백어택 아웃",
+          "c": "attack",
+          "ok": false,
+          "pid": 201
+        }
+      ],
+      "events_json": "[{\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 백어택 아웃\", \"c\": \"attack\", \"ok\": false, \"pid\": 201}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 32,
+      "scorer": "EXP",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "out",
+      "score_hdec": 15,
+      "score_exp": 17,
+      "score_home": 15,
+      "score_away": 17,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 17
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 속공 아웃",
+          "c": "attack",
+          "ok": false,
+          "pid": 204
+        }
+      ],
+      "events_json": "[{\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 속공 아웃\", \"c\": \"attack\", \"ok\": false, \"pid\": 204}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 33,
+      "scorer": "EXP",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "blockkill",
+      "score_hdec": 15,
+      "score_exp": 18,
+      "score_home": 15,
+      "score_away": 18,
+      "score_kgc": 15,
+      "score": {
+        "HDEC": 15,
+        "EXP": 18
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 207
+        },
+        {
+          "n": "조던",
+          "num": 21,
+          "t": "HDEC",
+          "a": "21조던 백어택",
+          "c": "attack",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "김세빈 블록킹 성공",
+          "c": "block",
+          "ok": true,
+          "pid": 503
+        }
+      ],
+      "events_json": "[{\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 백어택\", \"c\": \"attack\", \"ok\": false, \"pid\": 202}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 블록킹 성공\", \"c\": \"block\", \"ok\": true, \"pid\": 503}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 34,
+      "scorer": "HDEC",
+      "server": "강소휘",
+      "server_team": "EXP",
+      "cause": "kill",
+      "score_hdec": 16,
+      "score_exp": 18,
+      "score_home": 16,
+      "score_away": 18,
+      "score_kgc": 16,
+      "score": {
+        "HDEC": 16,
+        "EXP": 18
+      },
+      "point_idx": 4,
+      "events": [
+        {
+          "n": "강소휘",
+          "num": 97,
+          "t": "EXP",
+          "a": "97강소휘 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 504
+        },
+        {
+          "n": "강서우",
+          "num": 11,
+          "t": "HDEC",
+          "a": "11강서우 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 204
+        },
+        {
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 207
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "이채영 퀵오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 203
+        }
+      ],
+      "events_json": "[{\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"a\": \"97강소휘 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 504}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"a\": \"11강서우 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 204}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"이채영 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 203}]"
     },
     {
       "set_no": 3,
@@ -9364,512 +10289,440 @@ window.BOOTSTRAP_1116 = {
       "scorer": "EXP",
       "server": "김다인",
       "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 11,
-      "score_exp": 24,
-      "score_home": 11,
-      "score_away": 24,
+      "cause": "serve_error",
+      "score_hdec": 16,
+      "score_exp": 19,
+      "score_home": 16,
+      "score_away": 19,
+      "score_kgc": 16,
       "score": {
-        "HDEC": 11,
-        "EXP": 24
+        "HDEC": 16,
+        "EXP": 19
       },
-      "point_idx": 34,
+      "point_idx": 2,
       "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
         {
           "n": "이윤정",
           "num": 6,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
+          "a": "6이윤정 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 506
         },
         {
-          "n": "마미",
-          "num": 10,
-          "t": "EXP",
-          "pid": 502,
-          "a": "10마미 오픈 성공",
-          "c": "attack",
-          "ok": true
+          "n": "김다인",
+          "num": 3,
+          "t": "HDEC",
+          "a": "3김다인 서브 아웃",
+          "c": "serve",
+          "ok": false,
+          "pid": 207
         }
       ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"마미\", \"num\": 10, \"t\": \"EXP\", \"pid\": 502, \"a\": \"10마미 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"a\": \"6이윤정 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 506}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 서브 아웃\", \"c\": \"serve\", \"ok\": false, \"pid\": 207}]"
     },
     {
       "set_no": 3,
       "rally_no": 36,
-      "scorer": "HDEC",
-      "server": "이윤정",
+      "scorer": "EXP",
+      "server": "김세빈",
       "server_team": "EXP",
-      "cause": "blockkill",
-      "score_hdec": 12,
-      "score_exp": 24,
-      "score_home": 12,
-      "score_away": 24,
+      "cause": "serveace",
+      "score_hdec": 16,
+      "score_exp": 20,
+      "score_home": 16,
+      "score_away": 20,
+      "score_kgc": 16,
       "score": {
-        "HDEC": 12,
-        "EXP": 24
+        "HDEC": 16,
+        "EXP": 20
       },
-      "point_idx": 35,
+      "point_idx": 1,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
+          "n": "김세빈",
+          "num": 11,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
+          "a": "김세빈 서브 성공",
           "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "모마",
-          "num": 99,
-          "t": "EXP",
-          "pid": 501,
-          "a": "99모마 백어택",
-          "c": "attack",
-          "ok": false
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 블록킹 성공",
-          "c": "block",
-          "ok": true
+          "ok": true,
+          "pid": 503
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트\", \"c\": \"set\", \"ok\": true}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"pid\": 501, \"a\": \"99모마 백어택\", \"c\": \"attack\", \"ok\": false}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 블록킹 성공\", \"c\": \"block\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 서브 성공\", \"c\": \"serve\", \"ok\": true, \"pid\": 503}]"
     },
     {
       "set_no": 3,
       "rally_no": 37,
       "scorer": "EXP",
-      "server": "김다인",
-      "server_team": "HDEC",
-      "cause": "kill",
-      "score_hdec": 12,
-      "score_exp": 25,
-      "score_home": 12,
-      "score_away": 25,
-      "score": {
-        "HDEC": 12,
-        "EXP": 25
-      },
-      "point_idx": 36,
-      "events": [
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "문정원",
-          "num": 12,
-          "t": "EXP",
-          "pid": 508,
-          "a": "12문정원 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "강소휘",
-          "num": 97,
-          "t": "EXP",
-          "pid": 504,
-          "a": "97강소휘 퀵오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"문정원\", \"num\": 12, \"t\": \"EXP\", \"pid\": 508, \"a\": \"12문정원 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강소휘\", \"num\": 97, \"t\": \"EXP\", \"pid\": 504, \"a\": \"97강소휘 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 38,
-      "scorer": "HDEC",
-      "server": "이윤정",
+      "server": "김세빈",
       "server_team": "EXP",
       "cause": "kill",
-      "score_hdec": 13,
-      "score_exp": 25,
-      "score_home": 13,
-      "score_away": 25,
+      "score_hdec": 16,
+      "score_exp": 21,
+      "score_home": 16,
+      "score_away": 21,
+      "score_kgc": 16,
       "score": {
-        "HDEC": 13,
-        "EXP": 25
+        "HDEC": 16,
+        "EXP": 21
       },
-      "point_idx": 37,
+      "point_idx": 7,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
+          "n": "이채영",
+          "num": 2,
           "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
+          "a": "2이채영 리시브 실패",
           "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 203
         },
         {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "11김세빈 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 503
         },
         {
           "n": "조던",
           "num": 21,
           "t": "HDEC",
-          "pid": 202,
-          "a": "21조던 퀵오픈 성공",
+          "a": "21조던 리시브",
+          "c": "receive",
+          "ok": false,
+          "pid": 202
+        },
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 세트",
+          "c": "set",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김세인",
+          "num": 18,
+          "t": "EXP",
+          "a": "18김세인 디그",
+          "c": "dig",
+          "ok": true,
+          "pid": 509
+        },
+        {
+          "n": "이수연",
+          "num": 19,
+          "t": "EXP",
+          "a": "19이수연 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 510
+        },
+        {
+          "n": "박정아",
+          "num": 9,
+          "t": "EXP",
+          "a": "박정아 오픈 성공",
           "c": "attack",
-          "ok": true
+          "ok": true,
+          "pid": 507
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"pid\": 202, \"a\": \"21조던 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 리시브 실패\", \"c\": \"receive\", \"ok\": false, \"pid\": 203}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 503}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 202}, {\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 203}, {\"n\": \"김세인\", \"num\": 18, \"t\": \"EXP\", \"a\": \"18김세인 디그\", \"c\": \"dig\", \"ok\": true, \"pid\": 509}, {\"n\": \"이수연\", \"num\": 19, \"t\": \"EXP\", \"a\": \"19이수연 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 510}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"a\": \"박정아 오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 507}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 38,
+      "scorer": "EXP",
+      "server": "김세빈",
+      "server_team": "EXP",
+      "cause": "serveace",
+      "score_hdec": 16,
+      "score_exp": 22,
+      "score_home": 16,
+      "score_away": 22,
+      "score_kgc": 16,
+      "score": {
+        "HDEC": 16,
+        "EXP": 22
+      },
+      "point_idx": 2,
+      "events": [
+        {
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 디그 실패",
+          "c": "dig",
+          "ok": false,
+          "pid": 203
+        },
+        {
+          "n": "김세빈",
+          "num": 11,
+          "t": "EXP",
+          "a": "김세빈 서브 성공",
+          "c": "serve",
+          "ok": true,
+          "pid": 503
+        }
+      ],
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 디그 실패\", \"c\": \"dig\", \"ok\": false, \"pid\": 203}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"김세빈 서브 성공\", \"c\": \"serve\", \"ok\": true, \"pid\": 503}]"
     },
     {
       "set_no": 3,
       "rally_no": 39,
       "scorer": "HDEC",
-      "server": "이윤정",
+      "server": "김세빈",
       "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 14,
-      "score_exp": 25,
-      "score_home": 14,
-      "score_away": 25,
+      "cause": "serve_error",
+      "score_hdec": 17,
+      "score_exp": 22,
+      "score_home": 17,
+      "score_away": 22,
+      "score_kgc": 17,
       "score": {
-        "HDEC": 14,
-        "EXP": 25
+        "HDEC": 17,
+        "EXP": 22
       },
-      "point_idx": 38,
+      "point_idx": 2,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
+          "n": "조던",
+          "num": 21,
           "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
+          "a": "21조던 리시브 실패",
           "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 202
         },
         {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "강서우",
+          "n": "김세빈",
           "num": 11,
-          "t": "HDEC",
-          "pid": 204,
-          "a": "11강서우 속공 성공",
-          "c": "attack",
-          "ok": true
+          "t": "EXP",
+          "a": "11김세빈 서브 아웃",
+          "c": "serve",
+          "ok": false,
+          "pid": 503
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"강서우\", \"num\": 11, \"t\": \"HDEC\", \"pid\": 204, \"a\": \"11강서우 속공 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"21조던 리시브 실패\", \"c\": \"receive\", \"ok\": false, \"pid\": 202}, {\"n\": \"김세빈\", \"num\": 11, \"t\": \"EXP\", \"a\": \"11김세빈 서브 아웃\", \"c\": \"serve\", \"ok\": false, \"pid\": 503}]"
     },
     {
       "set_no": 3,
       "rally_no": 40,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 15,
-      "score_exp": 25,
-      "score_home": 15,
-      "score_away": 25,
+      "scorer": "EXP",
+      "server": "이채영",
+      "server_team": "HDEC",
+      "cause": "serve_error",
+      "score_hdec": 17,
+      "score_exp": 23,
+      "score_home": 17,
+      "score_away": 23,
+      "score_kgc": 17,
       "score": {
-        "HDEC": 15,
-        "EXP": 25
+        "HDEC": 17,
+        "EXP": 23
       },
-      "point_idx": 39,
+      "point_idx": 1,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
+          "n": "이채영",
+          "num": 2,
+          "t": "HDEC",
+          "a": "2이채영 서브 아웃",
           "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "김희진",
-          "num": 4,
-          "t": "HDEC",
-          "pid": 205,
-          "a": "4김희진 이동 성공",
-          "c": "attack",
-          "ok": true
+          "ok": false,
+          "pid": 203
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"김희진\", \"num\": 4, \"t\": \"HDEC\", \"pid\": 205, \"a\": \"4김희진 이동 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이채영\", \"num\": 2, \"t\": \"HDEC\", \"a\": \"2이채영 서브 아웃\", \"c\": \"serve\", \"ok\": false, \"pid\": 203}]"
     },
     {
       "set_no": 3,
       "rally_no": 41,
-      "scorer": "HDEC",
-      "server": "이윤정",
+      "scorer": "EXP",
+      "server": "이수연",
       "server_team": "EXP",
-      "cause": "kill",
-      "score_hdec": 16,
-      "score_exp": 25,
-      "score_home": 16,
-      "score_away": 25,
-      "score": {
-        "HDEC": 16,
-        "EXP": 25
-      },
-      "point_idx": 40,
-      "events": [
-        {
-          "n": "이윤정",
-          "num": 6,
-          "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
-          "c": "serve",
-          "ok": true
-        },
-        {
-          "n": "이영주",
-          "num": 5,
-          "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
-          "c": "receive",
-          "ok": true
-        },
-        {
-          "n": "김다인",
-          "num": 3,
-          "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
-          "c": "set",
-          "ok": true
-        },
-        {
-          "n": "이예림",
-          "num": 1,
-          "t": "HDEC",
-          "pid": 206,
-          "a": "1이예림 오픈 성공",
-          "c": "attack",
-          "ok": true
-        }
-      ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"이예림\", \"num\": 1, \"t\": \"HDEC\", \"pid\": 206, \"a\": \"1이예림 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
-    },
-    {
-      "set_no": 3,
-      "rally_no": 42,
-      "scorer": "HDEC",
-      "server": "이윤정",
-      "server_team": "EXP",
-      "cause": "kill",
+      "cause": "out",
       "score_hdec": 17,
-      "score_exp": 25,
+      "score_exp": 24,
       "score_home": 17,
-      "score_away": 25,
+      "score_away": 24,
+      "score_kgc": 17,
       "score": {
         "HDEC": 17,
-        "EXP": 25
+        "EXP": 24
       },
-      "point_idx": 41,
+      "point_idx": 4,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
+          "n": "이수연",
+          "num": 19,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
+          "a": "19이수연 서브",
           "c": "serve",
-          "ok": true
+          "ok": false,
+          "pid": 510
         },
         {
           "n": "이영주",
           "num": 5,
           "t": "HDEC",
-          "pid": 211,
           "a": "5이영주 리시브 정확",
           "c": "receive",
-          "ok": true
+          "ok": true,
+          "pid": 211
         },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
-          "a": "3김다인 세트 정확",
+          "a": "3김다인 세트",
           "c": "set",
-          "ok": true
+          "ok": false,
+          "pid": 207
         },
         {
           "n": "메가",
           "num": 88,
           "t": "HDEC",
-          "pid": 201,
-          "a": "88메가 백어택 성공",
+          "a": "88메가 오픈 아웃",
           "c": "attack",
-          "ok": true
+          "ok": false,
+          "pid": 201
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"pid\": 201, \"a\": \"88메가 백어택 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이수연\", \"num\": 19, \"t\": \"EXP\", \"a\": \"19이수연 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 510}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 211}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트\", \"c\": \"set\", \"ok\": false, \"pid\": 207}, {\"n\": \"메가\", \"num\": 88, \"t\": \"HDEC\", \"a\": \"88메가 오픈 아웃\", \"c\": \"attack\", \"ok\": false, \"pid\": 201}]"
     },
     {
       "set_no": 3,
-      "rally_no": 43,
+      "rally_no": 42,
       "scorer": "HDEC",
-      "server": "이윤정",
+      "server": "이수연",
       "server_team": "EXP",
       "cause": "kill",
       "score_hdec": 18,
-      "score_exp": 25,
+      "score_exp": 24,
       "score_home": 18,
-      "score_away": 25,
+      "score_away": 24,
+      "score_kgc": 18,
       "score": {
         "HDEC": 18,
-        "EXP": 25
+        "EXP": 24
       },
-      "point_idx": 42,
+      "point_idx": 4,
       "events": [
         {
-          "n": "이윤정",
-          "num": 6,
+          "n": "이수연",
+          "num": 19,
           "t": "EXP",
-          "pid": 506,
-          "a": "6이윤정 서브",
+          "a": "19이수연 서브",
           "c": "serve",
-          "ok": true
+          "ok": false,
+          "pid": 510
         },
         {
           "n": "이영주",
           "num": 5,
           "t": "HDEC",
-          "pid": 211,
-          "a": "5이영주 리시브 정확",
+          "a": "5이영주 리시브",
           "c": "receive",
-          "ok": true
+          "ok": false,
+          "pid": 211
         },
         {
           "n": "김다인",
           "num": 3,
           "t": "HDEC",
-          "pid": 207,
           "a": "3김다인 세트 정확",
           "c": "set",
-          "ok": true
+          "ok": true,
+          "pid": 207
         },
         {
           "n": "조던",
           "num": 21,
           "t": "HDEC",
-          "pid": 202,
-          "a": "21조던 오픈 성공",
+          "a": "조던 퀵오픈 성공",
           "c": "attack",
-          "ok": true
+          "ok": true,
+          "pid": 202
         }
       ],
-      "events_json": "[{\"n\": \"이윤정\", \"num\": 6, \"t\": \"EXP\", \"pid\": 506, \"a\": \"6이윤정 서브\", \"c\": \"serve\", \"ok\": true}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"pid\": 211, \"a\": \"5이영주 리시브 정확\", \"c\": \"receive\", \"ok\": true}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"pid\": 207, \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"pid\": 202, \"a\": \"21조던 오픈 성공\", \"c\": \"attack\", \"ok\": true}]"
+      "events_json": "[{\"n\": \"이수연\", \"num\": 19, \"t\": \"EXP\", \"a\": \"19이수연 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 510}, {\"n\": \"이영주\", \"num\": 5, \"t\": \"HDEC\", \"a\": \"5이영주 리시브\", \"c\": \"receive\", \"ok\": false, \"pid\": 211}, {\"n\": \"김다인\", \"num\": 3, \"t\": \"HDEC\", \"a\": \"3김다인 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 207}, {\"n\": \"조던\", \"num\": 21, \"t\": \"HDEC\", \"a\": \"조던 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 202}]"
+    },
+    {
+      "set_no": 3,
+      "rally_no": 43,
+      "scorer": "EXP",
+      "server": "한미르",
+      "server_team": "HDEC",
+      "cause": "kill",
+      "score_hdec": 18,
+      "score_exp": 25,
+      "score_home": 18,
+      "score_away": 25,
+      "score_kgc": 18,
+      "score": {
+        "HDEC": 18,
+        "EXP": 25
+      },
+      "point_idx": 5,
+      "events": [
+        {
+          "n": "김현지",
+          "num": 17,
+          "t": "EXP",
+          "a": "17김현지 블록킹 실패",
+          "c": "block",
+          "ok": false,
+          "pid": 505
+        },
+        {
+          "n": "한미르",
+          "num": 18,
+          "t": "HDEC",
+          "a": "18한미르 서브",
+          "c": "serve",
+          "ok": false,
+          "pid": 213
+        },
+        {
+          "n": "박정아",
+          "num": 9,
+          "t": "EXP",
+          "a": "9박정아 리시브 정확",
+          "c": "receive",
+          "ok": true,
+          "pid": 507
+        },
+        {
+          "n": "이수연",
+          "num": 19,
+          "t": "EXP",
+          "a": "19이수연 세트 정확",
+          "c": "set",
+          "ok": true,
+          "pid": 510
+        },
+        {
+          "n": "모마",
+          "num": 99,
+          "t": "EXP",
+          "a": "모마 퀵오픈 성공",
+          "c": "attack",
+          "ok": true,
+          "pid": 501
+        }
+      ],
+      "events_json": "[{\"n\": \"김현지\", \"num\": 17, \"t\": \"EXP\", \"a\": \"17김현지 블록킹 실패\", \"c\": \"block\", \"ok\": false, \"pid\": 505}, {\"n\": \"한미르\", \"num\": 18, \"t\": \"HDEC\", \"a\": \"18한미르 서브\", \"c\": \"serve\", \"ok\": false, \"pid\": 213}, {\"n\": \"박정아\", \"num\": 9, \"t\": \"EXP\", \"a\": \"9박정아 리시브 정확\", \"c\": \"receive\", \"ok\": true, \"pid\": 507}, {\"n\": \"이수연\", \"num\": 19, \"t\": \"EXP\", \"a\": \"19이수연 세트 정확\", \"c\": \"set\", \"ok\": true, \"pid\": 510}, {\"n\": \"모마\", \"num\": 99, \"t\": \"EXP\", \"a\": \"모마 퀵오픈 성공\", \"c\": \"attack\", \"ok\": true, \"pid\": 501}]"
     }
   ],
   "set_stats": [

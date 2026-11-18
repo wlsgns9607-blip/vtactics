@@ -610,8 +610,8 @@
   }
 
   function landingPoint(r, pts, seed) {
-    const scoreIdx = r.point_idx - 1;
-    const lg = pts[scoreIdx];
+    const scoreIdx = (r.point_idx != null && r.point_idx > 0 && r.point_idx <= pts.length) ? (r.point_idx - 1) : (pts.length - 1);
+    const lg = pts[scoreIdx] || pts[pts.length - 1] || { x: 90, y: 45 };
     const loser = other(r.scorer);
     const h = hash(seed, 99, 3), h2 = hash(seed, 98, 5);
     const inb = (team, xr, yr) => toGlobal(team, [lerp(xr[0], xr[1], h), lerp(yr[0], yr[1], h2)]);
@@ -699,10 +699,16 @@
   }
   const tagOf = (ev) => ({ serve: '#서브', receive: '#리시브', set: '#토스', attack: '#' + attackName(ev.a), block: '#블로킹', block_assist: '#블로킹', dig: '#디그' }[ev.c]);
 
+  function rallyLastEvent(r) {
+    if (!r || !r.events || !r.events.length) return { n: '선수', a: '득점', c: 'attack', t: r ? r.scorer : '', ok: true };
+    const idx = (r.point_idx != null && r.point_idx > 0 && r.point_idx <= r.events.length) ? (r.point_idx - 1) : (r.events.length - 1);
+    return r.events[idx] || r.events[r.events.length - 1] || { n: '선수', a: '득점', c: 'attack', t: r.scorer, ok: true };
+  }
+
   function resultSummary(r) {
-    const last = r.events[r.point_idx - 1];
+    const last = rallyLastEvent(r);
     if (r.cause === 'kill' || r.cause === 'blockkill') return `${last.n} ${last.a}`;
-    return `${short(last.t)} ${last.n} ${last.a} → 상대 득점`;
+    return `${short(last.t || r.scorer)} ${last.n} ${last.a} → 상대 득점`;
   }
 
   // 세트별 주요 득점 장면 5개 자동 선정 (긴 랠리·블로킹·서브 에이스·접전·세트 마무리)
@@ -712,7 +718,7 @@
     const all = D.ralliesBySet[n] || [];
     const win = setInfo(n).winner;
     const sc = all.map((r, idx) => {
-      const last = r.events[r.point_idx - 1]; const why = []; let v = r.events.length * 0.9;
+      const last = rallyLastEvent(r); const why = []; let v = r.events.length * 0.9;
       if (r.events.length >= 9) why.push(`${r.events.length}터치 장기 랠리`);
       if (r.cause === 'blockkill') { v += 6; why.push('블로킹 득점'); }
       if (last && last.c === 'serve' && last.ok) { v += 5; why.push('서브 에이스'); }
@@ -855,7 +861,7 @@
       S.rf = b.dataset.k; stopAll(); idle(); renderRallyList();
     }));
     $('rallyList').innerHTML = list.length ? list.map((r, i) => {
-      const last = r.events[r.point_idx - 1];
+      const last = rallyLastEvent(r);
       const cur = S.rp && S.rp.r === r;
       return `<button class="ry ${cur ? 'current' : ''}" data-i="${i}" style="--rc:${color(r.scorer)}">
         <span class="no">#${r.rally_no}</span>
@@ -1443,12 +1449,12 @@
     if (!window.MATCHES) return false;
     const key = (dateVal.includes('11-16') && (window.MATCHES['2024-11-16'] || window.MATCHES['2026-11-16'])) ? (window.MATCHES['2024-11-16'] ? '2024-11-16' : '2026-11-16') :
       (dateVal.includes('11-08') && (window.MATCHES['2024-11-08'] || window.MATCHES['2026-11-08'])) ? (window.MATCHES['2024-11-08'] ? '2024-11-08' : '2026-11-08') :
-      (dateVal.includes('11-03') && (window.MATCHES['2024-11-03'] || window.MATCHES['2026-11-03'])) ? (window.MATCHES['2024-11-03'] ? '2024-11-03' : '2026-11-03') :
-        (dateVal.includes('11-07') && (window.MATCHES['2024-11-07'] || window.MATCHES['2026-11-07'])) ? (window.MATCHES['2024-11-07'] ? '2024-11-07' : '2026-11-07') :
-          (dateVal.includes('11-04') && (window.MATCHES['2024-11-04'] || window.MATCHES['2026-11-04'])) ? (window.MATCHES['2024-11-04'] ? '2024-11-04' : '2026-11-04') :
-            (window.MATCHES[dateVal] ? dateVal :
-              window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
-                window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') : null);
+        (dateVal.includes('11-03') && (window.MATCHES['2024-11-03'] || window.MATCHES['2026-11-03'])) ? (window.MATCHES['2024-11-03'] ? '2024-11-03' : '2026-11-03') :
+          (dateVal.includes('11-07') && (window.MATCHES['2024-11-07'] || window.MATCHES['2026-11-07'])) ? (window.MATCHES['2024-11-07'] ? '2024-11-07' : '2026-11-07') :
+            (dateVal.includes('11-04') && (window.MATCHES['2024-11-04'] || window.MATCHES['2026-11-04'])) ? (window.MATCHES['2024-11-04'] ? '2024-11-04' : '2026-11-04') :
+              (window.MATCHES[dateVal] ? dateVal :
+                window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
+                  window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') : null);
     const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-16') ? window.BOOTSTRAP_1116 : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null));
     if (!raw) return false;
     stopAll(); stopTween();
@@ -1747,8 +1753,10 @@
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const initialDate = urlParams.get('date') || urlParams.get('matchDate') || input.value || '2024-11-04';
-    applyDate(initialDate);
+    const initialDate = urlParams.get('date') || urlParams.get('matchDate');
+    if (initialDate && normalizeDate(initialDate) !== S.matchDate) {
+      applyDate(initialDate);
+    }
   }
 
   function bindPlayerSearch() {
@@ -1845,8 +1853,8 @@
     const dateParam = urlParams.get('date') || urlParams.get('matchDate');
     if (dateParam) {
       S.matchDate = dateParam;
-    } else if (!S.matchDate || S.matchDate === '2026-11-07') {
-      S.matchDate = '2024-11-04';
+    } else if (!S.matchDate || S.matchDate === '2026-11-07' || S.matchDate === '2024-11-04') {
+      S.matchDate = '2024-11-16';
     }
     let raw;
     try {
@@ -1859,18 +1867,13 @@
     S.home = D.teamIds.find((t) => D.teams[t].is_home) || D.teamIds[0];
     S.panelTeam = S.home;
     D.teamIds.forEach((t) => { S.rot[t] = [...BASE_ROT]; S.rotCount[t] = 0; });
-    applyTheme(); drawFloor(); buildTokens();
-    S.pos = baseFormation();
-    renderSetBar(); renderHeadline(); renderScoreboard(); renderMatchStats(); renderTabs(); renderList();
-    selectPlayer(D.lineups[S.home].OH1, { silent: true });
-    renderScenarios(); renderModeUI(); renderTimeline(); updateControls(); introCaster(); bind();
-    renderCourt();
+
     const titleEl = $('mainTitle') || document.querySelector('h1');
     if (titleEl) {
       titleEl.textContent = `[${D.teams[S.home].short_name} vs ${D.teams[away()].short_name}] V-리그 전술 분석 & 리뷰 판`;
     }
     const dateInput = $('matchDateInput');
-    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : S.matchDate);
+    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
     const matchSel = $('matchSelect');
     if (matchSel && S.matchDate) {
       const optVal = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
@@ -1881,6 +1884,16 @@
       matchDateText.textContent = `${D.match_info.date} (${D.match_info.day || '토'})`;
     }
     updateQuickChips(S.matchDate || '2024-11-16');
+
+    applyTheme(); drawFloor(); buildTokens();
+    S.pos = baseFormation();
+    renderSetBar(); renderHeadline(); renderScoreboard(); renderMatchStats(); renderTabs(); renderList();
+    if (D.lineups && D.lineups[S.home]) {
+      const firstPid = D.lineups[S.home].OH1 || D.lineups[S.home].OP || Object.values(D.lineups[S.home])[0];
+      if (firstPid) selectPlayer(firstPid, { silent: true });
+    }
+    renderScenarios(); renderModeUI(); renderTimeline(); updateControls(); introCaster(); bind();
+    renderCourt();
     requestAnimationFrame(tick);
     resolveReady(window.VT);
   }
