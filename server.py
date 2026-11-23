@@ -77,8 +77,11 @@ class Handler(SimpleHTTPRequestHandler):
         q = parse_qs(url.query)
         try:
             if parts == ["bootstrap"]:
-                raw_date = q.get("date", q.get("matchDate", ["2024-11-16"]))[0]
+                raw_date = q.get("date", q.get("matchDate", ["2024-11-22"]))[0]
                 s_date = str(raw_date).strip()
+                if "11-22" in s_date or "1122" in s_date or "22" == s_date or ("현대" in s_date and "흥국" in s_date):
+                    from data.build_1122 import full_data_1122  # type: ignore
+                    return self.send_json(full_data_1122)
                 if "11-16" in s_date or "1116" in s_date or "16" == s_date or ("현대" in s_date and "도로" in s_date):
                     from data.build_1116 import full_data_1116  # type: ignore
                     return self.send_json(full_data_1116)

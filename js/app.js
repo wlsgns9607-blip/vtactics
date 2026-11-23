@@ -1476,7 +1476,8 @@
 
   function switchMatch(dateVal) {
     if (!window.MATCHES) return false;
-    const key = (dateVal.includes('11-16') && (window.MATCHES['2024-11-16'] || window.MATCHES['2026-11-16'])) ? (window.MATCHES['2024-11-16'] ? '2024-11-16' : '2026-11-16') :
+    const key = (dateVal.includes('11-22') && (window.MATCHES['2024-11-22'] || window.MATCHES['2026-11-22'])) ? (window.MATCHES['2024-11-22'] ? '2024-11-22' : '2026-11-22') :
+      (dateVal.includes('11-16') && (window.MATCHES['2024-11-16'] || window.MATCHES['2026-11-16'])) ? (window.MATCHES['2024-11-16'] ? '2024-11-16' : '2026-11-16') :
       (dateVal.includes('11-08') && (window.MATCHES['2024-11-08'] || window.MATCHES['2026-11-08'])) ? (window.MATCHES['2024-11-08'] ? '2024-11-08' : '2026-11-08') :
         (dateVal.includes('11-03') && (window.MATCHES['2024-11-03'] || window.MATCHES['2026-11-03'])) ? (window.MATCHES['2024-11-03'] ? '2024-11-03' : '2026-11-03') :
           (dateVal.includes('11-07') && (window.MATCHES['2024-11-07'] || window.MATCHES['2026-11-07'])) ? (window.MATCHES['2024-11-07'] ? '2024-11-07' : '2026-11-07') :
@@ -1484,7 +1485,7 @@
               (window.MATCHES[dateVal] ? dateVal :
                 window.MATCHES[dateVal.replace('2024-', '2026-')] ? dateVal.replace('2024-', '2026-') :
                   window.MATCHES[dateVal.replace('2026-', '2024-')] ? dateVal.replace('2026-', '2024-') : null);
-    const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-16') ? window.BOOTSTRAP_1116 : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null));
+    const raw = (key && window.MATCHES[key]) ? window.MATCHES[key] : (dateVal.includes('11-22') ? window.BOOTSTRAP_1122 : (dateVal.includes('11-16') ? window.BOOTSTRAP_1116 : (dateVal.includes('11-08') ? window.BOOTSTRAP_1108 : null)));
     if (!raw) return false;
     stopAll(); stopTween();
     S.matchDate = key;
@@ -1530,7 +1531,21 @@
   function updateQuickChips(dateVal) {
     const chipsEl = $('quickChips');
     if (!chipsEl) return;
-    if (dateVal.includes('11-16')) {
+    if (dateVal.includes('11-22')) {
+      chipsEl.innerHTML = `
+        <button type="button" class="q-chip active" data-q="">전체</button>
+        <button type="button" class="q-chip" data-q="배유나">배유나</button>
+        <button type="button" class="q-chip" data-q="메가">메가</button>
+        <button type="button" class="q-chip" data-q="조던">조던</button>
+        <button type="button" class="q-chip" data-q="킨델란">킨델란</button>
+        <button type="button" class="q-chip" data-q="자스티스">자스티스</button>
+        <button type="button" class="q-chip" data-q="정윤주">정윤주</button>
+        <button type="button" class="q-chip" data-q="김다인">김다인</button>
+        <button type="button" class="q-chip" data-q="이예림">이예림</button>
+        <button type="button" class="q-chip" data-q="김희진">김희진</button>
+        <button type="button" class="q-chip" data-q="고민지">고민지</button>
+      `;
+    } else if (dateVal.includes('11-16')) {
       chipsEl.innerHTML = `
         <button type="button" class="q-chip active" data-q="">전체</button>
         <button type="button" class="q-chip" data-q="메가">메가</button>
@@ -1883,7 +1898,7 @@
     if (dateParam) {
       S.matchDate = dateParam;
     } else if (!S.matchDate || S.matchDate === '2026-11-07' || S.matchDate === '2024-11-04') {
-      S.matchDate = '2024-11-16';
+      S.matchDate = '2024-11-22';
     }
     let raw;
     try {
@@ -1902,10 +1917,10 @@
       titleEl.textContent = `[${D.teams[S.home].short_name} vs ${D.teams[away()].short_name}] V-리그 전술 분석 & 리뷰 판`;
     }
     const dateInput = $('matchDateInput');
-    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
+    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-22') ? '2024-11-22' : (S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
     const matchSel = $('matchSelect');
     if (matchSel && S.matchDate) {
-      const optVal = S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
+      const optVal = S.matchDate.includes('11-22') ? '2024-11-22' : (S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
       matchSel.value = optVal;
     }
     const matchDateText = $('matchDateText');
