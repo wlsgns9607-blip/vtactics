@@ -397,15 +397,44 @@ set_stats = [
     {"set_no": 3, "player_id": 101, "att_made": 8, "att_tried": 23, "srv_made": 0, "srv_tried": 3, "blk_made": 1, "blk_tried": 5, "dig_made": 4, "dig_tried": 4, "rcv_made": 0, "rcv_tried": 0, "set_made": 0, "set_tried": 2, "errors": 1, "points": 9, "blk_assist": 0, "comment": "3세트 듀스까지 끌고 간 킨델란의 9득점 혈투"}
 ]
 
+lineups = {
+    "HDEC": {"S": 207, "OH1": 202, "OH2": 206, "OP": 201, "MB1": 208, "MB2": 205, "L": 211},
+    "HKL": {"S": 105, "OH1": 102, "OH2": 108, "OP": 101, "MB1": 104, "MB2": 106, "L": 110}
+}
+
+summary = {
+    "HDEC": {
+        "team_id": "HDEC",
+        "att_made": 40, "att_tried": 105, "att_pct": 38.1,
+        "blk_made": 14, "blk_tried": 50,
+        "srv_made": 5, "srv_tried": 75,
+        "dig_made": 67, "dig_tried": 80, "dig_pct": 83.75,
+        "rcv_made": 20, "rcv_tried": 48, "rcv_pct": 41.67,
+        "set_made": 39, "set_tried": 108, "set_pct": 36.11,
+        "errors": 12, "opp_errors": 19, "points": 78
+    },
+    "HKL": {
+        "team_id": "HKL",
+        "att_made": 39, "att_tried": 120, "att_pct": 32.5,
+        "blk_made": 7, "blk_tried": 48,
+        "srv_made": 4, "srv_tried": 63,
+        "dig_made": 65, "dig_tried": 78, "dig_pct": 83.33,
+        "rcv_made": 25, "rcv_tried": 68, "rcv_pct": 36.76,
+        "set_made": 36, "set_tried": 122, "set_pct": 29.51,
+        "errors": 19, "opp_errors": 12, "points": 62
+    }
+}
+
 # 7. 세트별 대표 전술 랠리 (시뮬레이션 & 리플레이)
 rallies = []
 r_idx = 1
 # 1세트 (25:19)
 for sh in range(1, 26):
     sa = int(sh * 19 / 25)
-    scorer = "HDEC" if sh <= 25 else "HKL"
     rallies.append({
         "id": r_idx, "set_no": 1, "rally_no": r_idx, "scorer": "HDEC",
+        "score_hdec": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
+        "score": {"HDEC": sh, "HKL": sa},
         "before": {"HDEC": sh - 1, "HKL": sa}, "after": {"HDEC": sh, "HKL": sa},
         "landing": [85, 20], "events": [
             {"t": "HKL", "n": "자스티스", "a": "서브", "pid": 102},
@@ -420,6 +449,8 @@ for sh in range(1, 26):
     sa = int(sh * 17 / 25)
     rallies.append({
         "id": r_idx, "set_no": 2, "rally_no": r_idx, "scorer": "HDEC",
+        "score_hdec": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
+        "score": {"HDEC": sh, "HKL": sa},
         "before": {"HDEC": sh - 1, "HKL": sa}, "after": {"HDEC": sh, "HKL": sa},
         "landing": [86, 75], "events": [
             {"t": "HDEC", "n": "김다인", "a": "서브", "pid": 207},
@@ -435,6 +466,8 @@ for sh in range(1, 29):
     sa = min(26, int(sh * 26 / 28))
     rallies.append({
         "id": r_idx, "set_no": 3, "rally_no": r_idx, "scorer": "HDEC",
+        "score_hdec": sh, "score_hkl": sa, "score_home": sh, "score_away": sa,
+        "score": {"HDEC": sh, "HKL": sa},
         "before": {"HDEC": sh - 1, "HKL": sa}, "after": {"HDEC": sh, "HKL": sa},
         "landing": [82, 45], "events": [
             {"t": "HKL", "n": "킨델란", "a": "서브", "pid": 101},
@@ -557,7 +590,9 @@ full_data_1122 = {
     "teams": teams,
     "players": players,
     "sets": sets,
+    "lineups": lineups,
     "set_lineups": set_lineups,
+    "summary": summary,
     "key_players": key_players,
     "best_players": best_players,
     "set_stats": set_stats,

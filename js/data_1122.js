@@ -926,6 +926,26 @@ window.BOOTSTRAP_1122 = {
       "score_away": 26
     }
   ],
+  "lineups": {
+    "HDEC": {
+      "S": 207,
+      "OH1": 202,
+      "OH2": 206,
+      "OP": 201,
+      "MB1": 208,
+      "MB2": 205,
+      "L": 211
+    },
+    "HKL": {
+      "S": 105,
+      "OH1": 102,
+      "OH2": 108,
+      "OP": 101,
+      "MB1": 104,
+      "MB2": 106,
+      "L": 110
+    }
+  },
   "set_lineups": {
     "1": {
       "HDEC": {
@@ -986,6 +1006,52 @@ window.BOOTSTRAP_1122 = {
         "MB2": 106,
         "L": 110
       }
+    }
+  },
+  "summary": {
+    "HDEC": {
+      "team_id": "HDEC",
+      "att_made": 40,
+      "att_tried": 105,
+      "att_pct": 38.1,
+      "blk_made": 14,
+      "blk_tried": 50,
+      "srv_made": 5,
+      "srv_tried": 75,
+      "dig_made": 67,
+      "dig_tried": 80,
+      "dig_pct": 83.75,
+      "rcv_made": 20,
+      "rcv_tried": 48,
+      "rcv_pct": 41.67,
+      "set_made": 39,
+      "set_tried": 108,
+      "set_pct": 36.11,
+      "errors": 12,
+      "opp_errors": 19,
+      "points": 78
+    },
+    "HKL": {
+      "team_id": "HKL",
+      "att_made": 39,
+      "att_tried": 120,
+      "att_pct": 32.5,
+      "blk_made": 7,
+      "blk_tried": 48,
+      "srv_made": 4,
+      "srv_tried": 63,
+      "dig_made": 65,
+      "dig_tried": 78,
+      "dig_pct": 83.33,
+      "rcv_made": 25,
+      "rcv_tried": 68,
+      "rcv_pct": 36.76,
+      "set_made": 36,
+      "set_tried": 122,
+      "set_pct": 29.51,
+      "errors": 19,
+      "opp_errors": 12,
+      "points": 62
     }
   },
   "key_players": {
@@ -1296,6 +1362,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 1,
       "scorer": "HDEC",
+      "score_hdec": 1,
+      "score_hkl": 0,
+      "score_home": 1,
+      "score_away": 0,
+      "score": {
+        "HDEC": 1,
+        "HKL": 0
+      },
       "before": {
         "HDEC": 0,
         "HKL": 0
@@ -1340,6 +1414,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 2,
       "scorer": "HDEC",
+      "score_hdec": 2,
+      "score_hkl": 1,
+      "score_home": 2,
+      "score_away": 1,
+      "score": {
+        "HDEC": 2,
+        "HKL": 1
+      },
       "before": {
         "HDEC": 1,
         "HKL": 1
@@ -1384,6 +1466,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 3,
       "scorer": "HDEC",
+      "score_hdec": 3,
+      "score_hkl": 2,
+      "score_home": 3,
+      "score_away": 2,
+      "score": {
+        "HDEC": 3,
+        "HKL": 2
+      },
       "before": {
         "HDEC": 2,
         "HKL": 2
@@ -1428,6 +1518,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 4,
       "scorer": "HDEC",
+      "score_hdec": 4,
+      "score_hkl": 3,
+      "score_home": 4,
+      "score_away": 3,
+      "score": {
+        "HDEC": 4,
+        "HKL": 3
+      },
       "before": {
         "HDEC": 3,
         "HKL": 3
@@ -1472,6 +1570,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 5,
       "scorer": "HDEC",
+      "score_hdec": 5,
+      "score_hkl": 3,
+      "score_home": 5,
+      "score_away": 3,
+      "score": {
+        "HDEC": 5,
+        "HKL": 3
+      },
       "before": {
         "HDEC": 4,
         "HKL": 3
@@ -1516,6 +1622,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 6,
       "scorer": "HDEC",
+      "score_hdec": 6,
+      "score_hkl": 4,
+      "score_home": 6,
+      "score_away": 4,
+      "score": {
+        "HDEC": 6,
+        "HKL": 4
+      },
       "before": {
         "HDEC": 5,
         "HKL": 4
@@ -1560,6 +1674,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 7,
       "scorer": "HDEC",
+      "score_hdec": 7,
+      "score_hkl": 5,
+      "score_home": 7,
+      "score_away": 5,
+      "score": {
+        "HDEC": 7,
+        "HKL": 5
+      },
       "before": {
         "HDEC": 6,
         "HKL": 5
@@ -1604,6 +1726,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 8,
       "scorer": "HDEC",
+      "score_hdec": 8,
+      "score_hkl": 6,
+      "score_home": 8,
+      "score_away": 6,
+      "score": {
+        "HDEC": 8,
+        "HKL": 6
+      },
       "before": {
         "HDEC": 7,
         "HKL": 6
@@ -1648,6 +1778,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 9,
       "scorer": "HDEC",
+      "score_hdec": 9,
+      "score_hkl": 6,
+      "score_home": 9,
+      "score_away": 6,
+      "score": {
+        "HDEC": 9,
+        "HKL": 6
+      },
       "before": {
         "HDEC": 8,
         "HKL": 6
@@ -1692,6 +1830,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 10,
       "scorer": "HDEC",
+      "score_hdec": 10,
+      "score_hkl": 7,
+      "score_home": 10,
+      "score_away": 7,
+      "score": {
+        "HDEC": 10,
+        "HKL": 7
+      },
       "before": {
         "HDEC": 9,
         "HKL": 7
@@ -1736,6 +1882,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 11,
       "scorer": "HDEC",
+      "score_hdec": 11,
+      "score_hkl": 8,
+      "score_home": 11,
+      "score_away": 8,
+      "score": {
+        "HDEC": 11,
+        "HKL": 8
+      },
       "before": {
         "HDEC": 10,
         "HKL": 8
@@ -1780,6 +1934,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 12,
       "scorer": "HDEC",
+      "score_hdec": 12,
+      "score_hkl": 9,
+      "score_home": 12,
+      "score_away": 9,
+      "score": {
+        "HDEC": 12,
+        "HKL": 9
+      },
       "before": {
         "HDEC": 11,
         "HKL": 9
@@ -1824,6 +1986,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 13,
       "scorer": "HDEC",
+      "score_hdec": 13,
+      "score_hkl": 9,
+      "score_home": 13,
+      "score_away": 9,
+      "score": {
+        "HDEC": 13,
+        "HKL": 9
+      },
       "before": {
         "HDEC": 12,
         "HKL": 9
@@ -1868,6 +2038,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 14,
       "scorer": "HDEC",
+      "score_hdec": 14,
+      "score_hkl": 10,
+      "score_home": 14,
+      "score_away": 10,
+      "score": {
+        "HDEC": 14,
+        "HKL": 10
+      },
       "before": {
         "HDEC": 13,
         "HKL": 10
@@ -1912,6 +2090,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 15,
       "scorer": "HDEC",
+      "score_hdec": 15,
+      "score_hkl": 11,
+      "score_home": 15,
+      "score_away": 11,
+      "score": {
+        "HDEC": 15,
+        "HKL": 11
+      },
       "before": {
         "HDEC": 14,
         "HKL": 11
@@ -1956,6 +2142,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 16,
       "scorer": "HDEC",
+      "score_hdec": 16,
+      "score_hkl": 12,
+      "score_home": 16,
+      "score_away": 12,
+      "score": {
+        "HDEC": 16,
+        "HKL": 12
+      },
       "before": {
         "HDEC": 15,
         "HKL": 12
@@ -2000,6 +2194,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 17,
       "scorer": "HDEC",
+      "score_hdec": 17,
+      "score_hkl": 12,
+      "score_home": 17,
+      "score_away": 12,
+      "score": {
+        "HDEC": 17,
+        "HKL": 12
+      },
       "before": {
         "HDEC": 16,
         "HKL": 12
@@ -2044,6 +2246,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 18,
       "scorer": "HDEC",
+      "score_hdec": 18,
+      "score_hkl": 13,
+      "score_home": 18,
+      "score_away": 13,
+      "score": {
+        "HDEC": 18,
+        "HKL": 13
+      },
       "before": {
         "HDEC": 17,
         "HKL": 13
@@ -2088,6 +2298,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 19,
       "scorer": "HDEC",
+      "score_hdec": 19,
+      "score_hkl": 14,
+      "score_home": 19,
+      "score_away": 14,
+      "score": {
+        "HDEC": 19,
+        "HKL": 14
+      },
       "before": {
         "HDEC": 18,
         "HKL": 14
@@ -2132,6 +2350,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 20,
       "scorer": "HDEC",
+      "score_hdec": 20,
+      "score_hkl": 15,
+      "score_home": 20,
+      "score_away": 15,
+      "score": {
+        "HDEC": 20,
+        "HKL": 15
+      },
       "before": {
         "HDEC": 19,
         "HKL": 15
@@ -2176,6 +2402,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 21,
       "scorer": "HDEC",
+      "score_hdec": 21,
+      "score_hkl": 15,
+      "score_home": 21,
+      "score_away": 15,
+      "score": {
+        "HDEC": 21,
+        "HKL": 15
+      },
       "before": {
         "HDEC": 20,
         "HKL": 15
@@ -2220,6 +2454,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 22,
       "scorer": "HDEC",
+      "score_hdec": 22,
+      "score_hkl": 16,
+      "score_home": 22,
+      "score_away": 16,
+      "score": {
+        "HDEC": 22,
+        "HKL": 16
+      },
       "before": {
         "HDEC": 21,
         "HKL": 16
@@ -2264,6 +2506,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 23,
       "scorer": "HDEC",
+      "score_hdec": 23,
+      "score_hkl": 17,
+      "score_home": 23,
+      "score_away": 17,
+      "score": {
+        "HDEC": 23,
+        "HKL": 17
+      },
       "before": {
         "HDEC": 22,
         "HKL": 17
@@ -2308,6 +2558,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 24,
       "scorer": "HDEC",
+      "score_hdec": 24,
+      "score_hkl": 18,
+      "score_home": 24,
+      "score_away": 18,
+      "score": {
+        "HDEC": 24,
+        "HKL": 18
+      },
       "before": {
         "HDEC": 23,
         "HKL": 18
@@ -2352,6 +2610,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 1,
       "rally_no": 25,
       "scorer": "HDEC",
+      "score_hdec": 25,
+      "score_hkl": 19,
+      "score_home": 25,
+      "score_away": 19,
+      "score": {
+        "HDEC": 25,
+        "HKL": 19
+      },
       "before": {
         "HDEC": 24,
         "HKL": 19
@@ -2396,6 +2662,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 26,
       "scorer": "HDEC",
+      "score_hdec": 1,
+      "score_hkl": 0,
+      "score_home": 1,
+      "score_away": 0,
+      "score": {
+        "HDEC": 1,
+        "HKL": 0
+      },
       "before": {
         "HDEC": 0,
         "HKL": 0
@@ -2446,6 +2720,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 27,
       "scorer": "HDEC",
+      "score_hdec": 2,
+      "score_hkl": 1,
+      "score_home": 2,
+      "score_away": 1,
+      "score": {
+        "HDEC": 2,
+        "HKL": 1
+      },
       "before": {
         "HDEC": 1,
         "HKL": 1
@@ -2496,6 +2778,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 28,
       "scorer": "HDEC",
+      "score_hdec": 3,
+      "score_hkl": 2,
+      "score_home": 3,
+      "score_away": 2,
+      "score": {
+        "HDEC": 3,
+        "HKL": 2
+      },
       "before": {
         "HDEC": 2,
         "HKL": 2
@@ -2546,6 +2836,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 29,
       "scorer": "HDEC",
+      "score_hdec": 4,
+      "score_hkl": 2,
+      "score_home": 4,
+      "score_away": 2,
+      "score": {
+        "HDEC": 4,
+        "HKL": 2
+      },
       "before": {
         "HDEC": 3,
         "HKL": 2
@@ -2596,6 +2894,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 30,
       "scorer": "HDEC",
+      "score_hdec": 5,
+      "score_hkl": 3,
+      "score_home": 5,
+      "score_away": 3,
+      "score": {
+        "HDEC": 5,
+        "HKL": 3
+      },
       "before": {
         "HDEC": 4,
         "HKL": 3
@@ -2646,6 +2952,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 31,
       "scorer": "HDEC",
+      "score_hdec": 6,
+      "score_hkl": 4,
+      "score_home": 6,
+      "score_away": 4,
+      "score": {
+        "HDEC": 6,
+        "HKL": 4
+      },
       "before": {
         "HDEC": 5,
         "HKL": 4
@@ -2696,6 +3010,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 32,
       "scorer": "HDEC",
+      "score_hdec": 7,
+      "score_hkl": 4,
+      "score_home": 7,
+      "score_away": 4,
+      "score": {
+        "HDEC": 7,
+        "HKL": 4
+      },
       "before": {
         "HDEC": 6,
         "HKL": 4
@@ -2746,6 +3068,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 33,
       "scorer": "HDEC",
+      "score_hdec": 8,
+      "score_hkl": 5,
+      "score_home": 8,
+      "score_away": 5,
+      "score": {
+        "HDEC": 8,
+        "HKL": 5
+      },
       "before": {
         "HDEC": 7,
         "HKL": 5
@@ -2796,6 +3126,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 34,
       "scorer": "HDEC",
+      "score_hdec": 9,
+      "score_hkl": 6,
+      "score_home": 9,
+      "score_away": 6,
+      "score": {
+        "HDEC": 9,
+        "HKL": 6
+      },
       "before": {
         "HDEC": 8,
         "HKL": 6
@@ -2846,6 +3184,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 35,
       "scorer": "HDEC",
+      "score_hdec": 10,
+      "score_hkl": 6,
+      "score_home": 10,
+      "score_away": 6,
+      "score": {
+        "HDEC": 10,
+        "HKL": 6
+      },
       "before": {
         "HDEC": 9,
         "HKL": 6
@@ -2896,6 +3242,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 36,
       "scorer": "HDEC",
+      "score_hdec": 11,
+      "score_hkl": 7,
+      "score_home": 11,
+      "score_away": 7,
+      "score": {
+        "HDEC": 11,
+        "HKL": 7
+      },
       "before": {
         "HDEC": 10,
         "HKL": 7
@@ -2946,6 +3300,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 37,
       "scorer": "HDEC",
+      "score_hdec": 12,
+      "score_hkl": 8,
+      "score_home": 12,
+      "score_away": 8,
+      "score": {
+        "HDEC": 12,
+        "HKL": 8
+      },
       "before": {
         "HDEC": 11,
         "HKL": 8
@@ -2996,6 +3358,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 38,
       "scorer": "HDEC",
+      "score_hdec": 13,
+      "score_hkl": 8,
+      "score_home": 13,
+      "score_away": 8,
+      "score": {
+        "HDEC": 13,
+        "HKL": 8
+      },
       "before": {
         "HDEC": 12,
         "HKL": 8
@@ -3046,6 +3416,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 39,
       "scorer": "HDEC",
+      "score_hdec": 14,
+      "score_hkl": 9,
+      "score_home": 14,
+      "score_away": 9,
+      "score": {
+        "HDEC": 14,
+        "HKL": 9
+      },
       "before": {
         "HDEC": 13,
         "HKL": 9
@@ -3096,6 +3474,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 40,
       "scorer": "HDEC",
+      "score_hdec": 15,
+      "score_hkl": 10,
+      "score_home": 15,
+      "score_away": 10,
+      "score": {
+        "HDEC": 15,
+        "HKL": 10
+      },
       "before": {
         "HDEC": 14,
         "HKL": 10
@@ -3146,6 +3532,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 41,
       "scorer": "HDEC",
+      "score_hdec": 16,
+      "score_hkl": 10,
+      "score_home": 16,
+      "score_away": 10,
+      "score": {
+        "HDEC": 16,
+        "HKL": 10
+      },
       "before": {
         "HDEC": 15,
         "HKL": 10
@@ -3196,6 +3590,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 42,
       "scorer": "HDEC",
+      "score_hdec": 17,
+      "score_hkl": 11,
+      "score_home": 17,
+      "score_away": 11,
+      "score": {
+        "HDEC": 17,
+        "HKL": 11
+      },
       "before": {
         "HDEC": 16,
         "HKL": 11
@@ -3246,6 +3648,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 43,
       "scorer": "HDEC",
+      "score_hdec": 18,
+      "score_hkl": 12,
+      "score_home": 18,
+      "score_away": 12,
+      "score": {
+        "HDEC": 18,
+        "HKL": 12
+      },
       "before": {
         "HDEC": 17,
         "HKL": 12
@@ -3296,6 +3706,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 44,
       "scorer": "HDEC",
+      "score_hdec": 19,
+      "score_hkl": 12,
+      "score_home": 19,
+      "score_away": 12,
+      "score": {
+        "HDEC": 19,
+        "HKL": 12
+      },
       "before": {
         "HDEC": 18,
         "HKL": 12
@@ -3346,6 +3764,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 45,
       "scorer": "HDEC",
+      "score_hdec": 20,
+      "score_hkl": 13,
+      "score_home": 20,
+      "score_away": 13,
+      "score": {
+        "HDEC": 20,
+        "HKL": 13
+      },
       "before": {
         "HDEC": 19,
         "HKL": 13
@@ -3396,6 +3822,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 46,
       "scorer": "HDEC",
+      "score_hdec": 21,
+      "score_hkl": 14,
+      "score_home": 21,
+      "score_away": 14,
+      "score": {
+        "HDEC": 21,
+        "HKL": 14
+      },
       "before": {
         "HDEC": 20,
         "HKL": 14
@@ -3446,6 +3880,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 47,
       "scorer": "HDEC",
+      "score_hdec": 22,
+      "score_hkl": 14,
+      "score_home": 22,
+      "score_away": 14,
+      "score": {
+        "HDEC": 22,
+        "HKL": 14
+      },
       "before": {
         "HDEC": 21,
         "HKL": 14
@@ -3496,6 +3938,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 48,
       "scorer": "HDEC",
+      "score_hdec": 23,
+      "score_hkl": 15,
+      "score_home": 23,
+      "score_away": 15,
+      "score": {
+        "HDEC": 23,
+        "HKL": 15
+      },
       "before": {
         "HDEC": 22,
         "HKL": 15
@@ -3546,6 +3996,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 49,
       "scorer": "HDEC",
+      "score_hdec": 24,
+      "score_hkl": 16,
+      "score_home": 24,
+      "score_away": 16,
+      "score": {
+        "HDEC": 24,
+        "HKL": 16
+      },
       "before": {
         "HDEC": 23,
         "HKL": 16
@@ -3596,6 +4054,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 2,
       "rally_no": 50,
       "scorer": "HDEC",
+      "score_hdec": 25,
+      "score_hkl": 17,
+      "score_home": 25,
+      "score_away": 17,
+      "score": {
+        "HDEC": 25,
+        "HKL": 17
+      },
       "before": {
         "HDEC": 24,
         "HKL": 17
@@ -3646,6 +4112,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 51,
       "scorer": "HDEC",
+      "score_hdec": 1,
+      "score_hkl": 0,
+      "score_home": 1,
+      "score_away": 0,
+      "score": {
+        "HDEC": 1,
+        "HKL": 0
+      },
       "before": {
         "HDEC": 0,
         "HKL": 0
@@ -3690,6 +4164,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 52,
       "scorer": "HDEC",
+      "score_hdec": 2,
+      "score_hkl": 1,
+      "score_home": 2,
+      "score_away": 1,
+      "score": {
+        "HDEC": 2,
+        "HKL": 1
+      },
       "before": {
         "HDEC": 1,
         "HKL": 1
@@ -3734,6 +4216,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 53,
       "scorer": "HDEC",
+      "score_hdec": 3,
+      "score_hkl": 2,
+      "score_home": 3,
+      "score_away": 2,
+      "score": {
+        "HDEC": 3,
+        "HKL": 2
+      },
       "before": {
         "HDEC": 2,
         "HKL": 2
@@ -3778,6 +4268,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 54,
       "scorer": "HDEC",
+      "score_hdec": 4,
+      "score_hkl": 3,
+      "score_home": 4,
+      "score_away": 3,
+      "score": {
+        "HDEC": 4,
+        "HKL": 3
+      },
       "before": {
         "HDEC": 3,
         "HKL": 3
@@ -3822,6 +4320,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 55,
       "scorer": "HDEC",
+      "score_hdec": 5,
+      "score_hkl": 4,
+      "score_home": 5,
+      "score_away": 4,
+      "score": {
+        "HDEC": 5,
+        "HKL": 4
+      },
       "before": {
         "HDEC": 4,
         "HKL": 4
@@ -3866,6 +4372,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 56,
       "scorer": "HDEC",
+      "score_hdec": 6,
+      "score_hkl": 5,
+      "score_home": 6,
+      "score_away": 5,
+      "score": {
+        "HDEC": 6,
+        "HKL": 5
+      },
       "before": {
         "HDEC": 5,
         "HKL": 5
@@ -3910,6 +4424,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 57,
       "scorer": "HDEC",
+      "score_hdec": 7,
+      "score_hkl": 6,
+      "score_home": 7,
+      "score_away": 6,
+      "score": {
+        "HDEC": 7,
+        "HKL": 6
+      },
       "before": {
         "HDEC": 6,
         "HKL": 6
@@ -3954,6 +4476,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 58,
       "scorer": "HDEC",
+      "score_hdec": 8,
+      "score_hkl": 7,
+      "score_home": 8,
+      "score_away": 7,
+      "score": {
+        "HDEC": 8,
+        "HKL": 7
+      },
       "before": {
         "HDEC": 7,
         "HKL": 7
@@ -3998,6 +4528,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 59,
       "scorer": "HDEC",
+      "score_hdec": 9,
+      "score_hkl": 8,
+      "score_home": 9,
+      "score_away": 8,
+      "score": {
+        "HDEC": 9,
+        "HKL": 8
+      },
       "before": {
         "HDEC": 8,
         "HKL": 8
@@ -4042,6 +4580,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 60,
       "scorer": "HDEC",
+      "score_hdec": 10,
+      "score_hkl": 9,
+      "score_home": 10,
+      "score_away": 9,
+      "score": {
+        "HDEC": 10,
+        "HKL": 9
+      },
       "before": {
         "HDEC": 9,
         "HKL": 9
@@ -4086,6 +4632,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 61,
       "scorer": "HDEC",
+      "score_hdec": 11,
+      "score_hkl": 10,
+      "score_home": 11,
+      "score_away": 10,
+      "score": {
+        "HDEC": 11,
+        "HKL": 10
+      },
       "before": {
         "HDEC": 10,
         "HKL": 10
@@ -4130,6 +4684,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 62,
       "scorer": "HDEC",
+      "score_hdec": 12,
+      "score_hkl": 11,
+      "score_home": 12,
+      "score_away": 11,
+      "score": {
+        "HDEC": 12,
+        "HKL": 11
+      },
       "before": {
         "HDEC": 11,
         "HKL": 11
@@ -4174,6 +4736,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 63,
       "scorer": "HDEC",
+      "score_hdec": 13,
+      "score_hkl": 12,
+      "score_home": 13,
+      "score_away": 12,
+      "score": {
+        "HDEC": 13,
+        "HKL": 12
+      },
       "before": {
         "HDEC": 12,
         "HKL": 12
@@ -4218,6 +4788,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 64,
       "scorer": "HDEC",
+      "score_hdec": 14,
+      "score_hkl": 13,
+      "score_home": 14,
+      "score_away": 13,
+      "score": {
+        "HDEC": 14,
+        "HKL": 13
+      },
       "before": {
         "HDEC": 13,
         "HKL": 13
@@ -4262,6 +4840,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 65,
       "scorer": "HDEC",
+      "score_hdec": 15,
+      "score_hkl": 13,
+      "score_home": 15,
+      "score_away": 13,
+      "score": {
+        "HDEC": 15,
+        "HKL": 13
+      },
       "before": {
         "HDEC": 14,
         "HKL": 13
@@ -4306,6 +4892,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 66,
       "scorer": "HDEC",
+      "score_hdec": 16,
+      "score_hkl": 14,
+      "score_home": 16,
+      "score_away": 14,
+      "score": {
+        "HDEC": 16,
+        "HKL": 14
+      },
       "before": {
         "HDEC": 15,
         "HKL": 14
@@ -4350,6 +4944,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 67,
       "scorer": "HDEC",
+      "score_hdec": 17,
+      "score_hkl": 15,
+      "score_home": 17,
+      "score_away": 15,
+      "score": {
+        "HDEC": 17,
+        "HKL": 15
+      },
       "before": {
         "HDEC": 16,
         "HKL": 15
@@ -4394,6 +4996,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 68,
       "scorer": "HDEC",
+      "score_hdec": 18,
+      "score_hkl": 16,
+      "score_home": 18,
+      "score_away": 16,
+      "score": {
+        "HDEC": 18,
+        "HKL": 16
+      },
       "before": {
         "HDEC": 17,
         "HKL": 16
@@ -4438,6 +5048,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 69,
       "scorer": "HDEC",
+      "score_hdec": 19,
+      "score_hkl": 17,
+      "score_home": 19,
+      "score_away": 17,
+      "score": {
+        "HDEC": 19,
+        "HKL": 17
+      },
       "before": {
         "HDEC": 18,
         "HKL": 17
@@ -4482,6 +5100,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 70,
       "scorer": "HDEC",
+      "score_hdec": 20,
+      "score_hkl": 18,
+      "score_home": 20,
+      "score_away": 18,
+      "score": {
+        "HDEC": 20,
+        "HKL": 18
+      },
       "before": {
         "HDEC": 19,
         "HKL": 18
@@ -4526,6 +5152,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 71,
       "scorer": "HDEC",
+      "score_hdec": 21,
+      "score_hkl": 19,
+      "score_home": 21,
+      "score_away": 19,
+      "score": {
+        "HDEC": 21,
+        "HKL": 19
+      },
       "before": {
         "HDEC": 20,
         "HKL": 19
@@ -4570,6 +5204,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 72,
       "scorer": "HDEC",
+      "score_hdec": 22,
+      "score_hkl": 20,
+      "score_home": 22,
+      "score_away": 20,
+      "score": {
+        "HDEC": 22,
+        "HKL": 20
+      },
       "before": {
         "HDEC": 21,
         "HKL": 20
@@ -4614,6 +5256,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 73,
       "scorer": "HDEC",
+      "score_hdec": 23,
+      "score_hkl": 21,
+      "score_home": 23,
+      "score_away": 21,
+      "score": {
+        "HDEC": 23,
+        "HKL": 21
+      },
       "before": {
         "HDEC": 22,
         "HKL": 21
@@ -4658,6 +5308,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 74,
       "scorer": "HDEC",
+      "score_hdec": 24,
+      "score_hkl": 22,
+      "score_home": 24,
+      "score_away": 22,
+      "score": {
+        "HDEC": 24,
+        "HKL": 22
+      },
       "before": {
         "HDEC": 23,
         "HKL": 22
@@ -4702,6 +5360,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 75,
       "scorer": "HDEC",
+      "score_hdec": 25,
+      "score_hkl": 23,
+      "score_home": 25,
+      "score_away": 23,
+      "score": {
+        "HDEC": 25,
+        "HKL": 23
+      },
       "before": {
         "HDEC": 24,
         "HKL": 23
@@ -4746,6 +5412,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 76,
       "scorer": "HDEC",
+      "score_hdec": 26,
+      "score_hkl": 24,
+      "score_home": 26,
+      "score_away": 24,
+      "score": {
+        "HDEC": 26,
+        "HKL": 24
+      },
       "before": {
         "HDEC": 25,
         "HKL": 24
@@ -4790,6 +5464,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 77,
       "scorer": "HDEC",
+      "score_hdec": 27,
+      "score_hkl": 25,
+      "score_home": 27,
+      "score_away": 25,
+      "score": {
+        "HDEC": 27,
+        "HKL": 25
+      },
       "before": {
         "HDEC": 26,
         "HKL": 25
@@ -4834,6 +5516,14 @@ window.BOOTSTRAP_1122 = {
       "set_no": 3,
       "rally_no": 78,
       "scorer": "HDEC",
+      "score_hdec": 28,
+      "score_hkl": 26,
+      "score_home": 28,
+      "score_away": 26,
+      "score": {
+        "HDEC": 28,
+        "HKL": 26
+      },
       "before": {
         "HDEC": 27,
         "HKL": 26

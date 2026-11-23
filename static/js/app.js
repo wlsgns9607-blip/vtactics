@@ -51,7 +51,7 @@
   const away = () => other(S.home);
   const color = (t) => D.teams[t].primary_color;
   const short = (t) => D.teams[t].short_name;
-  const playerOf = (team, slot) => D.players[D.lineups[team][slot]];
+  const playerOf = (team, slot) => (D.lineups && D.lineups[team] && D.players[D.lineups[team][slot]]) || Object.values(D.players).find((p) => p.team_id === team) || Object.values(D.players)[0];
   const scen = () => D.scenarios[S.scenario];
   const setInfo = (n) => RAW.sets.find((s) => s.set_no === n);
 
@@ -96,7 +96,7 @@
   }
 
   function makeView(n) {
-    const lineups = n === 0 ? RAW.lineups : ((RAW.set_lineups && RAW.set_lineups[n]) || RAW.lineups);
+    const lineups = n === 0 ? (RAW.lineups || (RAW.set_lineups && (RAW.set_lineups['1'] || RAW.set_lineups[1]))) : ((RAW.set_lineups && (RAW.set_lineups[n] || RAW.set_lineups[String(n)])) || RAW.lineups);
     let list;
     if (n === 0) {
       list = RAW.players.map((p) => ({ ...p }));
