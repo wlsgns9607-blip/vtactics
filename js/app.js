@@ -1916,12 +1916,21 @@
     if (titleEl) {
       titleEl.textContent = `[${D.teams[S.home].short_name} vs ${D.teams[away()].short_name}] V-리그 전술 분석 & 리뷰 판`;
     }
+    const getCleanDate = (s) => {
+      if (!s) return '2024-11-22';
+      if (s.includes('11-22')) return '2024-11-22';
+      if (s.includes('11-16')) return '2024-11-16';
+      if (s.includes('11-08')) return '2024-11-08';
+      if (s.includes('11-07')) return '2024-11-07';
+      if (s.includes('11-04')) return '2024-11-04';
+      if (s.includes('11-03')) return '2024-11-03';
+      return s;
+    };
     const dateInput = $('matchDateInput');
-    if (dateInput && S.matchDate) dateInput.value = S.matchDate.includes('11-22') ? '2024-11-22' : (S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
+    if (dateInput && S.matchDate) dateInput.value = getCleanDate(S.matchDate);
     const matchSel = $('matchSelect');
     if (matchSel && S.matchDate) {
-      const optVal = S.matchDate.includes('11-22') ? '2024-11-22' : (S.matchDate.includes('11-16') ? '2024-11-16' : (S.matchDate.includes('11-08') ? '2024-11-08' : (S.matchDate.includes('11-03') ? '2024-11-03' : (S.matchDate.includes('11-07') ? '2024-11-07' : '2024-11-04')));
-      matchSel.value = optVal;
+      matchSel.value = getCleanDate(S.matchDate);
     }
     const matchDateText = $('matchDateText');
     if (matchDateText && D.match_info) {
